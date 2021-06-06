@@ -1,0 +1,112 @@
+@charset "UTF-8";
+/* reset */
+html, body, div, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, fieldset, form, label, input, legend, table, caption, tbody, tfoot, thead, tr, th, td, textarea, article, aside, audio, canvas, figure, footer, header, mark, menu, nav, section, time, video {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-width: 1200px;
+}
+
+html, body {
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal
+}
+
+body {
+    font-size: 14px;
+    line-height: 1;
+    font-family: "Microsoft YaHei", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+article, aside, dialog, figure, footer, header, hgroup, nav, section, blockquote {
+    display: block;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+img {
+    border: 0 none;
+    vertical-align: top;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+strong, em, i {
+    font-style: normal;
+    font-weight: normal;
+}
+
+ins {
+    text-decoration: underline;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+mark {
+    background: none;
+}
+
+input::-ms-clear {
+    display: none !important;
+}
+
+input, select, textarea, button {
+    vertical-align: middle;
+    outline: none;
+    border: 0;
+}
+
+input {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button {
+    -webkit-appearance: none;
+}
+
+textarea {
+    -webkit-appearance: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    resize: none;
+}
+
+/* 如果需要去除掉select元素的默认样式，放开下面的注释即可 */
+select {
+    appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover, a:active {
+    text-decoration: none;
+}
