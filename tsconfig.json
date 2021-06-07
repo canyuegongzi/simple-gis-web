@@ -13,7 +13,9 @@
         "sourceMap": true,
         "baseUrl": ".",
         "types": [
-            "@types/leaflet"
+            "@types/leaflet",
+            "@types/mapbox-gl",
+            "@types/cesium",
         ],
         "paths": {
             "@/*": [

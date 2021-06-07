@@ -19,6 +19,10 @@ export default class LeafletService extends MapService {
      * @protected
      */
     protected async initMapInstance(type: MapTypeEnum, props: LeafletInstanceOptions) {
+        const mapInstanceCache: any = await CommonStore.getInstance('LEAFLET');
+        if (mapInstanceCache) {
+            return mapInstanceCache;
+        }
         const map: Map = new Map(props.id, {
             crs: CRS.EPSG3857,
             center: [30, 120],

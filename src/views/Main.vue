@@ -6,7 +6,17 @@
             el-container()
                 el-main(style="padding: 0" id="main-content-container")
                     #map-base-container
-                        LeafletView(v-show="mapType === 'LEAFLET'")
+                        LeafletView(v-show="mapType === 'LEAFLET'" ref="LeafletView")
+                        MapBoxView(v-show="mapType === 'MAPBOX'"  ref="MapBoxView")
+                        BaseLayout(@changeClick="layoutButtonClick")
+                        el-drawer(
+                            :modal-append-to-body="false"
+                            title="我是标题"
+                            :visible.sync="settingOpenStatus"
+                            direction="rtl"
+                            :with-header="false"
+                            )
+                            SettingLayout(@changeClick="layoutButtonClick")
                     router-view(id="root-main")
 </template>
 
@@ -14,18 +24,63 @@
 import { Vue, Component } from "vue-property-decorator";
 import Aside from '../components/aside/Index.vue';
 import LeafletView from '../components/map/LeafletView.vue';
+import MapBoxView from '../components/map/MapBoxView.vue';
+import BaseLayout from '../components/layouts/BaseLayout.vue';
+import SettingLayout from '../components/layouts/SettingLayout.vue';
 import { data } from '../components/aside/nav';
-import { MapTypeEnum } from '@/map/type/CommonType';
+import { MapTypeEnum } from '../map/type/CommonType';
 
 @Component({
     components: {
         Aside,
-        LeafletView
+        LeafletView,
+        MapBoxView,
+        BaseLayout,
+        SettingLayout
     }
 })
 export default class Main extends Vue {
     public menus: any = data.list;
     public mapType: MapTypeEnum = 'LEAFLET'
+    public settingOpenStatus: boolean = false;
+
+    public $refs!: {
+        LeafletView: HTMLFormElement;
+        MapBoxView: HTMLFormElement;
+    };
+
+    public controlMapType(val: MapTypeEnum) {
+        console.log(val);
+        this.mapType = val;
+        switch (val) {
+        case 'LEAFLET':
+            this.$refs.LeafletView.initMap();
+            break;
+        case 'MAPBOX':
+            this.$refs.MapBoxView.initMap();
+        }
+    }
+
+    /**
+     * 布局按钮点击
+     * @param data
+     */
+    public layoutButtonClick(data: {type: string, data: any}) {
+        console.log(data);
+        switch (data.type) {
+        case 'SETTING':
+            this.settingOpenStatus = !this.settingOpenStatus;
+            break;
+        case  'AMP_TYPE_CHANGE':
+            this.controlMapType(data.data);
+            break;
+
+        }
+    }
+
+    public mounted() {
+        this.controlMapType('LEAFLET');
+    }
 }
 </script>
 
