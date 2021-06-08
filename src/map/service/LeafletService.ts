@@ -18,7 +18,7 @@ export default class LeafletService extends MapService {
      * @param props
      * @protected
      */
-    protected async initMapInstance(type: MapTypeEnum, props: LeafletInstanceOptions) {
+    public async initMapInstance(type: MapTypeEnum, props: LeafletInstanceOptions) {
         const mapInstanceCache: any = await CommonStore.getInstance('LEAFLET');
         if (mapInstanceCache) {
             return mapInstanceCache;

@@ -1,13 +1,17 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {commonPlugins, commonRules} = require("./webpack_common.config");
+const { commonPlugins, commonRules } = require('./webpack_common.config');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const cesiumSource = 'node_modules/cesium/Source';
+const cesiumWorkers = '../Build/Cesium/Workers';
 module.exports = {
     entry: ['@babel/polyfill', './src/main.ts'],
     output: {
-        path: path.resolve(__dirname, '../', "dist"),
-        filename: "bundle.[chunkhash:8].js",
+        // path: path.resolve(__dirname, '../', "dist"),
+        filename: 'bundle.[chunkhash:8].js',
         publicPath: '/',
+        sourcePrefix: '',
     },
     resolve: {
         extensions: ['.ts', '.js', '.vue'],
@@ -25,9 +29,21 @@ module.exports = {
         new webpack.EvalSourceMapDevToolPlugin({}),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            template: "./public/index.html"
+            template: './public/index.html',
         }),
-        ...commonPlugins
+        ...commonPlugins,
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'node_modules/cesium/Build/Cesium/Workers', to: 'Workers' },
+                { from: 'node_modules/cesium/Build/Cesium/ThirdParty', to: 'ThirdParty' },
+                { from: 'node_modules/cesium/Build/Cesium/Assets', to: 'Assets' },
+                { from: 'node_modules/cesium/Build/Cesium/Widgets', to: 'Widgets' },
+            ],
+        }),
+        new webpack.DefinePlugin({
+            // Define relative base path in cesium for loading assets
+            CESIUM_BASE_URL: JSON.stringify(''),
+        }),
 
     ],
     devServer: {
@@ -38,8 +54,10 @@ module.exports = {
     // devtool: 'eval-source-map',
     devtool: false,
     module: {
+        unknownContextCritical: false,
+        unknownContextRegExp: /\/cesium\/cesium\/Source\/Core\/buildModuleUrl\.js/,
         rules: [
-            ...commonRules
-        ]
+            ...commonRules,
+        ],
     }
 }

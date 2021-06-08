@@ -25,7 +25,6 @@ export default class MapBoxService extends MapService {
         if (mapInstanceCache) {
             return mapInstanceCache;
         }
-        console.log('初始化mapbox');
         const map: Map = new Map({
             container: props.id,
             style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location

@@ -11,18 +11,12 @@ import CommonStore from '../../map/common/CommonStore';
 
 @Component({})
 export default class LeafletView extends Vue {
-    public async mounted() {
-        console.log('地图初始化');
-    }
-
     public async initMap() {
         const leafletProps: LeafletInstanceOptions = {
             id: 'leaflet-container'
         };
         const mapInstance: any = new LeafletService(leafletProps);
         const map: any = await mapInstance.initMapInstance('LEAFLET', { id: 'leaflet-container' });
-        console.log('leaflet初始化');
-        console.log(await CommonStore.getInstance('LEAFLET'));
         return map;
     }
 }

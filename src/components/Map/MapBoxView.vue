@@ -11,18 +11,12 @@ import MapBoxService from "../../map/service/MapBoxService";
 
 @Component({})
 export default class MapBoxView extends Vue {
-    public async mounted() {
-        console.log('地图初始化');
-    }
-
     public async initMap() {
         const mapboxProps: MapBoxInstanceOptions = {
             id: 'mapbox-container'
         };
         const mapInstance: any = new MapBoxService(mapboxProps);
         const map: any = await mapInstance.initMapInstance('MAPBOX', { id: 'mapbox-container' });
-        console.log('MAPBOX初始化');
-        console.log(await CommonStore.getInstance('MAPBOX'));
         return map;
     }
 }

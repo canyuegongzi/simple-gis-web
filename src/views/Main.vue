@@ -8,6 +8,7 @@
                     #map-base-container
                         LeafletView(v-show="mapType === 'LEAFLET'" ref="LeafletView")
                         MapBoxView(v-show="mapType === 'MAPBOX'"  ref="MapBoxView")
+                        CesiumView(v-show="mapType === 'CESIUM'"  ref="CesiumView")
                         BaseLayout(@changeClick="layoutButtonClick")
                         el-drawer(
                             :modal-append-to-body="false"
@@ -25,6 +26,7 @@ import { Vue, Component } from "vue-property-decorator";
 import Aside from '../components/aside/Index.vue';
 import LeafletView from '../components/map/LeafletView.vue';
 import MapBoxView from '../components/map/MapBoxView.vue';
+import CesiumView from '../components/map/CesiumView.vue';
 import BaseLayout from '../components/layouts/BaseLayout.vue';
 import SettingLayout from '../components/layouts/SettingLayout.vue';
 import { data } from '../components/aside/nav';
@@ -35,8 +37,9 @@ import { MapTypeEnum } from '../map/type/CommonType';
         Aside,
         LeafletView,
         MapBoxView,
+        CesiumView,
         BaseLayout,
-        SettingLayout
+        SettingLayout,
     }
 })
 export default class Main extends Vue {
@@ -47,17 +50,21 @@ export default class Main extends Vue {
     public $refs!: {
         LeafletView: HTMLFormElement;
         MapBoxView: HTMLFormElement;
+        CesiumView: HTMLFormElement;
     };
 
     public controlMapType(val: MapTypeEnum) {
         console.log(val);
         this.mapType = val;
         switch (val) {
-        case 'LEAFLET':
-            this.$refs.LeafletView.initMap();
-            break;
-        case 'MAPBOX':
-            this.$refs.MapBoxView.initMap();
+            case 'LEAFLET':
+                this.$refs.LeafletView.initMap();
+                break;
+            case 'MAPBOX':
+                this.$refs.MapBoxView.initMap();
+                break;
+            case 'CESIUM':
+                this.$refs.CesiumView.initMap();
         }
     }
 
