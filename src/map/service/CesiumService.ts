@@ -1,10 +1,11 @@
 import MapService from '../common/MapService';
-import { CesiumInstanceOptions } from '../../map/type/CesiumType';
-import { MapTypeEnum } from '../../map/type/CommonType';
+import { CesiumInstanceOptions } from '@/map/type/CesiumType';
+import { BaseMap, LayerImagesEnum, MapTypeEnum, ChangeLayerImageConfig } from '@/map/type/CommonType';
 import CommonStore from '../../map/common/CommonStore';
 import { Viewer, UrlTemplateImageryProvider } from 'cesium';
-
-export default class CesiumService extends MapService {
+import '../service/cesium/imageryProvider/index';
+import { AmapImageryProvider, BaiduImageryProvider } from '../service/cesium/imageryProvider/index';
+export default class CesiumService extends MapService implements BaseMap{
     constructor(props: CesiumInstanceOptions) {
         super();
     }
@@ -15,7 +16,7 @@ export default class CesiumService extends MapService {
      * @param props
      * @protected
      */
-    protected async initMapInstance(type: MapTypeEnum, props: CesiumInstanceOptions) {
+    public async initMapInstance(type: MapTypeEnum, props: CesiumInstanceOptions): Promise<any> {
         const mapInstanceCache: any = await CommonStore.getInstance('CESIUM');
         if (mapInstanceCache) {
             return mapInstanceCache;
@@ -35,11 +36,32 @@ export default class CesiumService extends MapService {
     }
 
     /**
+     * 修改图层
+     * @param type
+     * @param config
+     * @param instance
+     */
+    public changeLayer<T>(type: LayerImagesEnum, config: ChangeLayerImageConfig, instance: T): T {
+        switch (type) {
+        case 'AMAP':
+            // @ts-ignore
+            instance.imageryLayers.addImageryProvider(new AmapImageryProvider(config));
+            break;
+        case 'BAIDU':
+            // @ts-ignore
+            instance.imageryLayers.addImageryProvider(new BaiduImageryProvider(config));
+            break;
+        }
+        return instance;
+
+    }
+
+    /**
      * 合并参数
      * @param props
      * @private
      */
-    private static mergeOptions(config: CesiumInstanceOptions): CesiumInstanceOptions {
+    private static mergeOptions(config: CesiumInstanceOptions, ): CesiumInstanceOptions {
         const defaultParams: CesiumInstanceOptions = {
             id: config.id,
             animation: config.animation || false,

@@ -44,7 +44,7 @@
         "max-len": [0, 80, 4],
         "max-nested-callbacks": [0, 2],
         "complexity": [0, 11],
-        "camelcase": 2,
+        "camelcase": 0,
         "constructor-super": 0,
         "no-duplicate-case": 2,
         "no-fallthrough": 2,
