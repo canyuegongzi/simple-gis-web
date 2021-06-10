@@ -4,7 +4,8 @@ import { BaseMap, LayerImagesEnum, MapTypeEnum, ChangeLayerImageConfig } from '@
 import CommonStore from '../../map/common/CommonStore';
 import { Viewer, UrlTemplateImageryProvider } from 'cesium';
 import '../service/cesium/imageryProvider/index';
-import { AmapImageryProvider, BaiduImageryProvider } from '../service/cesium/imageryProvider/index';
+import { AmapImageryProvider, BaiduImageryProvider, TdtImageryProvider } from '../service/cesium/imageryProvider/index';
+
 export default class CesiumService extends MapService implements BaseMap{
     constructor(props: CesiumInstanceOptions) {
         super();
@@ -41,15 +42,17 @@ export default class CesiumService extends MapService implements BaseMap{
      * @param config
      * @param instance
      */
-    public changeLayer<T>(type: LayerImagesEnum, config: ChangeLayerImageConfig, instance: T): T {
+    public changeLayer<T extends Viewer>(type: LayerImagesEnum, config: ChangeLayerImageConfig, instance: T): T {
         switch (type) {
         case 'AMAP':
-            // @ts-ignore
             instance.imageryLayers.addImageryProvider(new AmapImageryProvider(config));
             break;
         case 'BAIDU':
             // @ts-ignore
             instance.imageryLayers.addImageryProvider(new BaiduImageryProvider(config));
+            break;
+        case 'TIANDITU':
+            instance.imageryLayers.addImageryProvider(new TdtImageryProvider(config));
             break;
         }
         return instance;

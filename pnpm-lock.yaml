@@ -43,6 +43,8 @@ specifiers:
   mapbox-gl: ^2.3.0
   mini-css-extract-plugin: ^1.6.0
   postcss-loader: ^4.2.0
+  proj4: ^2.7.2
+  proj4leaflet: ^1.0.2
   pug: ^3.0.2
   pug-html-loader: ^1.1.5
   pug-plain-loader: ^1.1.0
@@ -82,6 +84,8 @@ dependencies:
   element-ui: 2.15.2_vue@2.6.13
   leaflet: 1.7.1
   mapbox-gl: 2.3.0
+  proj4: 2.7.2
+  proj4leaflet: 1.0.2
   qs: 6.10.1
   vue: 2.6.13
   vue-router: 3.5.1
@@ -5106,6 +5110,10 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
+  /mgrs/1.0.0:
+    resolution: {integrity: sha1-+5FYjnjJACVnI5XLQLJffNatGCk=}
+    dev: false
+
   /micromatch/3.1.10:
     resolution: {integrity: sha512-MWikgl9n9M3w+bpsY3He8L+w9eF9338xRl8IAO5viDizwSzziFEyUzo2xrrloB64ADbTf8uA8vRqqttDTOmccg==}
     engines: {node: '>=0.10.0'}
@@ -6198,6 +6206,19 @@ packages:
     resolution: {integrity: sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==}
     engines: {node: '>=0.4.0'}
     dev: true
+
+  /proj4/2.7.2:
+    resolution: {integrity: sha512-x/EboBmIq48a9FED0Z9zWCXkd8VIpXHLsyEXljGtsnzeztC41bFjPjJ0S//wBbNLDnDYRe0e6c3FSSiqMCebDA==}
+    dependencies:
+      mgrs: 1.0.0
+      wkt-parser: 1.2.4
+    dev: false
+
+  /proj4leaflet/1.0.2:
+    resolution: {integrity: sha512-6GdDeUlhX/tHUiMEj80xQhlPjwrXcdfD0D5OBymY8WvxfbmZcdhNqQk7n7nFf53ue6QdP9ls9ZPjsAxnbZDTsw==}
+    dependencies:
+      proj4: 2.7.2
+    dev: false
 
   /promise-inflight/1.0.1:
     resolution: {integrity: sha1-mEcocL8igTL8vdhoEputEsPAKeM=}
@@ -8193,6 +8214,10 @@ packages:
       assert-never: 1.2.1
       babel-walk: 3.0.0-canary-5
     dev: true
+
+  /wkt-parser/1.2.4:
+    resolution: {integrity: sha512-ZzKnc7ml/91fOPh5bANBL4vUlWPIYYv11waCtWTkl2TRN+LEmBg60Q1MA8gqV4hEp4MGfSj9JiHz91zw/gTDXg==}
+    dev: false
 
   /word-wrap/1.2.3:
     resolution: {integrity: sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==}

@@ -7,7 +7,7 @@
 import { Vue, Component } from "vue-property-decorator";
 import LeafletService from "../../map/service/LeafletService";
 import { LeafletInstanceOptions } from '@/map/type/LeafletType';
-import CommonStore from '../../map/common/CommonStore';
+import { ChangeLayerImageConfig } from '@/map/type/CommonType';
 
 @Component({})
 export default class LeafletView extends Vue {
@@ -15,8 +15,11 @@ export default class LeafletView extends Vue {
         const leafletProps: LeafletInstanceOptions = {
             id: 'leaflet-container'
         };
-        const mapInstance: any = new LeafletService(leafletProps);
+        const mapInstance: LeafletService = new LeafletService(leafletProps);
+        const baiduOptions: ChangeLayerImageConfig = { style: 'vec', crs: 'BD09' };
         const map: any = await mapInstance.initMapInstance('LEAFLET', { id: 'leaflet-container' });
+
+        mapInstance.changeLayer('天地图', baiduOptions, map);
         return map;
     }
 }

@@ -1,11 +1,12 @@
-import L, { Map, TileLayer, CRS, latLngBounds, latLng } from 'leaflet';
+import L, { Map, TileLayer, CRS, latLngBounds, latLng, LayerGroup } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import MapService from '../common/MapService';
 import { LeafletInstanceOptions } from '../type/LeafletType';
-import { MapTypeEnum } from '@/map/type/CommonType';
+import { BaseMap, ChangeLayerImageConfig, LayerImagesEnum, MapTypeEnum } from '@/map/type/CommonType';
 import CommonStore from '../common/CommonStore';
+import { baseLayers } from '../service/leaflet/imageryProvider';
 
-export default class LeafletService extends MapService {
+export default class LeafletService extends MapService implements BaseMap {
     constructor(props: LeafletInstanceOptions) {
         super();
     }
@@ -39,5 +40,29 @@ export default class LeafletService extends MapService {
         map.addLayer(titleLayer);
         CommonStore.setInstance(type, map);
         return map;
+    }
+
+    /**
+     * 修改底图
+     * @param type
+     * @param config
+     * @param instance
+     */
+    public changeLayer<T extends Map>(type: LayerImagesEnum, config: ChangeLayerImageConfig, instance: T): T {
+        let layer: any = null;
+        if (baseLayers.hasOwnProperty(type)){
+            if (Array.isArray(baseLayers[type].url)) {
+                const urls: any = [];
+                for (let i = 0; i < baseLayers[type].url.length; i ++) {
+                    urls.push(new TileLayer(baseLayers[type].url[i].url, baseLayers[type].url[i].options));
+                }
+                layer = new LayerGroup(urls);
+            }else {
+                layer = new TileLayer(baseLayers[type].url, baseLayers[type].url.options);
+            }
+
+        }
+        instance.addLayer(layer);
+        return instance;
     }
 }

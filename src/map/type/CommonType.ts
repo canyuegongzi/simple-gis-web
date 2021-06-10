@@ -11,7 +11,10 @@ export type MapTypeEnum = 'CESIUM' | 'LEAFLET' | 'MAPBOX';
 /**
  * 图层类型
  */
-export type LayerImagesEnum = 'AMAP' | 'BAIDU' | 'TIANDITU' | 'GOOGLEMAP';
+export type LayerImagesEnum =
+    'AMAP' | 'BAIDU' | 'TIANDITU' | 'GOOGLEMAP' |
+    '高德地图' | '高德影像' |
+    '天地图' | '天地图影像' | '天地图地形' | 'Google地图' | 'Google影像' | 'GeoQ' | 'GeoQ藏蓝' | 'GeoQ灰';
 
 /**
  * 点位坐标
@@ -51,5 +54,11 @@ export abstract class BaseMap {
      */
     abstract initMapInstance(type: MapTypeEnum, props: CesiumInstanceOptions): any;
 
-    abstract changeLayer<T>(type: LayerImagesEnum, config: ChangeLayerImageConfig, instance: T): T;
+    /**
+     * 修改底图
+     * @param type
+     * @param config
+     * @param instance
+     */
+    abstract changeLayer(type: LayerImagesEnum, config: ChangeLayerImageConfig, instance: any): any;
 }
