@@ -1,4 +1,19 @@
-import L, { Map, TileLayer, CRS, latLngBounds, latLng, LayerGroup } from 'leaflet';
+import {
+    BaseIconOptions,
+    CircleMarker,
+    CircleMarkerOptions,
+    CRS, DivIcon, DivIconOptions, Icon, IconOptions,
+    latLng,
+    LatLng,
+    latLngBounds,
+    LatLngExpression,
+    LatLngLiteral,
+    LatLngTuple, Layer,
+    LayerGroup, LayerOptions,
+    Map,
+    Marker, MarkerOptions,
+    TileLayer,
+} from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import MapService from '../common/MapService';
 import { LeafletInstanceOptions } from '../type/LeafletType';
@@ -57,12 +72,61 @@ export default class LeafletService extends MapService implements BaseMap {
                     urls.push(new TileLayer(baseLayers[type].url[i].url, baseLayers[type].url[i].options));
                 }
                 layer = new LayerGroup(urls);
-            }else {
+            } else {
                 layer = new TileLayer(baseLayers[type].url, baseLayers[type].url.options);
             }
 
         }
         instance.addLayer(layer);
         return instance;
+    }
+
+    /**
+     * 创建divIcon
+     * @param options
+     */
+    public createDivIon(options?: DivIconOptions): DivIcon {
+        return new DivIcon(options);
+    }
+
+    /**
+     * 创建普通的icon
+     * @param options
+     */
+    public createIcon<T extends BaseIconOptions = IconOptions>(options: T): Icon<T> {
+        return new Icon(options);
+    }
+
+    /**
+     * 渲染marker
+     * @param latlng
+     * @param options
+     */
+    public createMarker(latlng: LatLngExpression, options?: MarkerOptions): Marker {
+        return new Marker(latlng, options);
+    }
+
+    /**
+     * 绘制原点 marker
+     * @param latlng
+     * @param options
+     */
+    public renderCircleMarker(latlng: LatLngExpression, options?: CircleMarkerOptions): CircleMarker {
+        return new CircleMarker<any>(latlng, options);
+    }
+
+    /**
+     * 多个图层合并成图层组
+     * @param instance
+     * @param layers
+     * @param options
+     */
+    public renderMarkerToGroupLayer(instance: Map, layers?: Layer[], options?: LayerOptions): LayerGroup {
+        const layerGroup: LayerGroup = new LayerGroup(layers, options);
+        instance.addLayer(layerGroup);
+        return layerGroup;
+    }
+
+    renderHtmlMarker(html: string, latlng: any, instance: any): any {
     }
 }

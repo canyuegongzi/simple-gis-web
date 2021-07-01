@@ -51,12 +51,21 @@ export default class CesiumService extends MapService implements BaseMap{
             // @ts-ignore
             instance.imageryLayers.addImageryProvider(new BaiduImageryProvider(config));
             break;
-        case 'TIANDITU':
-            instance.imageryLayers.addImageryProvider(new TdtImageryProvider(config));
-            break;
+            case 'TIANDITU':
+                instance.imageryLayers.addImageryProvider(new TdtImageryProvider(config));
+                break;
         }
         return instance;
 
+    }
+
+    /**
+     * 渲染html marker
+     * @param html
+     * @param instance
+     */
+    public renderHtmlMarker<T>(html: string, instance: T): any {
+        return null;
     }
 
     /**
@@ -64,7 +73,7 @@ export default class CesiumService extends MapService implements BaseMap{
      * @param props
      * @private
      */
-    private static mergeOptions(config: CesiumInstanceOptions, ): CesiumInstanceOptions {
+    private static mergeOptions(config: CesiumInstanceOptions): CesiumInstanceOptions {
         const defaultParams: CesiumInstanceOptions = {
             id: config.id,
             animation: config.animation || false,

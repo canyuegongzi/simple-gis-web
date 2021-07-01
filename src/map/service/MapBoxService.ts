@@ -20,7 +20,7 @@ export default class MapBoxService extends MapService {
      * @param props
      * @protected
      */
-    protected async initMapInstance(type: MapTypeEnum, props: MapBoxInstanceOptions) {
+    public async initMapInstance(type: MapTypeEnum, props: MapBoxInstanceOptions) {
         const mapInstanceCache: any = await CommonStore.getInstance('MAPBOX');
         if (mapInstanceCache) {
             return mapInstanceCache;
@@ -32,10 +32,19 @@ export default class MapBoxService extends MapService {
             maxZoom: 18,
             minZoom: 5,
             zoom: 9,
-            accessToken: 'pk.eyJ1IjoiY2FueXVlZ29uZ3ppIiwiYSI6ImNrcG1zd2FnMTA0bjkydnQ4NjZmb25kMmkifQ.sdE-Rg4oWkO7UcduatFsmQ'
+            accessToken: 'pk.eyJ1IjoiY2FueXVlZ29uZ3ppIiwiYSI6ImNrcG1zd2FnMTA0bjkydnQ4NjZmb25kMmkifQ.sdE-Rg4oWkO7UcduatFsmQ',
         });
         CommonStore.setInstance(type, map);
         return map;
 
+    }
+
+    /**
+     * 渲染html marker
+     * @param html
+     * @param instance
+     */
+    public renderHtmlMarker<T>(html: string, instance: T): any {
+        return null;
     }
 }
