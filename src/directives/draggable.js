@@ -24,8 +24,8 @@ Vue.directive('draw', {
             top = Math.max(0, top);
             el.style.left = left + 'px';
             el.style.top = top + 'px';
-            el.style.width = width + 'px';
-            el.style.height = height + 'px';
+            //el.style.width = width + 'px';
+            //el.style.height = height + 'px';
         };
         el._dragEnd = function(event) {
             event.stopPropagation();
@@ -33,8 +33,8 @@ Vue.directive('draw', {
             top = event.clientY - top;
             el.style.left = left + 'px';
             el.style.top = top + 'px';
-            el.style.width = width + 'px';
-            el.style.height = height + 'px';
+            //el.style.width = width + 'px';
+            //el.style.height = height + 'px';
             el._checkPosition();
         };
         el._documentAllowDraop = function(event) {

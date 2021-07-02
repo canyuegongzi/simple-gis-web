@@ -37,6 +37,7 @@
         "@babel/preset-typescript": "^7.13.0",
         "@types/leaflet": "^1.7.1",
         "@types/mapbox-gl": "^2.1.2",
+        "@types/node": "^15.14.0",
         "@types/qs": "^6.9.6",
         "@typescript-eslint/eslint-plugin": "^3.0.2",
         "@typescript-eslint/parser": "^3.10.1",

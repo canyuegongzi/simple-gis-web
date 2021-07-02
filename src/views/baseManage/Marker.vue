@@ -1,19 +1,5 @@
 <template lang="pug">
     .pug-container
-        p 打点
-        p 打点
-        p 打点
-        p 打点
-        p 打点
-        p 打点
-        p 打点
-        p 打点
-        p 打点
-        p 打点
-        p 打点
-        p 打点
-        p 打点
-        p 打点
 </template>
 
 <script>
@@ -25,10 +11,8 @@ export default class Marker extends Vue {}
 
 <style scoped lang="stylus">
 .pug-container
-    height 100%
-    width 200px
     background transparent
-    z-index 9999 !important
+    z-index 888 !important
     position absolute
     top 0
 </style>
