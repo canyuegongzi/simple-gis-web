@@ -20,7 +20,7 @@
 import { Vue, Component, Emit } from 'vue-property-decorator';
 
 @Component({})
-export default class MarkerDialog extends Vue {
+export default class LeafletMarkerDialog extends Vue {
     public visible = true;
     public markerType = 1;
     public styleType = 1;

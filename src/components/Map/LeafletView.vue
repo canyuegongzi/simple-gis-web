@@ -1,7 +1,7 @@
 <template lang="pug">
     .map
         #leaflet-container
-        MarkerDialog(@map:event="mapEvent")
+        LeafletMarkerDialog(@map:event="mapEvent")
 </template>
 
 <script lang="ts">
@@ -9,12 +9,12 @@ import { Component, Vue } from 'vue-property-decorator';
 import LeafletService from '../../map/service/LeafletService';
 import { LeafletInstanceOptions } from '@/map/type/LeafletType';
 import { ChangeLayerImageConfig } from '@/map/type/CommonType';
-import MarkerDialog from '../../components/dialog/marker/MarkerDialog.vue';
+import LeafletMarkerDialog from '../../components/dialog/marker/LeafletMarkerDialog.vue';
 import { DivIcon, Icon } from 'leaflet';
 
 @Component({
     components: {
-        MarkerDialog,
+        LeafletMarkerDialog,
     },
 })
 export default class LeafletView extends Vue {
@@ -23,6 +23,8 @@ export default class LeafletView extends Vue {
     public normalLayer1: any = null;  // 普通圆圈
     public normalLayer2: any = null;  // icon
     public normalLayer4: any = null;  // 聚合图层
+    public normalLayer5: any = null;  // 聚合图层
+    public normalLayer6: any = null;  // 聚合图层
 
     public async initMap() {
         const leafletProps: LeafletInstanceOptions = {
@@ -56,7 +58,7 @@ export default class LeafletView extends Vue {
             });
             markerList.push(marker);
         }
-        this.normalLayer3 = this.mapInstance.renderMarkerToGroupLayer((window as any).leafletMap, markerList);
+        return markerList;
     }
 
     /**
@@ -76,7 +78,7 @@ export default class LeafletView extends Vue {
             });
             markerList.push(marker);
         }
-        this.normalLayer1 = this.mapInstance.renderMarkerToGroupLayer((window as any).leafletMap, markerList);
+        return markerList;
     }
 
     /**
@@ -101,7 +103,7 @@ export default class LeafletView extends Vue {
             });
             markerList.push(marker);
         }
-        this.normalLayer2 = this.mapInstance.renderMarkerToGroupLayer((window as any).leafletMap, markerList);
+        return markerList;
     }
 
     /**
@@ -111,17 +113,40 @@ export default class LeafletView extends Vue {
     public async mapEvent(data: any) {
         console.log(data);
         if (data.action === 'MARKER') {
+            let markerList = [];
             // 普通marker
             if (data.data.markerType === 1) {
                 switch (data.data.styleType) {
                     case 3:
-                        this.renderNormalCircleMarker();
+                        markerList = await this.renderNormalCircleMarker();
+                        this.normalLayer3 = this.mapInstance.renderMarkerToGroupLayer((window as any).leafletMap, markerList);
                         break;
                     case 2:
-                        this.renderNormalDivIconMarker();
+                        markerList = await this.renderNormalDivIconMarker();
+                        this.normalLayer2 = this.mapInstance.renderMarkerToGroupLayer((window as any).leafletMap, markerList);
                         break;
                     case 1:
-                        this.renderNormalIconMarker();
+                        markerList = await this.renderNormalIconMarker();
+                        this.normalLayer1 = this.mapInstance.renderMarkerToGroupLayer((window as any).leafletMap, markerList);
+                        break;
+                }
+            }
+            if (data.data.markerType === 2) {
+                switch (data.data.styleType) {
+                    case 3:
+                        markerList = await this.renderNormalCircleMarker();
+                        this.normalLayer4 = this.mapInstance.leafletMarkerCluster.createClusterMarker(markerList);
+                        (window as any).leafletMap.addLayer(this.normalLayer4);
+                        break;
+                    case 2:
+                        markerList = await this.renderNormalDivIconMarker();
+                        this.normalLayer5 = this.mapInstance.leafletMarkerCluster.createClusterMarker(markerList);
+                        (window as any).leafletMap.addLayer(this.normalLayer5);
+                        break;
+                    case 1:
+                        markerList = await this.renderNormalIconMarker();
+                        this.normalLayer6 = this.mapInstance.leafletMarkerCluster.createClusterMarker(markerList);
+                        (window as any).leafletMap.addLayer(this.normalLayer6);
                         break;
                 }
             }
@@ -138,6 +163,18 @@ export default class LeafletView extends Vue {
             }
             if ((window as any).leafletMap.hasLayer(this.normalLayer2)) {
                 (window as any).leafletMap.removeLayer(this.normalLayer2);
+
+            }
+            if ((window as any).leafletMap.hasLayer(this.normalLayer4)) {
+                (window as any).leafletMap.removeLayer(this.normalLayer4);
+
+            }
+            if ((window as any).leafletMap.hasLayer(this.normalLayer5)) {
+                (window as any).leafletMap.removeLayer(this.normalLayer5);
+
+            }
+            if ((window as any).leafletMap.hasLayer(this.normalLayer6)) {
+                (window as any).leafletMap.removeLayer(this.normalLayer6);
 
             }
         }

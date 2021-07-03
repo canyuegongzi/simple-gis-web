@@ -40,11 +40,10 @@ export default class MapBoxService extends MapService {
     }
 
     /**
-     * 渲染html marker
-     * @param html
-     * @param instance
+     * 加载图片到
      */
-    public renderHtmlMarker<T>(html: string, instance: T): any {
-        return null;
+    public async loadImages() {
+
     }
+
 }

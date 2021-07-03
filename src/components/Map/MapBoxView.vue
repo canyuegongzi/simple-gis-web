@@ -17,6 +17,7 @@ export default class MapBoxView extends Vue {
         };
         const mapInstance: any = new MapBoxService(mapboxProps);
         const map: any = await mapInstance.initMapInstance('MAPBOX', { id: 'mapbox-container' });
+        (window as any).mapboxMap = map;
         return map;
     }
 }

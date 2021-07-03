@@ -1,14 +1,11 @@
-import {
+import L, {
     BaseIconOptions,
     CircleMarker,
     CircleMarkerOptions,
     CRS, DivIcon, DivIconOptions, Icon, IconOptions,
     latLng,
-    LatLng,
     latLngBounds,
-    LatLngExpression,
-    LatLngLiteral,
-    LatLngTuple, Layer,
+    LatLngExpression, Layer,
     LayerGroup, LayerOptions,
     Map,
     Marker, MarkerOptions,
@@ -20,10 +17,13 @@ import { LeafletInstanceOptions } from '../type/LeafletType';
 import { BaseMap, ChangeLayerImageConfig, LayerImagesEnum, MapTypeEnum } from '@/map/type/CommonType';
 import CommonStore from '../common/CommonStore';
 import { baseLayers } from '../service/leaflet/imageryProvider';
+import LeafletMarkerCluster from './leaflet/markerCluster/LeafletMarkerCluster';
 
 export default class LeafletService extends MapService implements BaseMap {
+    public leafletMarkerCluster: LeafletMarkerCluster;
     constructor(props: LeafletInstanceOptions) {
         super();
+        this.leafletMarkerCluster = new LeafletMarkerCluster(L);
     }
 
     private layerUrl: string = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
@@ -125,8 +125,5 @@ export default class LeafletService extends MapService implements BaseMap {
         const layerGroup: LayerGroup = new LayerGroup(layers, options);
         instance.addLayer(layerGroup);
         return layerGroup;
-    }
-
-    renderHtmlMarker(html: string, latlng: any, instance: any): any {
     }
 }
