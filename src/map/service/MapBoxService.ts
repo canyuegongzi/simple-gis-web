@@ -3,7 +3,7 @@ import MapService from '../common/MapService';
 import { MapTypeEnum } from '@/map/type/CommonType';
 import CommonStore from '../common/CommonStore';
 import { MapBoxInstanceOptions } from '@/map/type/MapBoxType';
-import { Map, LngLat } from 'mapbox-gl';
+import { Map, LngLat, Marker, MarkerOptions, AnySourceImpl } from 'mapbox-gl';
 
 export default class MapBoxService extends MapService {
     constructor(props: MapBoxInstanceOptions) {
@@ -12,7 +12,7 @@ export default class MapBoxService extends MapService {
 
     private layerUrl: string = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
 
-    private accessToken: string = 'sk.eyJ1IjoiY2FueXVlZ29uZ3ppIiwiYSI6ImNrcG1zenlzbzF0aXcydm84NWgwaHplZ2EifQ.4PgYDtWQe54iRN3EU2REcQ';
+    private accessToken: string = 'sk.eyJ1IjoiY2FueXVlZ29uZ3ppIiwiYSI6ImNrcW9tZ3cyNTBubGsydXN0a3Jsbm4xcmIifQ.DE0PuTPkSv934P1tqFekkg';
 
     /**
      * 初始化地图实例
@@ -27,12 +27,13 @@ export default class MapBoxService extends MapService {
         }
         const map: Map = new Map({
             container: props.id,
-            style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+            style: 'mapbox://styles/mapbox/navigation-day-v1', // stylesheet location
+            // style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
             center: [120, 30],
             maxZoom: 18,
             minZoom: 5,
             zoom: 9,
-            accessToken: 'pk.eyJ1IjoiY2FueXVlZ29uZ3ppIiwiYSI6ImNrcG1zd2FnMTA0bjkydnQ4NjZmb25kMmkifQ.sdE-Rg4oWkO7UcduatFsmQ',
+            accessToken: 'pk.eyJ1IjoiY2FueXVlZ29uZ3ppIiwiYSI6ImNrcW9sOW5jajAxMDQyd3AzenlxNW80aHYifQ.0Nz5nOOxi4-qqzf2od3ZRA',
         });
         CommonStore.setInstance(type, map);
         return map;
@@ -40,10 +41,144 @@ export default class MapBoxService extends MapService {
     }
 
     /**
-     * 加载图片到
+     * 加载一些图片到地图实例上
      */
-    public async loadImages() {
+    public async loadImages(imagesMap: Record<string, string>, map: Map) {
+        return new Promise(async (resolve) => {
+            try {
+                let imageLoadPromise: any[] = [];
+                for (let key in imagesMap) {
+                    let imgSource: string = key;
+                    if (!(window as any)._imgSourcePath) {
+                        (window as any)._imgSourcePath = {};
+                    }
+                    if (!(window as any)._imgSourcePath.hasOwnProperty(imgSource)) {
+                        (window as any)._imgSourcePath[imgSource] = imagesMap[key];
+                    }
+                    if (!map.hasImage(imgSource)) {
+                        // 图片数据
+                        let imageData: any;
+                        try {
+                            // 此处是base64 文件
+                            imageData = imagesMap[imgSource];
+                        } catch (e) {
+                            throw new Error(e);
+                        }
+                        let img = new Image();
+                        img.src = imageData;
+                        imageLoadPromise.push(
+                            new Promise(resolve => {
+                                img.onload = e => {
+                                    //避免重复加载
+                                    if (!map.hasImage(imgSource)) {
+                                        map.addImage(imgSource, img);
+                                    }
+                                    resolve(e);
+                                };
+                            }),
+                        );
+                    }
 
+                }
+                if (imageLoadPromise.length !== 0) {
+                    await Promise.all(imageLoadPromise);
+                    resolve(imagesMap);
+                } else {
+                    resolve(imagesMap);
+                }
+            } catch (e) {
+                console.log(e);
+                resolve(imagesMap);
+            }
+        });
+    }
+
+    /**
+     * 显示或隐藏指定图层
+     * @param layerId<string> 图层名称
+     * @param showOrHide<String> 显示或隐藏。'show' | 'hide'
+     * @param map 地图实例
+     */
+    public showOrHideMapLayerById(layerId: string, showOrHide: string, map: Map) {
+        // 传参错误
+        if (!['show', 'hide'].includes(showOrHide)) {
+            throw new Error(` (_showOrHideMapLayerById:) 参数showOrHide不合法：${showOrHide}`);
+        }
+        let isVisible = showOrHide === 'show' ? 'visible' : 'none';
+        if (map.getLayer(layerId)) {
+            map.setLayoutProperty(layerId, 'visibility', isVisible);
+        }
+    }
+
+    /**
+     * 添加数据资源（更新数据资源）
+     * @param sourceName<string> 资源名称
+     * @param jsonData<GeoJson> 地理数据
+     * @param map
+     * @param options<Object> （可选参数）
+     */
+    public async addSourceToMap(sourceName: string, jsonData: any, map: Map, options: Record<string, any> = {}) {
+        if (!map.getSource(sourceName)) {
+            map.addSource(sourceName, { type: 'geojson', data: jsonData, ...options });
+        } else {
+            const source: AnySourceImpl = map.getSource(sourceName);
+            (source as any).setData(jsonData);
+        }
+    }
+
+    /**
+     * 组织GeoJson数据（要素列表套壳）
+     * @param features<Array> 要素列表
+     */
+    public getCommonGeoJson(features = []) {
+        return {
+            type: 'FeatureCollection',
+            crs: {
+                type: 'name',
+                properties: { name: 'urn:ogc:def:crs:OGC:1.3:CRS84' },
+            },
+            features: features,
+        };
+    }
+
+    /**
+     * 渲染图层到地图
+     */
+    public async renderMapLayer(layerOption: Record<string, any>, map: Map, andShow = true, beforeLayerId?: string) {
+        return new Promise(resolve => {
+            // 判断图层引用的source是否存在
+            let layerId: string = layerOption.id;
+            let tempSource: string = layerOption.source;
+            if (!tempSource || (Object.prototype.toString.call(tempSource) === '[object String]' && !map.getSource(tempSource))) {
+                throw new Error(` (_renderMapLayer:) 图层${layerId}指向的资源${tempSource}不存在`);
+            }
+            if (!(window as any)._mapLayerIdArr) {
+                (window as any)._mapLayerIdArr = [];
+            }
+            // window._mapLayerIdArr 记录加载的图层id
+            if (!(window as any)._mapLayerIdArr.includes(layerId) && layerId.indexOf('Cluster') === -1) {
+                (window as any)._mapLayerIdArr.push(layerId);
+            }
+            // 加载图层
+            if (!map.getLayer(layerId)) {
+                map.addLayer(layerOption as mapboxgl.AnyLayer, beforeLayerId);
+                return resolve(layerId);
+            } else {
+                // 地图中已经存在该图层
+                if (andShow) this.showOrHideMapLayerById(layerId, 'show', map);
+                // 此时不再返回图层名字。（并且无需再次绑定事件）
+                resolve(null);
+            }
+
+        });
+    }
+
+    /**
+     * 创建marker
+     * @param options
+     */
+    public createMarker(options?: MarkerOptions): Marker {
+        return new Marker(options);
     }
 
 }

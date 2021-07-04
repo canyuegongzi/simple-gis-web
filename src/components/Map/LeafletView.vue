@@ -187,7 +187,6 @@ export default class LeafletView extends Vue {
 .map
     height 100%
     width 100%
-
     #leaflet-container
         height 100%
         width 100%

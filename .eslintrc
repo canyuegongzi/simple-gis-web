@@ -65,6 +65,7 @@
         "valid-jsdoc": 0,
         "valid-typeof": 2,
         "id-match": 0,
+        "no-async-promise-executor": 0,
         "max-depth": [
             0,
             4
