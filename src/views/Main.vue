@@ -86,7 +86,7 @@ export default class Main extends Vue {
     }
 
     public mounted() {
-        this.controlMapType('MAPBOX');
+        this.controlMapType('LEAFLET');
     }
 }
 </script>

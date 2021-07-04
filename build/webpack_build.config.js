@@ -5,13 +5,15 @@ const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const {commonRules, commonPlugins} = require('./webpack_common.config');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { commonRules, commonPlugins } = require('./webpack_common.config');
 module.exports = {
     mode: 'production',
     entry: './src/main.ts',
     output: {
-        publicPath: './',
-        path: path.resolve(__dirname, '../', "dist"),
+        publicPath: '/simple-gis-web/',
+        // publicPath: './',
+        path: path.resolve(__dirname, '../', 'dist'),
         filename: '[name].[chunkhash:8].js',
         clean: true,
     },
@@ -71,13 +73,27 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: "./public/index.html"
+            template: './public/index.html',
         }),
-        ...commonPlugins
+        ...commonPlugins,
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'node_modules/cesium/Build/Cesium/Workers', to: 'Workers' },
+                { from: 'node_modules/cesium/Build/Cesium/ThirdParty', to: 'ThirdParty' },
+                { from: 'node_modules/cesium/Build/Cesium/Assets', to: 'Assets' },
+                { from: 'node_modules/cesium/Build/Cesium/Widgets', to: 'Widgets' },
+            ],
+        }),
+        new webpack.DefinePlugin({
+            // Define relative base path in cesium for loading assets
+            CESIUM_BASE_URL: JSON.stringify(''),
+        }),
     ],
     module: {
+        unknownContextCritical: false,
+        unknownContextRegExp: /\/cesium\/cesium\/Source\/Core\/buildModuleUrl\.js/,
         rules: [
-            ...commonRules
-        ]
+            ...commonRules,
+        ],
     }
 }

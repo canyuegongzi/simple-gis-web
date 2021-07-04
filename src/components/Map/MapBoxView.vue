@@ -5,11 +5,10 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import { MapBoxInstanceOptions } from '@/map/type/MapBoxType';
 import MapBoxService from '../../map/service/MapBoxService';
 import MapboxMarkerDialog from '../../components/dialog/marker/MapboxMarkerDialog.vue';
-import { Icon } from 'leaflet';
 import { Marker } from 'mapbox-gl';
 
 @Component({
@@ -22,6 +21,7 @@ export default class MapBoxView extends Vue {
     public normalLayerMarkers: Marker[] = []; // 普通方式下的marker渲染
     public resourceMarkers = null; // 资源型的marker渲染
     public resourceLayer: any = null;
+    public clusterLayer: any = null;  // 聚合图层
 
     public async initMap() {
         const mapboxProps: MapBoxInstanceOptions = {
@@ -57,7 +57,65 @@ export default class MapBoxView extends Vue {
      * 渲染资源型marker
      */
     public async renderResourceMarker() {
+        const dataJson: any[] = await import('../../mock/stationList1.json');
+        await this.mapInstance.loadImages({
+            site5: require('../../assets/map/site-5.png'),
+        }, (window as any).mapboxMap);
+        const sourceId: string = 'test-source';
+        let jsonData = this.buildGeoJSONData(dataJson, '1');
+        await this.mapInstance.addSourceToMap(sourceId, jsonData, (window as any).mapboxMap);
+        return await this.mapInstance.renderMarkerLayer(
+            {
+                id: 'test-layer',
+                type: 'symbol',
+                source: sourceId,
+                filter: ['==', 'typeCode', '1'],
+                layout: {
+                    'icon-image': '{symbolImgName}', //图片的source
+                    'icon-size': 0.8,
+                    'icon-ignore-placement': true, //忽略碰撞检测
+                    visibility: 'visible',
+                },
+            },
+            (window as any).mapboxMap,
+        );
+    }
 
+    /**
+     * 渲染聚合型marker
+     */
+    public async renderClusterMarker() {
+        const dataJson: any[] = await import('../../mock/stationList1.json');
+        await this.mapInstance.loadImages({
+            site5: require('../../assets/map/site-5.png'),
+        }, (window as any).mapboxMap);
+        let jsonData = this.buildGeoJSONData(dataJson, '1');
+        const { clusterName, layerName } = await this.mapInstance.renderClusterMakerLayer({
+            jsonData: jsonData,
+            clusterName: 'eventLayer_test',
+            clusterColor: 'blue',
+            getCircleStyle: {
+                'circle-radius': 8,
+                'circle-color': 'red',
+            },
+            unClusterLayerStyle: {},
+            clusterCountLayerStyle: {},
+            // clusterProperties: { sum: ['+', ['get', 'total']] },
+            // clusterProperties: { sum: ['+', ['to-number', ['get', 'total']]] },
+            layoutText: {
+                'text-field': '{point_count}',
+                'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+                'text-size': 12,
+                'icon-ignore-placement': true,
+            },
+        }, (window as any).mapboxMap);
+
+        if (layerName) {
+            this.mapInstance.clusterMakerClickCallback(clusterName, layerName, (window as any).mapboxMap, this.clusterMarkerClickFun);
+        }
+        if (clusterName) {
+            this.clusterLayer = clusterName;
+        }
     }
 
     /**
@@ -90,39 +148,23 @@ export default class MapBoxView extends Vue {
     }
 
     /**
+     * 图层点击事件
+     */
+    public clusterMarkerClickFun(coordinates: any, info: any, clusterName: any) {
+        console.log(info);
+    }
+
+    /**
      * 地图事件
      * @param data
      */
     public async mapEvent(data: any) {
-        console.log('地图事件', data);
-        console.log(data);
         if (data.action === 'MARKER') {
             // 普通marker
             if (data.data.markerType === 1) {
                 switch (data.data.styleType) {
                     case 2:
-                        const dataJson: any[] = await import('../../mock/stationList1.json');
-                        await this.mapInstance.loadImages({
-                            site5: require('../../assets/map/site-5.png'),
-                        }, (window as any).mapboxMap);
-                        const sourceId: string = 'test-source';
-                        let jsonData = this.buildGeoJSONData(dataJson, '1');
-                        await this.mapInstance.addSourceToMap(sourceId, jsonData, (window as any).mapboxMap);
-                        let LayerId = await this.mapInstance.renderMapLayer(
-                            {
-                                id: 'test-layer',
-                                type: 'symbol',
-                                source: sourceId,
-                                filter: ['==', 'typeCode', '1'],
-                                layout: {
-                                    'icon-image': '{symbolImgName}', //图片的source
-                                    'icon-size': 0.8,
-                                    'icon-ignore-placement': true, //忽略碰撞检测
-                                    visibility: 'visible',
-                                },
-                            },
-                            (window as any).mapboxMap,
-                        );
+                        const LayerId = await this.renderResourceMarker();
                         if (LayerId) {
                             this.resourceLayer = LayerId;
                         }
@@ -133,9 +175,9 @@ export default class MapBoxView extends Vue {
                         break;
                 }
             }
-            // 聚合系统
+            // 聚合点位
             if (data.data.markerType === 2) {
-                console.log('聚合');
+                await this.renderClusterMarker();
             }
 
         }
@@ -149,6 +191,8 @@ export default class MapBoxView extends Vue {
                 (window as any).mapboxMap.removeLayer(this.resourceLayer);
                 this.resourceLayer = null;
             }
+            // 清楚聚合图层
+            this.mapInstance.removeClusterLayer(this.clusterLayer, (window as any).mapboxMap);
 
         }
     }

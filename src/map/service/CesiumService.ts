@@ -44,13 +44,13 @@ export default class CesiumService extends MapService implements BaseMap{
      */
     public changeLayer<T extends Viewer>(type: LayerImagesEnum, config: ChangeLayerImageConfig, instance: T): T {
         switch (type) {
-        case 'AMAP':
-            instance.imageryLayers.addImageryProvider(new AmapImageryProvider(config));
-            break;
-        case 'BAIDU':
-            // @ts-ignore
-            instance.imageryLayers.addImageryProvider(new BaiduImageryProvider(config));
-            break;
+            case 'AMAP':
+                instance.imageryLayers.addImageryProvider(new AmapImageryProvider(config));
+                break;
+            case 'BAIDU':
+                // @ts-ignore
+                instance.imageryLayers.addImageryProvider(new BaiduImageryProvider(config));
+                break;
             case 'TIANDITU':
                 instance.imageryLayers.addImageryProvider(new TdtImageryProvider(config));
                 break;

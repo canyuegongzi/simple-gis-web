@@ -142,9 +142,13 @@ export default class MapBoxService extends MapService {
     }
 
     /**
-     * 渲染图层到地图
+     * 渲染普通marker图层到地图
+     * @param layerOption
+     * @param map
+     * @param andShow
+     * @param beforeLayerId
      */
-    public async renderMapLayer(layerOption: Record<string, any>, map: Map, andShow = true, beforeLayerId?: string) {
+    public async renderMarkerLayer(layerOption: Record<string, any>, map: Map, andShow = true, beforeLayerId?: string) {
         return new Promise(resolve => {
             // 判断图层引用的source是否存在
             let layerId: string = layerOption.id;
@@ -170,6 +174,137 @@ export default class MapBoxService extends MapService {
                 resolve(null);
             }
 
+        });
+    }
+
+    /**
+     * 渲染聚合点位
+     * @param config<Object>
+     *              jsonData       <JSON | (): JSON => void>            当需要渲染cluster 类型时需要的点位数据
+     *              clusterName    <String | (): String => void>        当需要渲染cluster 类型时注册的图层名称
+     *              clusterColor   <String | (): String => void>        当需要渲染cluster 类型时聚合的颜色
+     *              getCircleStyle <Object | (): String => void>        当需要渲染cluster 类型时最大级别的icon样式     example: {'circle-radius': 6, 'circle-color': '#606266' }
+     *              clusterProperties <Object>                          当需要渲染cluster 绑定的聚合属性     example: { sum: ['+', ['get', 'runState']], },
+     *              layoutText     <Object>                             当需要渲染cluster 文字自定义         example: layout: { 'text-field': '{sum}', 'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'], 'text-size': 12, 'icon-ignore-placement': true, },
+     *              unClusterLayerStyle     <Object>                    未聚合点的图层配置
+     *              clusterCountLayerStyle     <Object>                 聚合点中间默认的文字配置
+     * @param map
+     * @param clickCallback<Function> 点击回调函数
+     */
+    public async renderClusterMakerLayer(config: any = {}, map: Map, clickCallback?: () => {}) {
+        const {
+            jsonData,
+            clusterName,
+            clusterColor,
+            getCircleStyle,
+            clusterProperties,
+            layoutText,
+            unClusterLayerStyle,
+            clusterCountLayerStyle,
+        } = config as any;
+        if (!map.getSource(clusterName)) {
+            map.addSource(clusterName, {
+                type: 'geojson',
+                data: jsonData,
+                cluster: true,
+                clusterRadius: 80,
+                clusterMaxZoom: 14,
+                clusterMinPoints: 5,
+                clusterProperties: clusterProperties || {},
+            });
+        } else {
+            (map.getSource(clusterName) as any).setData(jsonData);
+        }
+        // 默认的样式（未聚合的点位）
+        const iconDefaultStyle = typeof getCircleStyle === 'function' ? getCircleStyle(clusterName) : getCircleStyle;
+        map.addLayer({
+            id: clusterName + '-clusters',
+            type: 'circle',
+            source: clusterName,
+            filter: ['has', 'point_count'],
+            paint: {
+                'circle-color': clusterColor,
+                'circle-radius': [
+                    'step',
+                    ['get', 'point_count'],
+                    12, //聚合小于5的圆半径
+                    5,
+                    16, //聚合da于5的圆半径
+                    20,
+                    20, //聚合大于20的圆半径
+                ],
+            },
+        });
+        // 聚合点中间默认的文字配置
+        const defaultClusterCountLayerStyle: Record<string, any> = {
+            id: clusterName + 'cluster-count',
+            type: 'symbol',
+            source: clusterName,
+            filter: ['has', 'point_count'], //有point_count属性的，为聚合点
+            layout: layoutText || {
+                'text-field': '{point_count}',
+                'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+                'text-size': 12,
+                'icon-ignore-placement': true,
+            },
+            paint: { 'text-color': '#fff', 'text-opacity': 1 },
+        };
+        map.addLayer(clusterCountLayerStyle ? { ...clusterCountLayerStyle, ...defaultClusterCountLayerStyle } : defaultClusterCountLayerStyle);
+        // 未聚合点的图层配置
+        const defaultUnClusterLayerStyle: Record<string, any> = {
+            id: clusterName + '-UnCluster',
+            type: 'circle',
+            source: clusterName,
+            filter: ['!', ['has', 'point_count']],
+            paint: iconDefaultStyle,
+        };
+        // 未聚合点UnCluster
+        map.addLayer(unClusterLayerStyle ? { ...unClusterLayerStyle, ...defaultUnClusterLayerStyle } : defaultUnClusterLayerStyle);
+        map.on('click', clusterName + '-clusters', e => {
+            let features: any = map.queryRenderedFeatures(e.point, { layers: [clusterName + '-clusters'] });
+            let clusterId = features[0].properties.cluster_id;
+            (map.getSource(clusterName) as any).getClusterExpansionZoom(clusterId, function(err: any, zoom: number) {
+                if (err) return;
+                map.easeTo({
+                    center: features[0].geometry.coordinates,
+                    zoom: zoom,
+                });
+            });
+        });
+        return { clusterName, layerName: clusterName + '-UnCluster' };
+    }
+
+    /**
+     * 移除聚合图层
+     * @param clusterName
+     * @param map
+     */
+    public removeClusterLayer(clusterName: string, map: Map) {
+        const layers = [clusterName + '-clusters', clusterName + 'cluster-count', clusterName + '-UnCluster'];
+        if (map.getSource(clusterName)) {
+            for (let i = 0; i < layers.length; i++) {
+                try {
+                    map.removeLayer(layers[i]);
+                } catch (e) {
+                    console.warn(e);
+                }
+            }
+        }
+    }
+
+    /**
+     * 注册聚合图层点击事件
+     * @param clusterName
+     * @param layerName
+     * @param map
+     * @param clickCallback
+     */
+    public clusterMakerClickCallback(clusterName: string, layerName: string, map: Map, clickCallback?: any) {
+        map.on('click', layerName, (e: any) => {
+            let coordinates = e.features[0].geometry.coordinates.slice();
+            if (typeof clickCallback === 'function') {
+                clickCallback(coordinates, e.features[0].properties, clusterName);
+            }
         });
     }
 

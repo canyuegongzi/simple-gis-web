@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: simple-gis-web-ingress
+    namespace: default
+    annotations:
+        kubernetes.io/ingress.class: traefik
+spec:
+    rules:
+        -   http:
+                paths:
+                    -   path: /simple-gis-web
+                        pathType: Prefix
+                        backend:
+                            serviceName: simple-gis-web-service
+                            servicePort: 8045
