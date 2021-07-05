@@ -2,9 +2,19 @@ import MapService from '../common/MapService';
 import { CesiumInstanceOptions } from '@/map/type/CesiumType';
 import { BaseMap, LayerImagesEnum, MapTypeEnum, ChangeLayerImageConfig } from '@/map/type/CommonType';
 import CommonStore from '../../map/common/CommonStore';
-import { Viewer, UrlTemplateImageryProvider } from 'cesium';
+import {
+    Viewer,
+    UrlTemplateImageryProvider,
+    Entity,
+    Cartesian3,
+    Rectangle,
+    Camera,
+    Matrix4,
+    EasingFunction,
+} from 'cesium';
 import '../service/cesium/imageryProvider/index';
 import { AmapImageryProvider, BaiduImageryProvider, TdtImageryProvider } from '../service/cesium/imageryProvider/index';
+
 
 export default class CesiumService extends MapService implements BaseMap{
     constructor(props: CesiumInstanceOptions) {
@@ -33,6 +43,20 @@ export default class CesiumService extends MapService implements BaseMap{
         if (logo) {
             logo.style.display = 'none';
         }
+        map.scene.morphTo3D(0.0); //默认三维地图
+
+        //关闭快速抗锯齿,文字清晰
+        map.scene.postProcessStages.fxaa.enabled = false;
+        map.scene.highDynamicRange = false;
+
+        //禁止相机入地
+        map.scene.screenSpaceCameraController.minimumZoomDistance = 2500;   //原来是100
+        (map.scene.screenSpaceCameraController as any)._minimumZoomRate = 30000;   //设置相机缩小时的速率
+        map.clock.onTick.addEventListener(() => {
+            if (map.camera.pitch > 0) {
+                map.scene.screenSpaceCameraController.enableTilt = false;
+            }
+        });
         return map;
     }
 
@@ -97,5 +121,32 @@ export default class CesiumService extends MapService implements BaseMap{
                 : null) as UrlTemplateImageryProvider,
         };
         return defaultParams;
+    }
+
+
+    /**
+     * 创建marker
+     * @param options
+     */
+    public createMarker(options: Entity.ConstructorOptions) {
+        return new Entity(options);
+    }
+
+    /**
+     * 相机飞行
+     * @param camera
+     * @param options
+     */
+    public flyTo(camera: Camera, options: { destination: Cartesian3 | Rectangle; orientation?: any; duration?: number; complete?: Camera.FlightCompleteCallback; cancel?: Camera.FlightCancelledCallback; endTransform?: Matrix4; maximumHeight?: number; pitchAdjustHeight?: number; flyOverLongitude?: number; flyOverLongitudeWeight?: number; convert?: boolean; easingFunction?: EasingFunction.Callback; }) {
+        return camera.flyTo(options);
+    }
+
+    /**
+     * 中心视图设置
+     * @param camera
+     * @param options
+     */
+    public setView(camera: Camera, options: { destination?: Cartesian3 | Rectangle; orientation?: any; endTransform?: Matrix4; convert?: boolean; }) {
+        return camera.setView(options);
     }
 }

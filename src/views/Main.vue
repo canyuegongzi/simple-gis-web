@@ -44,7 +44,7 @@ import { MapTypeEnum } from '../map/type/CommonType';
 })
 export default class Main extends Vue {
     public menus: any = data.list;
-    public mapType: MapTypeEnum = 'LEAFLET'
+    public mapType: MapTypeEnum = 'CESIUM';
     public settingOpenStatus: boolean = false;
 
     public $refs!: {
@@ -86,7 +86,7 @@ export default class Main extends Vue {
     }
 
     public mounted() {
-        this.controlMapType('LEAFLET');
+        this.controlMapType('CESIUM');
     }
 }
 </script>

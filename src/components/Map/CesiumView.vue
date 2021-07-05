@@ -7,6 +7,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import { CesiumInstanceOptions } from '@/map/type/CesiumType';
+import { Cartesian3, EasingFunction, Viewer, Math } from 'cesium';
 import CesiumService from '../../map/service/CesiumService';
 import { ChangeLayerImageConfig } from '@/map/type/CommonType';
 import CesiumMarkerDialog from '../../components/dialog/marker/CesiumMarkerDialog.vue';
@@ -24,14 +25,29 @@ export default class CesiumView extends Vue {
             id: 'cesium-container',
         };
         this.mapInstance = new CesiumService(cesiumProps);
-        const map: any = await this.mapInstance.initMapInstance('CESIUM', { id: 'cesium-container' });
+        const map: Viewer = await this.mapInstance.initMapInstance('CESIUM', { id: 'cesium-container' });
+        console.log(map);
 
 
         // const amapOptions: ChangeLayerImageConfig = { style: 'elec', crs: 'WGS84' };
         // mapInstance.changeLayer('AMAP', amapOptions, map);
         const baiduOptions: ChangeLayerImageConfig = { style: 'vec', crs: 'BD09' };
         (window as any).cesiumMap = map;
-        this.mapInstance.changeLayer('BAIDU', baiduOptions, map);
+        this.mapInstance.changeLayer('AMAP', baiduOptions, map);
+
+        this.mapInstance.flyTo(((window as any).cesiumMap as any).camera, {
+            destination: Cartesian3.fromDegrees(120.000000, 30.260000),
+            duration: 5,
+            easingFunction: EasingFunction.LINEAR_NONE,
+            orientation: {
+                heading: Math.toRadians(0.0),
+                pitch: Math.toRadians(-50.5),
+                roll: 0.0,
+            },
+            complete: () => {
+                console.log('地图加载完毕');
+            },
+        });
         return map;
     }
 
