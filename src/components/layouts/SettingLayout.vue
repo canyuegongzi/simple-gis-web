@@ -6,7 +6,7 @@
            .item-group-title
                span 地图类型
            .item-group-content
-               el-radio-group(v-model="mapType" @change="(val) => settingChange('AMP_TYPE_CHANGE', val)")
+               el-radio-group(v-model="tempMapType" @change="(val) => settingChange('AMP_TYPE_CHANGE', val)")
                    el-radio(:label="item" :key="item" v-for="(item, index) in mapTypeList") {{item}}
        .item-group
            .item-group-title
@@ -15,20 +15,33 @@
 
 <script lang="ts">
 import { MapTypeEnum, MapTypeList } from '../../map/type/CommonType';
-import { Vue, Component, Prop, Emit } from "vue-property-decorator";
+import { Vue, Component, Prop, Emit, Watch } from 'vue-property-decorator';
+import { namespace } from 'vuex-class';
 
+const appModule = namespace('appModule');
 @Component({
     name: 'SettingLayout',
 })
 export default class BaseLayout extends Vue {
-    private valueNum: number = 0
     private mapTypeList = MapTypeList;
-    private mapType: MapTypeEnum = 'LEAFLET';
+    private tempMapType: MapTypeEnum = 'CESIUM';
+
+    @Watch('mapType')
+    public mapTypeChange(val: MapTypeEnum) {
+        this.tempMapType = val;
+    }
+
+    @appModule.State
+    public mapType!: MapTypeEnum;
 
     @Emit('changeClick')
-    private settingChange(type: string, val: any) {
+    private settingChange(type: string, val: MapTypeEnum) {
+        this.setMapType(val);
         return { type, data: val };
     }
+
+    @appModule.Mutation
+    private setMapType!: (number: MapTypeEnum) => void;
 }
 </script>
 

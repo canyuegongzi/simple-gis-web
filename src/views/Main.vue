@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
+import { Vue, Component } from 'vue-property-decorator';
 import Aside from '../components/aside/Index.vue';
 import LeafletView from '../components/map/LeafletView.vue';
 import MapBoxView from '../components/map/MapBoxView.vue';
@@ -31,6 +31,9 @@ import BaseLayout from '../components/layouts/BaseLayout.vue';
 import SettingLayout from '../components/layouts/SettingLayout.vue';
 import { data } from '../components/aside/nav';
 import { MapTypeEnum } from '../map/type/CommonType';
+import { namespace } from 'vuex-class';
+
+const appModule = namespace('appModule');
 
 @Component({
     components: {
@@ -40,12 +43,18 @@ import { MapTypeEnum } from '../map/type/CommonType';
         CesiumView,
         BaseLayout,
         SettingLayout,
-    }
+    },
 })
 export default class Main extends Vue {
     public menus: any = data.list;
-    public mapType: MapTypeEnum = 'CESIUM';
+
+    @appModule.State
+    public mapType!: MapTypeEnum;
+
     public settingOpenStatus: boolean = false;
+
+    @appModule.Mutation
+    private setMapType!: (number: MapTypeEnum) => void;
 
     public $refs!: {
         LeafletView: HTMLFormElement;
@@ -55,7 +64,7 @@ export default class Main extends Vue {
 
     public controlMapType(val: MapTypeEnum) {
         console.log(val);
-        this.mapType = val;
+        this.setMapType(val);
         switch (val) {
             case 'LEAFLET':
                 this.$refs.LeafletView.initMap();

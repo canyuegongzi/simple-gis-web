@@ -1,12 +1,25 @@
 <template lang="pug">
     .pug-container
+        CesiumMarkerDialog(@map:event="mapEvent")
 </template>
 
-<script>
-import { Vue, Component } from "vue-property-decorator";
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator';
+import { namespace } from 'vuex-class';
+import { MapTypeEnum } from '@/map/type/CommonType';
 
-@Component({})
-export default class Marker extends Vue {}
+const appModule = namespace('appModule');
+@Component({
+    components: {},
+})
+export default class Marker extends Vue {
+
+    @appModule.State
+    public mapType!: MapTypeEnum;
+
+    @appModule.Mutation
+    private setMapType!: (number: MapTypeEnum) => void;
+}
 </script>
 
 <style scoped lang="stylus">

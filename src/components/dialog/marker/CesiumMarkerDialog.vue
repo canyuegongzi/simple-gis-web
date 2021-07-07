@@ -5,11 +5,11 @@
             el-radio-group(v-model="markerType")
                 el-radio(:label="1") 普通
                 el-radio(:label="2") 聚合
-            p.title 点位样式
-            el-radio-group(v-model="styleType")
-                el-radio(:label="1") Icon
-                el-radio(:label="2") divIcon
-                el-radio(:label="3") CircleMarker
+            p.title(v-show="markerType === 1") 点位样式
+            el-radio-group(v-model="styleType" v-show="markerType === 1")
+                el-radio(:label="1") EntityList
+                el-radio(:label="2") PrimitiveCollection
+                el-radio(:label="3") GeoJSON
         .buttons
             el-button(type="primary" size="mini" @click="tapEvent('MARKER')") 更新
             el-button(type="primary" size="mini" @click="tapEvent('CLEAR')") 清空
@@ -48,7 +48,7 @@ export default class CesiumMarkerDialog extends Vue {
     top: 80px
     left: 200px
     z-index 9000 !important
-    width: 320px;
+    width: 420px;
     height: 420px;
     border-radius: 16px;
     padding: 0 16px 16px 16px;
