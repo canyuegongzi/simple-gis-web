@@ -1,7 +1,6 @@
 <template lang="pug">
     .map
         #mapbox-container
-        MapboxMarkerDialog(@map:event="mapEvent")
 </template>
 
 <script lang="ts">
@@ -9,192 +8,32 @@ import { Component, Vue } from 'vue-property-decorator';
 import { MapBoxInstanceOptions } from '@/map/type/MapBoxType';
 import MapBoxService from '../../map/service/MapBoxService';
 import MapboxMarkerDialog from '../../components/dialog/marker/MapboxMarkerDialog.vue';
-import { Marker } from 'mapbox-gl';
+import { MapTypeEnum } from '@/map/type/CommonType';
+import { namespace } from 'vuex-class';
 
+const appModule = namespace('appModule');
 @Component({
     components: {
         MapboxMarkerDialog,
     },
 })
 export default class MapBoxView extends Vue {
-    public mapInstance: MapBoxService;
-    public normalLayerMarkers: Marker[] = []; // 普通方式下的marker渲染
-    public resourceMarkers = null; // 资源型的marker渲染
-    public resourceLayer: any = null;
-    public clusterLayer: any = null;  // 聚合图层
+
+    @appModule.State
+    private cesiumMapInstance!: MapBoxService;
+
+    @appModule.Mutation
+    private setMapInstance!: (data: { mapType: MapTypeEnum, instance: any }) => void;
 
     public async initMap() {
         const mapboxProps: MapBoxInstanceOptions = {
             id: 'mapbox-container',
         };
-        this.mapInstance = new MapBoxService(mapboxProps);
-        const map: any = await this.mapInstance.initMapInstance('MAPBOX', { id: 'mapbox-container' });
+        const instance = new MapBoxService(mapboxProps);
+        this.setMapInstance({ mapType: 'MAPBOX', instance });
+        const map: any = await instance.initMapInstance('MAPBOX', { id: 'mapbox-container' });
         (window as any).mapboxMap = map;
         return map;
-    }
-
-    /**
-     * 渲染普通marker（图层方式）
-     */
-    public async renderNormalLayerMarker() {
-        const dataJson: any[] = await import('../../mock/stationList1.json');
-        const markerList: any[] = [];
-        for (let i = 0; i < dataJson.length; i++) {
-            if (markerList.length > 50) {
-                break;
-            }
-            const latitude = parseFloat(dataJson[i].latitude);
-            const longitude = parseFloat(dataJson[i].longitude);
-            const marker: Marker = this.mapInstance.createMarker();
-            marker.setLngLat([longitude, latitude]);
-            marker.addTo((window as any).mapboxMap);
-            markerList.push(marker);
-        }
-        return markerList;
-    }
-
-    /**
-     * 渲染资源型marker
-     */
-    public async renderResourceMarker() {
-        const dataJson: any[] = await import('../../mock/stationList1.json');
-        await this.mapInstance.loadImages({
-            site5: require('../../assets/map/site-5.png'),
-        }, (window as any).mapboxMap);
-        const sourceId: string = 'test-source';
-        let jsonData = this.buildGeoJSONData(dataJson, '1');
-        await this.mapInstance.addSourceToMap(sourceId, jsonData, (window as any).mapboxMap);
-        return await this.mapInstance.renderMarkerLayer(
-            {
-                id: 'test-layer',
-                type: 'symbol',
-                source: sourceId,
-                filter: ['==', 'typeCode', '1'],
-                layout: {
-                    'icon-image': '{symbolImgName}', //图片的source
-                    'icon-size': 0.8,
-                    'icon-ignore-placement': true, //忽略碰撞检测
-                    visibility: 'visible',
-                },
-            },
-            (window as any).mapboxMap,
-        );
-    }
-
-    /**
-     * 渲染聚合型marker
-     */
-    public async renderClusterMarker() {
-        const dataJson: any[] = await import('../../mock/stationList1.json');
-        await this.mapInstance.loadImages({
-            site5: require('../../assets/map/site-5.png'),
-        }, (window as any).mapboxMap);
-        let jsonData = this.buildGeoJSONData(dataJson, '1');
-        const { clusterName, layerName } = await this.mapInstance.renderClusterMakerLayer({
-            jsonData: jsonData,
-            clusterName: 'eventLayer_test',
-            clusterColor: 'blue',
-            getCircleStyle: {
-                'circle-radius': 8,
-                'circle-color': 'red',
-            },
-            unClusterLayerStyle: {},
-            clusterCountLayerStyle: {},
-            // clusterProperties: { sum: ['+', ['get', 'total']] },
-            // clusterProperties: { sum: ['+', ['to-number', ['get', 'total']]] },
-            layoutText: {
-                'text-field': '{point_count}',
-                'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-                'text-size': 12,
-                'icon-ignore-placement': true,
-            },
-        }, (window as any).mapboxMap);
-
-        if (layerName) {
-            this.mapInstance.clusterMakerClickCallback(clusterName, layerName, (window as any).mapboxMap, this.clusterMarkerClickFun);
-        }
-        if (clusterName) {
-            this.clusterLayer = clusterName;
-        }
-    }
-
-    /**
-     * 构造GeoJSON数据，给每个属性增加symbolName字段（该字段用于匹配图标）
-     * @param dataList
-     * @param code
-     * @returns {*}
-     */
-    public buildGeoJSONData(dataList: any[], code: string) {
-        let GeoJsonHeader: any = this.mapInstance.getCommonGeoJson();
-        for (let i = 0; i < dataList.length; i++) {
-            const point = { ...dataList[i] };
-            let lon = parseFloat(point.longitude);
-            let lat = parseFloat(point.latitude);
-            // TODO 判断存在误差，后期改进
-            let coordinates = lon > lat ? [lon, lat, 0] : [lat, lon, 0]; //存在经纬度录反的情况
-            // 处理一下point，添加symbolImgName字段，用以匹配图标资源,
-            if (code) {
-                point['typeCode'] = point.hasOwnProperty('typeCode') ? point.typeCode : code;
-                point['symbolImgName'] = 'site5';
-            }
-            let featureItem = {
-                type: 'Feature',
-                properties: { ...point },
-                geometry: { type: 'Point', coordinates: coordinates },
-            };
-            GeoJsonHeader.features.push(featureItem);
-        }
-        return GeoJsonHeader;
-    }
-
-    /**
-     * 图层点击事件
-     */
-    public clusterMarkerClickFun(coordinates: any, info: any, clusterName: any) {
-        console.log(info);
-    }
-
-    /**
-     * 地图事件
-     * @param data
-     */
-    public async mapEvent(data: any) {
-        if (data.action === 'MARKER') {
-            // 普通marker
-            if (data.data.markerType === 1) {
-                switch (data.data.styleType) {
-                    case 2:
-                        const LayerId = await this.renderResourceMarker();
-                        if (LayerId) {
-                            this.resourceLayer = LayerId;
-                        }
-                        break;
-                    case 1:
-                        // 图层渲染
-                        this.normalLayerMarkers = await this.renderNormalLayerMarker();
-                        break;
-                }
-            }
-            // 聚合点位
-            if (data.data.markerType === 2) {
-                await this.renderClusterMarker();
-            }
-
-        }
-        if (data.action === 'CLEAR') {
-            // 清空普通marker渲染的marker
-            for (let i = 0; i < this.normalLayerMarkers.length; i++) {
-                this.normalLayerMarkers[i].remove();
-            }
-            this.normalLayerMarkers = [];
-            if (this.resourceLayer && (window as any).mapboxMap.getLayer(this.resourceLayer)) {
-                (window as any).mapboxMap.removeLayer(this.resourceLayer);
-                this.resourceLayer = null;
-            }
-            // 清楚聚合图层
-            this.mapInstance.removeClusterLayer(this.clusterLayer, (window as any).mapboxMap);
-
-        }
     }
 }
 </script>

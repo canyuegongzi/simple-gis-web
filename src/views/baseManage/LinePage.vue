@@ -3,11 +3,12 @@
         p 线绘制
 </template>
 
-<script>
-import { Vue, Component } from "vue-property-decorator";
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator';
 
 @Component({})
-export default class Line extends Vue {}
+export default class LinePage extends Vue {
+}
 </script>
 
 <style scoped lang="stylus">

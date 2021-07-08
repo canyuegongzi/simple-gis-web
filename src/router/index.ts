@@ -18,12 +18,12 @@ export const router: VueRouter = new VueRouter({
         },
         {
             path: '/baseManage/marker',
-            component: () => import('../views/baseManage/Marker.vue'),
+            component: () => import('../views/baseManage/MarkerPage.vue'),
         },
         {
             path: '/baseManage/line',
-            component: () => import('../views/baseManage/Line.vue'),
-        }
+            component: () => import('../views/baseManage/LinePage.vue'),
+        },
 
     ]
 });
