@@ -24,6 +24,10 @@ export const router: VueRouter = new VueRouter({
             path: '/baseManage/line',
             component: () => import('../views/baseManage/LinePage.vue'),
         },
+        {
+            path: '/baseManage/popUp',
+            component: () => import('../views/baseManage/PopUpPage.vue'),
+        },
 
     ]
 });

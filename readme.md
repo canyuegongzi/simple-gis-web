@@ -9,5 +9,6 @@ docker build -t simple-gis-web  .
 
 docker tag 713f3970cee9b1734546b88a7ccf61c14947236686d9ba85f990200e5781b32a canyuegongzi/simple-gis-web:1.2
 
+docker push canyuegongzi/simple-gis-web:1.3
 
 ```
