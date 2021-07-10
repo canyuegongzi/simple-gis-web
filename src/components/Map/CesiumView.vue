@@ -40,10 +40,10 @@ export default class CesiumView extends Vue {
         // mapInstance.changeLayer('AMAP', amapOptions, map);
         const baiduOptions: ChangeLayerImageConfig = { style: 'vec', crs: 'BD09' };
         (window as any).cesiumMap = map;
-        this.cesiumMapInstance.changeLayer('AMAP', baiduOptions, map);
+        // this.cesiumMapInstance.changeLayer('AMAP', baiduOptions, map);
         this.cesiumMapInstance.flyTo(((window as any).cesiumMap as any).camera, {
             destination: Cartesian3.fromDegrees(120.6789987, 30.260000, 9000),
-            duration: 5,
+            duration: 2,
             easingFunction: EasingFunction.LINEAR_NONE,
             orientation: {
                 heading: Math.toRadians(-15),

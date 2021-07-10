@@ -26,6 +26,7 @@ import {
 } from 'cesium';
 import { DivIcon, Icon } from 'leaflet';
 import { Marker } from 'mapbox-gl';
+import { CesiumClusterWidgets } from '../../map/service/cesium/widgets/CesiumClusterWidgets';
 
 const appModule = namespace('appModule');
 
@@ -56,6 +57,7 @@ export default class MarkerPage extends Vue {
     public normalLayer4Leaflet: any = null;  // 聚合图层
     public normalLayer5Leaflet: any = null;  // 聚合图层
     public normalLayer6Leaflet: any = null;  // 聚合图层
+    public cesiumClusterWidgets: CesiumClusterWidgets | null = null;
 
     @appModule.State
     public mapType!: MapTypeEnum;
@@ -179,7 +181,20 @@ export default class MarkerPage extends Vue {
      * 渲染聚合 marker
      */
     public async renderClusterLayerMarkerCesium() {
-        console.log('聚合点位渲染');
+        const geoJson = await this.buildGeoJsonCesium();
+        this.cesiumClusterWidgets = new CesiumClusterWidgets({
+            viewer: (window as any).cesiumMap,
+            data: geoJson,
+            selectedEntity: this.cesiumClusterWidgetsSelect,
+        });
+    }
+
+    /**
+     * 点位选择
+     */
+    public cesiumClusterWidgetsSelect(e: any) {
+        console.log('这是marker页面');
+        console.log(e);
     }
 
     /**
@@ -210,6 +225,17 @@ export default class MarkerPage extends Vue {
 
         }
         if (data.action === 'CLEAR') {
+            this.cesiumResetMap();
+
+        }
+
+    }
+
+    /**
+     * cesium 清空
+     */
+    public cesiumResetMap() {
+        try {
             // 普通
             for (let i = 0; i < normalIcon.length; i++) {
                 (window as any).cesiumMap.entities.remove(normalIcon[i]);
@@ -227,6 +253,13 @@ export default class MarkerPage extends Vue {
                 geoJsonMarker = undefined;
             }
 
+            // 聚合组件销毁
+            if (this.cesiumClusterWidgets) {
+                this.cesiumClusterWidgets.destroy();
+                this.cesiumClusterWidgets = null;
+            }
+        } catch (e) {
+            console.warn(e);
         }
 
     }
@@ -385,6 +418,15 @@ export default class MarkerPage extends Vue {
 
         }
         if (data.action === 'CLEAR') {
+            this.mapBoxResetMap();
+        }
+    }
+
+    /**
+     * 清楚mapbox 点位
+     */
+    public mapBoxResetMap() {
+        try {
             // 清空普通marker渲染的marker
             for (let i = 0; i < this.normalLayerMarkersMapBox.length; i++) {
                 this.normalLayerMarkersMapBox[i].remove();
@@ -396,8 +438,11 @@ export default class MarkerPage extends Vue {
             }
             // 清楚聚合图层
             this.mapBoxMapInstance.removeClusterLayer(this.clusterLayerMapBox, (window as any).mapboxMap);
-
+        } catch (e) {
+            console.warn(e);
         }
+
+
     }
 
     /************************************  end  ***********************************************************/
@@ -518,6 +563,16 @@ export default class MarkerPage extends Vue {
 
         }
         if (data.action === 'CLEAR') {
+            this.leafletResetMap();
+        }
+
+    }
+
+    /**
+     * leaflet 请除点位
+     */
+    public leafletResetMap() {
+        try {
             if ((window as any).leafletMap.hasLayer(this.normalLayer1Leaflet)) {
                 (window as any).leafletMap.removeLayer(this.normalLayer1Leaflet);
 
@@ -542,11 +597,21 @@ export default class MarkerPage extends Vue {
                 (window as any).leafletMap.removeLayer(this.normalLayer6Leaflet);
 
             }
+        } catch (e) {
+            console.warn(e);
         }
+
 
     }
 
     /************************************  end  ***********************************************************/
+
+    public beforeDestroy() {
+        this.cesiumResetMap();
+        this.mapBoxResetMap();
+        this.leafletResetMap();
+
+    }
 
 }
 </script>
