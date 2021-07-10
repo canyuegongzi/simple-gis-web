@@ -208,15 +208,15 @@ export default class MarkerPage extends Vue {
             // 普通marker
             if (data.data.markerType === 1) {
                 switch (data.data.styleType) {
-                    case 3:
-                        await this.renderNormalGeoJsonLayerMarkerCesium();
-                        break;
-                    case 2:
-                        await this.renderNormalPointPrimitiveCollectionLayerMarkerCesium();
-                        break;
-                    case 1:
-                        await this.renderNormalEntityListLayerMarkerCesium();
-                        break;
+                case 3:
+                    await this.renderNormalGeoJsonLayerMarkerCesium();
+                    break;
+                case 2:
+                    await this.renderNormalPointPrimitiveCollectionLayerMarkerCesium();
+                    break;
+                case 1:
+                    await this.renderNormalEntityListLayerMarkerCesium();
+                    break;
                 }
             }
             if (data.data.markerType === 2) {
@@ -399,16 +399,16 @@ export default class MarkerPage extends Vue {
             // 普通marker
             if (data.data.markerType === 1) {
                 switch (data.data.styleType) {
-                    case 2:
-                        const LayerId = await this.renderResourceMarkerMapBox();
-                        if (LayerId) {
-                            this.resourceLayerMapBox = LayerId;
-                        }
-                        break;
-                    case 1:
-                        // 图层渲染
-                        this.normalLayerMarkersMapBox = await this.renderNormalLayerMarkerMapBox();
-                        break;
+                case 2:
+                    const LayerId = await this.renderResourceMarkerMapBox();
+                    if (LayerId) {
+                        this.resourceLayerMapBox = LayerId;
+                    }
+                    break;
+                case 1:
+                    // 图层渲染
+                    this.normalLayerMarkersMapBox = await this.renderNormalLayerMarkerMapBox();
+                    break;
                 }
             }
             // 聚合点位
@@ -527,37 +527,37 @@ export default class MarkerPage extends Vue {
             // 普通marker
             if (data.data.markerType === 1) {
                 switch (data.data.styleType) {
-                    case 3:
-                        markerList = await this.renderNormalCircleMarkerLeaflet();
-                        this.normalLayer3Leaflet = this.leafletMapInstance.renderMarkerToGroupLayer((window as any).leafletMap, markerList);
-                        break;
-                    case 2:
-                        markerList = await this.renderNormalDivIconMarkerLeaflet();
-                        this.normalLayer2Leaflet = this.leafletMapInstance.renderMarkerToGroupLayer((window as any).leafletMap, markerList);
-                        break;
-                    case 1:
-                        markerList = await this.renderNormalIconMarkerLeaflet();
-                        this.normalLayer1Leaflet = this.leafletMapInstance.renderMarkerToGroupLayer((window as any).leafletMap, markerList);
-                        break;
+                case 3:
+                    markerList = await this.renderNormalCircleMarkerLeaflet();
+                    this.normalLayer3Leaflet = this.leafletMapInstance.renderMarkerToGroupLayer((window as any).leafletMap, markerList);
+                    break;
+                case 2:
+                    markerList = await this.renderNormalDivIconMarkerLeaflet();
+                    this.normalLayer2Leaflet = this.leafletMapInstance.renderMarkerToGroupLayer((window as any).leafletMap, markerList);
+                    break;
+                case 1:
+                    markerList = await this.renderNormalIconMarkerLeaflet();
+                    this.normalLayer1Leaflet = this.leafletMapInstance.renderMarkerToGroupLayer((window as any).leafletMap, markerList);
+                    break;
                 }
             }
             if (data.data.markerType === 2) {
                 switch (data.data.styleType) {
-                    case 3:
-                        markerList = await this.renderNormalCircleMarkerLeaflet();
-                        this.normalLayer4Leaflet = this.leafletMapInstance.leafletMarkerCluster.createClusterMarker(markerList);
-                        (window as any).leafletMap.addLayer(this.normalLayer4Leaflet);
-                        break;
-                    case 2:
-                        markerList = await this.renderNormalDivIconMarkerLeaflet();
-                        this.normalLayer5Leaflet = this.leafletMapInstance.leafletMarkerCluster.createClusterMarker(markerList);
-                        (window as any).leafletMap.addLayer(this.normalLayer5Leaflet);
-                        break;
-                    case 1:
-                        markerList = await this.renderNormalIconMarkerLeaflet();
-                        this.normalLayer6Leaflet = this.leafletMapInstance.leafletMarkerCluster.createClusterMarker(markerList);
-                        (window as any).leafletMap.addLayer(this.normalLayer6Leaflet);
-                        break;
+                case 3:
+                    markerList = await this.renderNormalCircleMarkerLeaflet();
+                    this.normalLayer4Leaflet = this.leafletMapInstance.leafletMarkerCluster.createClusterMarker(markerList);
+                    (window as any).leafletMap.addLayer(this.normalLayer4Leaflet);
+                    break;
+                case 2:
+                    markerList = await this.renderNormalDivIconMarkerLeaflet();
+                    this.normalLayer5Leaflet = this.leafletMapInstance.leafletMarkerCluster.createClusterMarker(markerList);
+                    (window as any).leafletMap.addLayer(this.normalLayer5Leaflet);
+                    break;
+                case 1:
+                    markerList = await this.renderNormalIconMarkerLeaflet();
+                    this.normalLayer6Leaflet = this.leafletMapInstance.leafletMarkerCluster.createClusterMarker(markerList);
+                    (window as any).leafletMap.addLayer(this.normalLayer6Leaflet);
+                    break;
                 }
             }
 
