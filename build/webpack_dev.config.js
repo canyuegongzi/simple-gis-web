@@ -13,6 +13,7 @@ module.exports = {
         publicPath: '/',
         sourcePrefix: '',
     },
+    target: 'web',
     resolve: {
         extensions: ['.ts', '.js', '.vue'],
         alias: {
@@ -51,6 +52,7 @@ module.exports = {
         contentBase: path.join(__dirname, './dist'),
         open: true,
         port: 9005,
+        hot: true,
     },
     // devtool: 'eval-source-map',
     devtool: false,

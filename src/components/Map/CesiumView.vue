@@ -40,19 +40,21 @@ export default class CesiumView extends Vue {
         // mapInstance.changeLayer('AMAP', amapOptions, map);
         const baiduOptions: ChangeLayerImageConfig = { style: 'vec', crs: 'BD09' };
         (window as any).cesiumMap = map;
-        // this.cesiumMapInstance.changeLayer('AMAP', baiduOptions, map);
-        this.cesiumMapInstance.flyTo(((window as any).cesiumMap as any).camera, {
-            destination: Cartesian3.fromDegrees(120.6789987, 30.260000, 9000),
-            duration: 2,
-            easingFunction: EasingFunction.LINEAR_NONE,
-            orientation: {
-                heading: Math.toRadians(-15),
-                pitch: Math.toRadians(-82),
-                roll: Math.toRadians(0),
-            },
-            complete: () => {
-                console.log('地图加载完毕');
-            },
+        this.$nextTick(() => {
+            // this.cesiumMapInstance.changeLayer('AMAP', baiduOptions, map);
+            this.cesiumMapInstance.flyTo(((window as any).cesiumMap as any).camera, {
+                destination: Cartesian3.fromDegrees(120.6789987, 30.260000, 11000),
+                duration: 2,
+                easingFunction: EasingFunction.LINEAR_NONE,
+                orientation: {
+                    heading: Math.toRadians(0),
+                    pitch: Math.toRadians(-40),
+                    roll: 0.0,
+                },
+                complete: () => {
+                    console.log('地图加载完毕');
+                },
+            });
         });
         return map;
     }

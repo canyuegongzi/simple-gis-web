@@ -4,18 +4,7 @@
  * @desc cesium 聚合点位类
  */
 
-import {
-    GeoJsonDataSource,
-    Resource,
-    Viewer,
-    Event,
-    VerticalOrigin,
-    Entity,
-    Color,
-    HorizontalOrigin,
-    EntityCluster,
-    DataSource,
-} from 'cesium';
+import { GeoJsonDataSource, Resource, Viewer, Event, VerticalOrigin, Entity, Color, HorizontalOrigin, EntityCluster, DataSource } from 'cesium';
 
 interface ClusterWidgetsOption {
     viewer: Viewer;    // 地图实例

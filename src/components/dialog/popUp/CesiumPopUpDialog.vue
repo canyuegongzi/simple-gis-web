@@ -5,16 +5,12 @@
             i.el-icon-close.close(@click="changeStatus")
             .buttons-container
                 p.title 点位类型
-                el-radio-group(v-model="markerType")
-                    el-radio(:label="1") 普通
-                    el-radio(:label="2") 聚合
                 p.title(v-show="markerType === 1") 点位样式
-                el-radio-group(v-model="styleType" v-show="markerType === 1")
-                    el-radio(:label="1") 图层渲染
-                    el-radio(:label="2") 资源渲染
             .buttons
-                el-button(type="primary" size="mini" @click="tapEvent('MARKER')") 更新
-                el-button(type="primary" size="mini" @click="tapEvent('CLEAR')") 清空
+                el-button(type="primary" size="mini" @click="tapEvent('renderMarker')") 渲染点位
+                el-button(type="primary" size="mini" @click="tapEvent('deleteMarker')") 删除点位
+                // el-button(type="primary" size="mini" @click="tapEvent('open')") 打开弹框
+                el-button(type="primary" size="mini" @click="tapEvent('close')") 关闭弹窗
 
 </template>
 
@@ -23,11 +19,12 @@ import { Vue, Component, Emit } from 'vue-property-decorator';
 import CommonIconDialog from '../../../components/controlWidget/CommonIconDialog.vue';
 
 @Component({
+    name: 'CesiumPopUpDialog',
     components: {
         CommonIconDialog
     }
 })
-export default class MapboxMarkerDialog extends Vue {
+export default class CesiumPopUpDialog extends Vue {
     public visible = true;
     public markerType = 1;
     public styleType = 1;
@@ -40,13 +37,10 @@ export default class MapboxMarkerDialog extends Vue {
     @Emit('map:event')
     public tapEvent(type: string) {
         return {
-            action: type,
-            data: {
-                markerType: this.markerType,
-                styleType: this.styleType,
-            },
+            action: type
         };
     }
+
     /**
      * 显示状态修改
      * @param status
@@ -54,7 +48,6 @@ export default class MapboxMarkerDialog extends Vue {
     public changeStatus(status: string) {
         this.showFormContent = !this.showFormContent;
     }
-
 }
 </script>
 
@@ -70,7 +63,7 @@ export default class MapboxMarkerDialog extends Vue {
     top: 16px
     left: 200px
     z-index 9000 !important
-    width: 320px;
+    width: 420px;
     height: 420px;
     border-radius: 16px;
     padding: 0 16px 16px 16px;

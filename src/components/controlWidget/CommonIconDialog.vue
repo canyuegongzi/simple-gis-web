@@ -1,36 +1,38 @@
 <template lang="pug">
-    .layer-button(@click="emitEvent")
-       i.el-icon-setting
+    .dialog-button-icon(@click="emitEvent")
+        .el-icon-bangzhu
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from "vue-property-decorator";
 
 @Component({
-    name: 'LayerControlWidget'
+    name: 'CommonIconDialog'
 })
-export default class LayerControlWidget extends Vue {
+export default class CommonIconDialog extends Vue {
     private valueNum: number = 0
 
     @Emit('change')
     private emitEvent() {
-        console.log('444');
         return 'SETTING';
     }
 }
 </script>
 
 <style lang="stylus" scoped>
-.layer-button
+.dialog-button-icon
     width 32px
     height 32px
     font-size 28px
     position absolute
-    right 16px
+    left 16px
     top 16px
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, .9);
+    background: rgba(255,255,255,.9);
     border-radius 16px
+    cursor pointer
+    .el-icon-bangzhu
+        font-size 24px
 </style>

@@ -1,8 +1,8 @@
 <template lang="pug">
     .pug-container
         CesiumMarkerDialog(@map:event="cesiumMapEvent" v-if="mapType === 'CESIUM'")
-        MapboxMarkerDialog(@map:event="mapBoxMapEvent" v-if="mapType === 'MAPBOX'")
-        LeafletMarkerDialog(@map:event="mapEventLeaflet" v-if="mapType === 'LEAFLET'")
+        MapboxMarkerDialog(@map:event="mapBoxMapEvent" v-else-if="mapType === 'MAPBOX'")
+        LeafletMarkerDialog(@map:event="mapEventLeaflet" v-else-if="mapType === 'LEAFLET'")
 </template>
 
 <script lang="ts">

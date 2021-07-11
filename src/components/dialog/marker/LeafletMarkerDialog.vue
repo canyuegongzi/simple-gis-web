@@ -1,29 +1,37 @@
 <template lang="pug">
-    div(class="drag marker-container" style="background: #ffffff" v-draw)
-        .buttons-container
-            p.title 点位类型
-            el-radio-group(v-model="markerType")
-                el-radio(:label="1") 普通
-                el-radio(:label="2") 聚合
-            p.title 点位样式
-            el-radio-group(v-model="styleType")
-                el-radio(:label="1") Icon
-                el-radio(:label="2") divIcon
-                el-radio(:label="3") CircleMarker
-        .buttons
-            el-button(type="primary" size="mini" @click="tapEvent('MARKER')") 更新
-            el-button(type="primary" size="mini" @click="tapEvent('CLEAR')") 清空
+    div()
+        CommonIconDialog(@change="changeStatus" v-show="!showFormContent")
+        div(class="drag marker-container" style="background: #ffffff" v-draw v-show="showFormContent")
+            i.el-icon-close.close(@click="changeStatus")
+            .buttons-container
+                p.title 点位类型
+                el-radio-group(v-model="markerType")
+                    el-radio(:label="1") 普通
+                    el-radio(:label="2") 聚合
+                p.title 点位样式
+                el-radio-group(v-model="styleType")
+                    el-radio(:label="1") Icon
+                    el-radio(:label="2") divIcon
+                    el-radio(:label="3") CircleMarker
+            .buttons
+                el-button(type="primary" size="mini" @click="tapEvent('MARKER')") 更新
+                el-button(type="primary" size="mini" @click="tapEvent('CLEAR')") 清空
 
 </template>
 
 <script lang="ts">
 import { Vue, Component, Emit } from 'vue-property-decorator';
-
-@Component({})
+import CommonIconDialog from '../../../components/controlWidget/CommonIconDialog.vue';
+@Component({
+    components: {
+        CommonIconDialog
+    }
+})
 export default class LeafletMarkerDialog extends Vue {
     public visible = true;
     public markerType = 1;
     public styleType = 1;
+    public showFormContent: boolean = true; // 是否显示
 
     /**
      * 事件
@@ -39,13 +47,27 @@ export default class LeafletMarkerDialog extends Vue {
             },
         };
     }
+
+    /**
+     * 显示状态修改
+     * @param status
+     */
+    public changeStatus(status: string) {
+        this.showFormContent = !this.showFormContent;
+    }
 }
 </script>
 
 <style scoped lang="stylus">
+.close
+    position absolute
+    top 16px
+    right 16px
+    cursor pointer
+    font-size 18px
 .marker-container
     background #ffffff
-    top: 80px
+    top: 16px
     left: 200px
     z-index 9000 !important
     width: 320px;

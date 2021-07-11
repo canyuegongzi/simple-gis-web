@@ -5,7 +5,7 @@
     "main": "src/main.ts",
     "scripts": {
         "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-        "webpack:dev": "webpack serve --config ./build/webpack_dev.config --mode development",
+        "webpack:dev": "webpack serve --config ./build/webpack_dev.config --env development --mode development --hot",
         "webpack:build": "webpack --config ./build/webpack_build.config --mode production",
         "webpack:analyzer:": "webpack --config ./build/webpack_analyzer.config --mode production",
         "test": "echo \"Error: no test specified\" && exit 1"
