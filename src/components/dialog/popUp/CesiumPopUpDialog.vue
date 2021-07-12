@@ -3,9 +3,9 @@
         CommonIconDialog(@change="changeStatus" v-show="!showFormContent")
         div(class="drag marker-container" style="background: #ffffff" v-draw v-show="showFormContent")
             i.el-icon-close.close(@click="changeStatus")
-            .buttons-container
-                p.title 点位类型
-                p.title(v-show="markerType === 1") 点位样式
+            //.buttons-container
+            //    p.title 点位类型
+            //    p.title(v-show="markerType === 1") 点位样式
             .buttons
                 el-button(type="primary" size="mini" @click="tapEvent('renderMarker')") 渲染点位
                 el-button(type="primary" size="mini" @click="tapEvent('deleteMarker')") 删除点位
@@ -60,11 +60,12 @@ export default class CesiumPopUpDialog extends Vue {
     font-size 18px
 .marker-container
     background #ffffff
+    border: 1px solid #909399;
     top: 16px
     left: 200px
     z-index 9000 !important
-    width: 420px;
-    height: 420px;
+    width: 380px;
+    height: 300px;
     border-radius: 16px;
     padding: 0 16px 16px 16px;
 

@@ -1,11 +1,13 @@
 <template lang="pug">
     .pug-container
         CesiumPopUpDialog(@map:event="cesiumMapEvent" v-if="mapType === 'CESIUM'")
+        MapboxPopUpDialog(@map:event="mapboxMapEvent" v-if="mapType === 'MAPBOX'")
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import CesiumPopUpDialog from '../../components/dialog/popUp/CesiumPopUpDialog.vue';
+import MapboxPopUpDialog from '../../components/dialog/popUp/MapboxPopUpDialog.vue';
 import { namespace } from 'vuex-class';
 import { MapTypeEnum } from '@/map/type/CommonType';
 import CesiumService from '@/map/service/CesiumService';
@@ -14,12 +16,14 @@ import MapBoxService from '@/map/service/MapBoxService';
 import { Cartesian2, Cartesian3, Entity, ScreenSpaceEventHandler, ScreenSpaceEventType } from 'cesium';
 import { CesiumCustomPopUp } from '../../map/service/cesium/widgets/CesiumCustomPopUp';
 import VuePointDetailComponent from '../../components/dialog/popUp/commonWidget/VuePointDetailComponent.vue';
+import { Popup } from 'mapbox-gl';
 const appModule = namespace('appModule');
 
 let windowVm = Vue.extend(VuePointDetailComponent);
 @Component({
     components: {
-        CesiumPopUpDialog
+        CesiumPopUpDialog,
+        MapboxPopUpDialog
     }
 })
 export default class PopUpPage extends Vue {
@@ -43,6 +47,10 @@ export default class PopUpPage extends Vue {
     private normalIconCesium: any[] = [];
 
     private handlerCesium: ScreenSpaceEventHandler | null = null;
+
+    public resourceLayerMapBox: any = null;  // mapbox 点位图层
+
+    public glPopupMapbox: Popup | null = null; // mapbox  弹框实例
 
     /************************************  CESIUM  ***********************************************************/
 
@@ -167,10 +175,161 @@ export default class PopUpPage extends Vue {
         }
 
     }
-    /************************************  end  ***********************************************************/
 
+
+    /************************************  end  ***********************************************************/
+    /************************************  MAPBOX  ***********************************************************/
+    /**
+     * mapbox 事件处理
+     */
+    public async mapboxMapEvent(data: any) {
+        console.log(data);
+        switch (data.action) {
+        case 'renderMarker':
+            const LayerId: any = await this.renderMarkerMapbox();
+            if (LayerId) {
+                this.resourceLayerMapBox = LayerId;
+                this.addListerEventMapbox(LayerId);
+            }
+            break;
+        case 'deleteMarker':
+            return this.deleteMarkerMapbox();
+        case 'open':
+            console.log('打开弹框');
+            break;
+        case 'close':
+            return this.closePopUpMapbox();
+        }
+    }
+    /**
+     * 构造GeoJSON数据，给每个属性增加symbolName字段（该字段用于匹配图标）
+     * @param dataList
+     * @param code
+     * @returns {*}
+     */
+    public buildGeoJSONDataMapBox(dataList: any[], code: string) {
+        let GeoJsonHeader: any = this.mapBoxMapInstance.getCommonGeoJson();
+        for (let i = 0; i < dataList.length; i++) {
+            const point = { ...dataList[i] };
+            let lon = parseFloat(point.longitude);
+            let lat = parseFloat(point.latitude);
+            // TODO 判断存在误差，后期改进
+            let coordinates = lon > lat ? [lon, lat, 0] : [lat, lon, 0]; //存在经纬度录反的情况
+            // 处理一下point，添加symbolImgName字段，用以匹配图标资源,
+            if (code) {
+                point['typeCode'] = point.hasOwnProperty('typeCode') ? point.typeCode : code;
+                point['symbolImgName'] = 'site5';
+            }
+            let featureItem = {
+                type: 'Feature',
+                properties: { ...point },
+                geometry: { type: 'Point', coordinates: coordinates },
+            };
+            GeoJsonHeader.features.push(featureItem);
+        }
+        return GeoJsonHeader;
+    }
+
+
+    /**
+     * mapbox 渲染
+     */
+    public async renderMarkerMapbox() {
+        console.log('渲染marker');
+        const dataJson: any[] = await import('../../mock/popUp/stationList1.json');
+        await this.mapBoxMapInstance.loadImages({
+            site5: require('../../assets/map/site-5.png'),
+        }, (window as any).mapboxMap);
+        const sourceId: string = 'test-source';
+        let jsonData = this.buildGeoJSONDataMapBox(dataJson, '1');
+        await this.mapBoxMapInstance.addSourceToMap(sourceId, jsonData, (window as any).mapboxMap);
+        return await this.mapBoxMapInstance.renderMarkerLayer(
+            {
+                id: 'test-layer1',
+                type: 'symbol',
+                source: sourceId,
+                filter: ['==', 'typeCode', '1'],
+                layout: {
+                    'icon-image': '{symbolImgName}', //图片的source
+                    'icon-size': 1.2,
+                    'icon-ignore-placement': true, //忽略碰撞检测
+                    visibility: 'visible',
+                },
+            },
+            (window as any).mapboxMap,
+        );
+    }
+
+    /**
+     * 删除mapbox
+     */
+    public deleteMarkerMapbox() {
+        console.log('删除marker');
+        this.closePopUpMapbox();
+        console.log(this.resourceLayerMapBox);
+        if (this.resourceLayerMapBox && (window as any).mapboxMap.getLayer(this.resourceLayerMapBox)) {
+            // 移除掉图层点击事件
+            (window as any).mapboxMap.off('click', this.resourceLayerMapBox, this.clickEventHandler);
+            (window as any).mapboxMap.removeLayer(this.resourceLayerMapBox);
+            this.resourceLayerMapBox = null;
+        }
+    }
+
+    /**
+     * 点击事件处理
+     */
+    public clickEventHandler(e: any) {
+        let coordinates = e.features[0].geometry.coordinates.slice(); //图标的经纬度
+        console.log(coordinates);
+        console.log(e.features[0].properties);
+        const vmInstance: any = new windowVm({
+            propsData: {
+                info: { name: e.features[0].properties.name },
+                closePopUp: () => {
+                    this.closePopUpMapbox();
+                },
+            }
+        });
+        this.closePopUpMapbox();
+        this.glPopupMapbox = new Popup({
+            className: 'blue-popup',
+            closeOnClick: true,
+            closeButton: false,
+            offset: [0, 0],
+        }).setLngLat(coordinates).setDOMContent(vmInstance.$mount().$el).setMaxWidth('none').addTo((window as any).mapboxMap);
+
+        (window as any).mapboxMap.easeTo({
+            center: [coordinates[0], coordinates[1]],
+            speed: 0.6,
+            curve: 1.0,
+        });
+
+
+    }
+
+    /**
+     * 事件监听
+     */
+    public addListerEventMapbox(layerId: string) {
+        console.log(layerId);
+        (window as any).mapboxMap.on('click', layerId, this.clickEventHandler);
+    }
+
+    /**
+     * 关闭弹框
+     */
+    public closePopUpMapbox() {
+        if (this.glPopupMapbox) {
+            this.glPopupMapbox.remove();
+            this.glPopupMapbox = null;
+        }
+    }
+    /************************************  start  ***********************************************************/
+
+    /************************************  end  ***********************************************************/
     public beforeDestroy() {
         this.deleteEntityListLayerMarkerCesium();
+        this.deleteMarkerMapbox();
 
     }
 }

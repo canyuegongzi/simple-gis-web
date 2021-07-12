@@ -66,14 +66,14 @@ export default class Main extends Vue {
         console.log(val);
         this.setMapType(val);
         switch (val) {
-            case 'LEAFLET':
-                this.$refs.LeafletView.initMap();
-                break;
-            case 'MAPBOX':
-                this.$refs.MapBoxView.initMap();
-                break;
-            case 'CESIUM':
-                this.$refs.CesiumView.initMap();
+        case 'LEAFLET':
+            this.$refs.LeafletView.initMap();
+            break;
+        case 'MAPBOX':
+            this.$refs.MapBoxView.initMap();
+            break;
+        case 'CESIUM':
+            this.$refs.CesiumView.initMap();
         }
     }
 

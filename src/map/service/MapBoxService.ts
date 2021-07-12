@@ -27,15 +27,43 @@ export default class MapBoxService extends MapService {
         }
         const map: Map = new Map({
             container: props.id,
-            style: 'mapbox://styles/mapbox/navigation-day-v1', // stylesheet location
+            // style: 'mapbox://styles/mapbox/navigation-day-v1', // stylesheet location
             // style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
+            // style: 'mapbox://styles/mapbox-map-design/ckhqrf2tz0dt119ny6azh975y',
+            // style: 'mapbox://styles/mapbox/satellite-streets-v11',
+            style: 'mapbox://styles/mapbox/satellite-v9',
             center: [120, 30],
+
+            pitch: 60,
+            bearing: 80,
+
             maxZoom: 18,
             minZoom: 5,
             zoom: 9,
             accessToken: 'pk.eyJ1IjoiY2FueXVlZ29uZ3ppIiwiYSI6ImNrcW9sOW5jajAxMDQyd3AzenlxNW80aHYifQ.0Nz5nOOxi4-qqzf2od3ZRA',
         });
         CommonStore.setInstance(type, map);
+        /*map.on('load', function () {
+            map.addSource('mapbox-dem', {
+                'type': 'raster-dem',
+                'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
+                'tileSize': 512,
+                'maxzoom': 14
+            });
+            // add the DEM source as a terrain layer with exaggerated height
+            map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
+
+            // add a sky layer that will show when the map is highly pitched
+            map.addLayer({
+                'id': 'sky',
+                'type': 'sky',
+                'paint': {
+                    'sky-type': 'atmosphere',
+                    'sky-atmosphere-sun': [0.0, 0.0],
+                    'sky-atmosphere-sun-intensity': 15
+                }
+            });
+        });*/
         return map;
 
     }
@@ -171,7 +199,7 @@ export default class MapBoxService extends MapService {
                 // 地图中已经存在该图层
                 if (andShow) this.showOrHideMapLayerById(layerId, 'show', map);
                 // 此时不再返回图层名字。（并且无需再次绑定事件）
-                resolve(null);
+                resolve(layerId);
             }
 
         });

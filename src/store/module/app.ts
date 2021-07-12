@@ -28,15 +28,15 @@ export default class AppStoreModule extends VuexModule {
     @Mutation
     public setMapInstance(data: { mapType: MapTypeEnum, instance: any }) {
         switch (data.mapType) {
-            case 'CESIUM':
-                this.cesiumMapInstance = data.instance;
-                break;
-            case 'LEAFLET':
-                this.leafletMapInstance = data.instance;
-                break;
-            case 'MAPBOX':
-                this.mapBoxMapInstance = data.instance;
-                break;
+        case 'CESIUM':
+            this.cesiumMapInstance = data.instance;
+            break;
+        case 'LEAFLET':
+            this.leafletMapInstance = data.instance;
+            break;
+        case 'MAPBOX':
+            this.mapBoxMapInstance = data.instance;
+            break;
         }
     }
 

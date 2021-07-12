@@ -74,6 +74,7 @@ export default class LeafletMarkerDialog extends Vue {
     height: 420px;
     border-radius: 16px;
     padding: 0 16px 16px 16px;
+    border: 1px solid #909399;
 
     .title
         font-size: 14px;
