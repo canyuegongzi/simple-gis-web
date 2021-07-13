@@ -1,13 +1,15 @@
-<template lang="pug">
+﻿<template lang="pug">
     .pug-container
         CesiumPopUpDialog(@map:event="cesiumMapEvent" v-if="mapType === 'CESIUM'")
         MapboxPopUpDialog(@map:event="mapboxMapEvent" v-if="mapType === 'MAPBOX'")
+        LeafletPopUpDialog(@map:event="leafletMapEvent" v-if="mapType === 'LEAFLET'")
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import CesiumPopUpDialog from '../../components/dialog/popUp/CesiumPopUpDialog.vue';
 import MapboxPopUpDialog from '../../components/dialog/popUp/MapboxPopUpDialog.vue';
+import LeafletPopUpDialog from '../../components/dialog/popUp/LeafletPopUpDialog.vue';
 import { namespace } from 'vuex-class';
 import { MapTypeEnum } from '@/map/type/CommonType';
 import CesiumService from '@/map/service/CesiumService';
@@ -17,13 +19,15 @@ import { Cartesian2, Cartesian3, Entity, ScreenSpaceEventHandler, ScreenSpaceEve
 import { CesiumCustomPopUp } from '../../map/service/cesium/widgets/CesiumCustomPopUp';
 import VuePointDetailComponent from '../../components/dialog/popUp/commonWidget/VuePointDetailComponent.vue';
 import { Popup } from 'mapbox-gl';
+import { Icon, Marker, MarkerOptions, Popup as LeafletPopup } from 'leaflet';
 const appModule = namespace('appModule');
 
 let windowVm = Vue.extend(VuePointDetailComponent);
 @Component({
     components: {
         CesiumPopUpDialog,
-        MapboxPopUpDialog
+        MapboxPopUpDialog,
+        LeafletPopUpDialog
     }
 })
 export default class PopUpPage extends Vue {
@@ -51,6 +55,10 @@ export default class PopUpPage extends Vue {
     public resourceLayerMapBox: any = null;  // mapbox 点位图层
 
     public glPopupMapbox: Popup | null = null; // mapbox  弹框实例
+
+    public normalLayer1Leaflet: any = null;  // 普通圆圈
+    private leafletPopUp: LeafletPopup | null = null;
+
 
     /************************************  CESIUM  ***********************************************************/
 
@@ -179,6 +187,7 @@ export default class PopUpPage extends Vue {
 
     /************************************  end  ***********************************************************/
     /************************************  MAPBOX  ***********************************************************/
+    /************************************  start  ***********************************************************/
     /**
      * mapbox 事件处理
      */
@@ -201,6 +210,7 @@ export default class PopUpPage extends Vue {
             return this.closePopUpMapbox();
         }
     }
+
     /**
      * 构造GeoJSON数据，给每个属性增加symbolName字段（该字段用于匹配图标）
      * @param dataList
@@ -270,8 +280,9 @@ export default class PopUpPage extends Vue {
         if (this.resourceLayerMapBox && (window as any).mapboxMap.getLayer(this.resourceLayerMapBox)) {
             // 移除掉图层点击事件
             (window as any).mapboxMap.off('click', this.resourceLayerMapBox, this.clickEventHandler);
-            (window as any).mapboxMap.removeLayer(this.resourceLayerMapBox);
-            this.resourceLayerMapBox = null;
+            this.mapBoxMapInstance.showOrHideMapLayerById(this.resourceLayerMapBox, 'hide', (window as any).mapboxMap);
+            //(window as any).mapboxMap.removeLayer(this.resourceLayerMapBox);
+            // this.resourceLayerMapBox = null;
         }
     }
 
@@ -324,12 +335,100 @@ export default class PopUpPage extends Vue {
             this.glPopupMapbox = null;
         }
     }
+
+
+    /************************************  end  ***********************************************************/
+    /************************************  MAPBOX  ***********************************************************/
     /************************************  start  ***********************************************************/
 
+    /**
+     * 渲染icon  marker
+     */
+    public async renderNormalIconMarkerLeaflet() {
+        const dataJson: any[] = await import('../../mock/popUp/stationList1.json');
+        const markerList: any[] = [];
+        for (let i = 0; i < dataJson.length; i++) {
+            const latitude = parseFloat(dataJson[i].latitude);
+            const longitude = parseFloat(dataJson[i].longitude);
+            const icon: Icon = this.leafletMapInstance.createIcon({
+                iconUrl: require('../../assets/map/site.png'),
+            });
+            const marker: Marker = this.leafletMapInstance.createMarker([latitude, longitude], {
+                icon: icon,
+                description: JSON.stringify(dataJson[i])
+            } as MarkerOptions);
+            marker.addEventListener('click', this.leafletMarkerHandler);
+            markerList.push(marker);
+        }
+        return markerList;
+    }
+
+    /**
+     * leaflet 点击事件
+     */
+    public leafletMarkerHandler(e: any) {
+        try {
+            this.removePopupLeaflet();
+            const data: any = JSON.parse(e.sourceTarget.options.description);
+            const vmInstance: any = new windowVm({
+                propsData: {
+                    info: { name: data.name },
+                    closePopUp: () => {
+                        this.removePopupLeaflet();
+                    },
+                }
+            }).$mount();
+            this.leafletPopUp = new LeafletPopup().setLatLng(e.latlng).setContent(vmInstance.$el).openOn((window as any).leafletMap);
+            (window as any).leafletMap.flyTo(e.latlng);
+        }catch (e) {
+            console.log(e);
+        }
+    }
+
+    /**
+     * 删除marker
+     */
+    public deleteMarkerLeaflet() {
+        if ((window as any).leafletMap.hasLayer(this.normalLayer1Leaflet)) {
+            (window as any).leafletMap.removeLayer(this.normalLayer1Leaflet);
+        }
+        this.removePopupLeaflet();
+    }
+
+    /**
+     * 删除leaflet popup
+     */
+    public removePopupLeaflet() {
+        if (this.leafletPopUp && this.leafletPopUp.isOpen()) {
+            this.leafletPopUp.remove();
+            this.leafletPopUp = null;
+        }
+    }
+    /**
+     * leaflet 事件处置
+     */
+    public async leafletMapEvent(data: any) {
+        console.log(data);
+        switch (data.action) {
+        case 'renderMarker':
+            this.deleteMarkerLeaflet();
+            const markerList = await this.renderNormalIconMarkerLeaflet();
+            this.normalLayer1Leaflet = this.leafletMapInstance.renderMarkerToGroupLayer((window as any).leafletMap, markerList);
+            break;
+        case 'deleteMarker':
+            this.deleteMarkerLeaflet();
+            break;
+        case 'open':
+            break;
+        case 'close':
+            return this.removePopupLeaflet();
+        }
+    }
     /************************************  end  ***********************************************************/
     public beforeDestroy() {
         this.deleteEntityListLayerMarkerCesium();
         this.deleteMarkerMapbox();
+        this.deleteMarkerLeaflet();
 
     }
 }
@@ -340,4 +439,8 @@ export default class PopUpPage extends Vue {
     height 100%
     width 100%
     background rebeccapurple
+</style>
+<style lang="stylus">
+.leaflet-popup-close-button
+    display none
 </style>

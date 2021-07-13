@@ -19,12 +19,12 @@ import { Vue, Component, Emit } from 'vue-property-decorator';
 import CommonIconDialog from '../../../components/controlWidget/CommonIconDialog.vue';
 
 @Component({
-    name: 'MapboxPopUpDialog',
+    name: 'LeafletPopUpDialog',
     components: {
         CommonIconDialog
     }
 })
-export default class MapboxPopUpDialog extends Vue {
+export default class LeafletPopUpDialog extends Vue {
     public visible = true;
     public markerType = 1;
     public styleType = 1;

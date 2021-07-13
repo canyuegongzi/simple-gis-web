@@ -64,7 +64,7 @@ export default class CesiumPopUpDialog extends Vue {
     top: 16px
     left: 200px
     z-index 9000 !important
-    width: 380px;
+    width: 300px;
     height: 300px;
     border-radius: 16px;
     padding: 0 16px 16px 16px;

@@ -25,7 +25,7 @@ export default class CommonIconDialog extends Vue {
     height 32px
     font-size 28px
     position absolute
-    left 16px
+    left 48px
     top 16px
     display: flex;
     align-items: center;
