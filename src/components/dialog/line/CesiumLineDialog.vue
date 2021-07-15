@@ -8,7 +8,10 @@
                 el-radio-group(v-model="allowMouseRender")
                     el-radio(:label="true") 是
                     el-radio(:label="false") 否
-                // p.title() 点位样式
+                p.title(v-show="allowMouseRender === false") 绘制类型
+                el-radio-group(v-model="renderType" v-show="allowMouseRender === false")
+                    el-radio(label="entity") entity
+                    el-radio(label="geo") geo
             .buttons
                 el-button(type="primary" size="mini" @click="tapEvent('renderLine')") 渲染
                 el-button(type="primary" size="mini" @click="tapEvent('mouseRenderLine')" v-if="allowMouseRender") 鼠标绘制
@@ -32,6 +35,7 @@ export default class CesiumLineDialog extends Vue {
     public allowMouseRender = false;  // 允许鼠标绘制
     public markerType = 1;
     public styleType = 1;
+    public renderType = 'entity';
     public showFormContent: boolean = true; // 是否显示
 
     /**
@@ -41,7 +45,10 @@ export default class CesiumLineDialog extends Vue {
     @Emit('map:event')
     public tapEvent(type: string) {
         return {
-            action: type
+            action: type,
+            data: {
+                renderType: this.renderType
+            }
         };
     }
 
