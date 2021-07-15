@@ -1,19 +1,4 @@
 export const data = {
-    /*{
-        path: '/dataManage/interpolation',
-            name: '插值',
-        component: () => import('../views/dataManage/Interpolation.vue'),
-    },
-    {
-        path: '/dataManage/migrationMapPage',
-            name: '迁徙图',
-        component: () => import('../views/dataManage/MigrationMapPage.vue'),
-    },
-    {
-        path: '/dataManage/windFieldPage',
-            name: '风场',
-        component: () => import('../views/dataManage/WindFieldPage.vue'),
-    }*/
     list: [
         {
             entity: {
