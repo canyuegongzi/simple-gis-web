@@ -45,7 +45,7 @@ export default class CesiumView extends Vue {
             this.cesiumMapInstance.flyTo(((window as any).cesiumMap as any).camera, {
                 destination: Cartesian3.fromDegrees(120.6789987, 30.260000, 11000),
                 duration: 2,
-                easingFunction: EasingFunction.LINEAR_NONE,
+                easingFunction: EasingFunction.CIRCULAR_IN ,
                 orientation: {
                     heading: Math.toRadians(0),
                     pitch: Math.toRadians(-40),

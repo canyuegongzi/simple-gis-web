@@ -60,7 +60,8 @@ export default class LinePage extends Vue {
 
 <style scoped lang="stylus">
 .pug-container
-    height 100%
-    width 100%
-    background rebeccapurple
+    background transparent
+    z-index 888 !important
+    position absolute
+    top 0
 </style>

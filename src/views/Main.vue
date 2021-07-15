@@ -90,7 +90,24 @@ export default class Main extends Vue {
         case  'AMP_TYPE_CHANGE':
             this.controlMapType(data.data);
             break;
+        case 'SYSTEM_OPERATE':
+            this.systemHandler(data.data);
+            break;
 
+        }
+    }
+
+    /**
+     * 地图系统操作
+     * @param data
+     */
+    public systemHandler(data: string) {
+        console.log(data);
+        if (data === 'destroy') {
+            console.log('数据销毁');
+        }
+        if (data === 'create') {
+            console.log('创建');
         }
     }
 

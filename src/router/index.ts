@@ -28,6 +28,45 @@ export const router: VueRouter = new VueRouter({
             path: '/baseManage/popUp',
             component: () => import('../views/baseManage/PopUpPage.vue'),
         },
+        {
+            path: '/baseManage/cover',
+            component: () => import('../views/baseManage/CoverPage.vue'),
+        },
+        {
+            path: '/dataManage/interpolation',
+            name: '插值',
+            component: () => import('../views/dataManage/Interpolation.vue'),
+        },
+        {
+            path: '/dataManage/migrationMapPage',
+            name: '迁徙图',
+            component: () => import('../views/dataManage/MigrationMapPage.vue'),
+        },
+        {
+            path: '/dataManage/windFieldPage',
+            name: '风场',
+            component: () => import('../views/dataManage/WindFieldPage.vue'),
+        },
+        {
+            path: '/modelManage/cesiumBaseModel',
+            name: 'cesium基本模型',
+            component: () => import('../views/modelManage/CesiumBaseModel.vue'),
+        },
+        {
+            path: '/modelManage/mapBoxBaseModel',
+            name: 'mapbox基本模型',
+            component: () => import('../views/modelManage/MapBoxBaseModel.vue'),
+        },
+        {
+            path: '/modelManage/mapBoxCityModel',
+            name: 'mapbox城市模型',
+            component: () => import('../views/modelManage/MapBoxCityModel.vue'),
+        },
+        {
+            path: '/modelManage/cesiumCityModel',
+            name: 'cesium城市模型',
+            component: () => import('../views/modelManage/CesiumCityModel.vue'),
+        }
 
     ]
 });

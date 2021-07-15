@@ -10,6 +10,13 @@
                    el-radio(:label="item" :key="item" v-for="(item, index) in mapTypeList") {{item}}
        .item-group
            .item-group-title
+               span 系统
+           .item-group-content
+               el-radio-group(v-model="systemOperate" @change="(val) => settingChange1('SYSTEM_OPERATE', val)")
+                   el-radio(label="create") 加载地图
+                   el-radio(label="destroy") 卸载地图
+       .item-group
+           .item-group-title
                span 工具
 </template>
 
@@ -18,6 +25,8 @@ import { MapTypeEnum, MapTypeList } from '../../map/type/CommonType';
 import { Vue, Component, Prop, Emit, Watch } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
 
+type HandlerEnum = 'create' | 'destroy'
+
 const appModule = namespace('appModule');
 @Component({
     name: 'SettingLayout',
@@ -25,6 +34,7 @@ const appModule = namespace('appModule');
 export default class BaseLayout extends Vue {
     private mapTypeList = MapTypeList;
     private tempMapType: MapTypeEnum = 'CESIUM';
+    private systemOperate: string = 'create'; // 系统操作
 
     @Watch('mapType')
     public mapTypeChange(val: MapTypeEnum) {
@@ -39,6 +49,11 @@ export default class BaseLayout extends Vue {
         this.setMapType(val);
         return { type, data: val };
     }
+    @Emit('changeClick')
+    private settingChange1(type: string, val: HandlerEnum) {
+        return { type, data: val };
+    }
+
 
     @appModule.Mutation
     private setMapType!: (number: MapTypeEnum) => void;
