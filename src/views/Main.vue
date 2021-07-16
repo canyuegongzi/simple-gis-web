@@ -104,6 +104,7 @@ export default class Main extends Vue {
     public systemHandler(data: string) {
         console.log(data);
         if (data === 'destroy') {
+
             console.log('数据销毁');
         }
         if (data === 'create') {

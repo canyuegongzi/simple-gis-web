@@ -607,9 +607,14 @@ export default class MarkerPage extends Vue {
     /************************************  end  ***********************************************************/
 
     public beforeDestroy() {
-        this.cesiumResetMap();
-        this.mapBoxResetMap();
-        this.leafletResetMap();
+        try {
+            this.cesiumResetMap();
+            this.mapBoxResetMap();
+            this.leafletResetMap();
+        }catch (e) {
+            console.warn(e)
+        }
+
 
     }
 

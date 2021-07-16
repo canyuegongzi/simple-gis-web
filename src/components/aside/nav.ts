@@ -34,6 +34,21 @@ export const data = {
                     entity: {
                         id: 7,
                         parentMenuId: 6,
+                        name: '/baseManage/popUp',
+                        icon: 'el-icon-user\r\n',
+                        alias: '弹框',
+                        state: 'ENABLE',
+                        sort: 0,
+                        value: '/baseManage/popUp',
+                        type: 'NONE',
+                        discription: '基本图层点信息',
+                        createUserId: 1,
+                    },
+                },
+                {
+                    entity: {
+                        id: 7,
+                        parentMenuId: 6,
                         name: '/baseManage/line',
                         icon: 'el-icon-user\r\n',
                         alias: '线',
@@ -59,22 +74,7 @@ export const data = {
                         discription: '基本图层点信息',
                         createUserId: 1,
                     },
-                },
-                {
-                    entity: {
-                        id: 7,
-                        parentMenuId: 6,
-                        name: '/baseManage/popUp',
-                        icon: 'el-icon-user\r\n',
-                        alias: '弹框',
-                        state: 'ENABLE',
-                        sort: 0,
-                        value: '/baseManage/popUp',
-                        type: 'NONE',
-                        discription: '基本图层点信息',
-                        createUserId: 1,
-                    },
-                },
+                }
             ],
         },
         {

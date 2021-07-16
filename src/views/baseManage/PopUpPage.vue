@@ -426,9 +426,14 @@ export default class PopUpPage extends Vue {
     }
     /************************************  end  ***********************************************************/
     public beforeDestroy() {
-        this.deleteEntityListLayerMarkerCesium();
-        this.deleteMarkerMapbox();
-        this.deleteMarkerLeaflet();
+        try {
+            this.deleteEntityListLayerMarkerCesium();
+            this.deleteMarkerMapbox();
+            this.deleteMarkerLeaflet();
+        }catch (e) {
+            console.warn(e);
+        }
+
 
     }
 }

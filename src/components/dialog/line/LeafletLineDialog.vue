@@ -10,8 +10,8 @@
                 //    el-radio(:label="false") 否
                 p.title(v-show="allowMouseRender === false") 绘制类型
                 el-radio-group(v-model="renderType" v-show="allowMouseRender === false")
-                    el-radio(label="entity") entity
-                    el-radio(label="geo") geo
+                    el-radio(label="entity") 普通
+                    // el-radio(label="geo") geo
             .buttons
                 el-button(type="primary" size="mini" @click="tapEvent('renderLine')") 渲染
                 el-button(type="primary" size="mini" @click="tapEvent('mouseRenderLine')" v-if="allowMouseRender") 鼠标绘制
@@ -25,12 +25,12 @@ import { Vue, Component, Emit } from 'vue-property-decorator';
 import CommonIconDialog from '../../../components/controlWidget/CommonIconDialog.vue';
 
 @Component({
-    name: 'CesiumLineDialog',
+    name: 'LeafletLineDialog',
     components: {
         CommonIconDialog
     }
 })
-export default class CesiumLineDialog extends Vue {
+export default class LeafletLineDialog extends Vue {
     public visible = true;
     public allowMouseRender = false;  // 允许鼠标绘制
     public markerType = 1;
