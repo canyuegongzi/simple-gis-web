@@ -612,7 +612,7 @@ export default class MarkerPage extends Vue {
             this.mapBoxResetMap();
             this.leafletResetMap();
         }catch (e) {
-            console.warn(e)
+            console.warn(e);
         }
 
 
