@@ -15,6 +15,6 @@ spec:
                 app: simple-gis-web
         spec:
             containers:
-                -   image: canyuegongzi/simple-gis-web:1.8
+                -   image: canyuegongzi/simple-gis-web:2.1
                     imagePullPolicy: IfNotPresent
                     name: simple-gis-web
