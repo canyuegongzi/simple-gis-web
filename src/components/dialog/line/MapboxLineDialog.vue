@@ -12,6 +12,7 @@
                 el-radio-group(v-model="renderType" v-show="allowMouseRender === false")
                     // el-radio(label="entity") 普通
                     el-radio(label="geo") geo
+            p.title 操作
             .buttons
                 el-button(type="primary" size="mini" @click="tapEvent('renderLine')") 渲染
                 el-button(type="primary" size="mini" @click="tapEvent('mouseRenderLine')" v-if="allowMouseRender") 鼠标绘制
@@ -88,7 +89,6 @@ export default class MapboxLineDialog extends Vue {
         padding-top: 16px;
 
     .buttons
-        margin-top 16px
         display flex
         justify-content: flex-start;
 </style>

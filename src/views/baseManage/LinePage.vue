@@ -15,8 +15,21 @@ import CesiumService from '@/map/service/CesiumService';
 import LeafletService from '@/map/service/LeafletService';
 import MapBoxService from '@/map/service/MapBoxService';
 import { namespace } from 'vuex-class';
-import { Cartesian2, Cartesian3, Entity, Color, CallbackProperty, PolylineGlowMaterialProperty, PolylineDashMaterialProperty, GeoJsonDataSource, PointGraphics } from 'cesium';
+import {
+    Cartesian2,
+    Cartesian3,
+    Entity,
+    Color,
+    CallbackProperty,
+    PolylineGlowMaterialProperty,
+    PolylineDashMaterialProperty,
+    GeoJsonDataSource,
+    PointGraphics,
+    HorizontalOrigin,
+} from 'cesium';
 import { Polygon, Polyline } from 'leaflet';
+import { LabelStyle } from 'cesium';
+import { VerticalOrigin } from 'cesium';
 const appModule = namespace('appModule');
 
 const cesiumLayer: any = {
@@ -147,13 +160,29 @@ export default class LinePage extends Vue {
             polyline: {
                 positions: Cartesian3.fromDegreesArray(positionList),
                 width: 2,
-                material: Color.BLUE,
+                material: Color.BLUE,  // 线条材质
                 // material: new PolylineDashMaterialProperty({
                 //     color: Color.RED,
                 // }),
                 // depthFailMaterial: new PolylineDashMaterialProperty({
                 //     color: Color.YELLOW,
                 // }),
+                // followSurface: false, //取消弯曲
+                // clampToGround: true
+
+            },
+            label: {
+                text: '超完美线条',  //文本
+                show: true,  // 默认显示
+                font: '12pt Source Han Sans CN',    //字体样式
+                fillColor: Color.GOLD,        //字体颜色
+                backgroundColor: Color.AQUA,    //背景颜色
+                //showBackground:true,                //是否显示背景颜色
+                style: LabelStyle.FILL,        //label样式
+                outlineWidth: 1,
+                verticalOrigin: VerticalOrigin.CENTER,//垂直位置
+                horizontalOrigin: HorizontalOrigin.LEFT,//水平位置
+                pixelOffset: new Cartesian2(5, 0)            //偏移
             }
         });
         (window as any).cesiumMap.entities.add(drawEntity);

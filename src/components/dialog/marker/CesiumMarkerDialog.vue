@@ -13,6 +13,7 @@
                     el-radio(:label="1") EntityList
                     el-radio(:label="2") PrimitiveCollection
                     el-radio(:label="3") GeoJSON
+            p.title 操作
             .buttons
                 el-button(type="primary" size="mini" @click="tapEvent('MARKER')") 更新
                 el-button(type="primary" size="mini" @click="tapEvent('CLEAR')") 清空
@@ -84,7 +85,6 @@ export default class CesiumMarkerDialog extends Vue {
         padding-top: 16px;
 
     .buttons
-        margin-top 16px
         display flex
         justify-content: flex-start;
 </style>

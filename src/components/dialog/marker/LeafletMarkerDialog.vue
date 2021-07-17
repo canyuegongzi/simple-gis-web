@@ -13,6 +13,7 @@
                     el-radio(:label="1") Icon
                     el-radio(:label="2") divIcon
                     el-radio(:label="3") CircleMarker
+            p.title 操作
             .buttons
                 el-button(type="primary" size="mini" @click="tapEvent('MARKER')") 更新
                 el-button(type="primary" size="mini" @click="tapEvent('CLEAR')") 清空
@@ -84,7 +85,6 @@ export default class LeafletMarkerDialog extends Vue {
         padding-top: 16px;
 
     .buttons
-        margin-top 16px
         display flex
         justify-content: flex-start;
 </style>

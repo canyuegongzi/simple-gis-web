@@ -6,6 +6,7 @@
             //.buttons-container
             //    p.title 点位类型
             //    p.title(v-show="markerType === 1") 点位样式
+            p.title 操作
             .buttons
                 el-button(type="primary" size="mini" @click="tapEvent('renderMarker')") 渲染点位
                 el-button(type="primary" size="mini" @click="tapEvent('deleteMarker')") 删除点位
@@ -77,7 +78,6 @@ export default class LeafletPopUpDialog extends Vue {
         padding-top: 16px;
 
     .buttons
-        margin-top 16px
         display flex
         justify-content: flex-start;
 </style>

@@ -12,6 +12,7 @@
                 el-radio-group(v-model="styleType" v-show="markerType === 1")
                     el-radio(:label="1") 图层渲染
                     el-radio(:label="2") 资源渲染
+            p.title 操作
             .buttons
                 el-button(type="primary" size="mini" @click="tapEvent('MARKER')") 更新
                 el-button(type="primary" size="mini" @click="tapEvent('CLEAR')") 清空
@@ -84,7 +85,7 @@ export default class MapboxMarkerDialog extends Vue {
         padding-top: 16px;
 
     .buttons
-        margin-top 16px
+
         display flex
         justify-content: flex-start;
 </style>

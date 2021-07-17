@@ -4,19 +4,14 @@
         div(class="drag marker-container" style="background: #ffffff" v-draw v-show="showFormContent")
             i.el-icon-close.close(@click="changeStatus")
             .buttons-container
-                //p.title 鼠标绘制
-                //el-radio-group(v-model="allowMouseRender")
-                //    el-radio(:label="true") 是
-                //    el-radio(:label="false") 否
                 p.title(v-show="allowMouseRender === false") 绘制类型
                 el-radio-group(v-model="renderType" v-show="allowMouseRender === false")
                     el-radio(label="entity") 普通
                     // el-radio(label="geo") geo
             p.title 操作
             .buttons
-                el-button(type="primary" size="mini" @click="tapEvent('renderLine')") 渲染
-                el-button(type="primary" size="mini" @click="tapEvent('mouseRenderLine')" v-if="allowMouseRender") 鼠标绘制
-                el-button(type="primary" size="mini" @click="tapEvent('deleteLine')") 删除
+                el-button(type="primary" size="mini" @click="tapEvent('render')") 插值
+                el-button(type="primary" size="mini" @click="tapEvent('delete')") 删除
 
 
 </template>
@@ -26,12 +21,12 @@ import { Vue, Component, Emit } from 'vue-property-decorator';
 import CommonIconDialog from '../../../components/controlWidget/CommonIconDialog.vue';
 
 @Component({
-    name: 'LeafletCoverDialog',
+    name: 'InterpolationDialog',
     components: {
         CommonIconDialog
     }
 })
-export default class LeafletCoverDialog extends Vue {
+export default class InterpolationDialog extends Vue {
     public visible = true;
     public allowMouseRender = false;  // 允许鼠标绘制
     public markerType = 1;
@@ -47,9 +42,7 @@ export default class LeafletCoverDialog extends Vue {
     public tapEvent(type: string) {
         return {
             action: type,
-            data: {
-                renderType: this.renderType
-            }
+            data: {}
         };
     }
 

@@ -45,7 +45,8 @@ export default class LeafletService extends MapService implements BaseMap {
             maxZoom: 18,
             minZoom: 5,
             maxBounds: latLngBounds(latLng(4, 73), latLng(54, 135)),
-            zoom: 14
+            zoom: 14,
+            zoomControl: false
         });
         const titleLayer: TileLayer.WMS = new TileLayer.WMS(this.layerUrl,{
             format: 'image/png',
