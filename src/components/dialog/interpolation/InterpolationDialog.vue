@@ -68,7 +68,7 @@ export default class InterpolationDialog extends Vue {
     border: 1px solid #909399;
     top: 16px
     left: 200px
-    z-index 9000 !important
+    z-index 2000 !important
     width: 300px;
     height: 300px;
     border-radius: 16px;

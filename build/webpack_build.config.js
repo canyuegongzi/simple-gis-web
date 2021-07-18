@@ -82,6 +82,7 @@ module.exports = {
                 { from: 'node_modules/cesium/Build/Cesium/ThirdParty', to: 'ThirdParty' },
                 { from: 'node_modules/cesium/Build/Cesium/Assets', to: 'Assets' },
                 { from: 'node_modules/cesium/Build/Cesium/Widgets', to: 'Widgets' },
+                { from: 'public/static', to: 'static' },
             ],
         }),
         new webpack.DefinePlugin({
