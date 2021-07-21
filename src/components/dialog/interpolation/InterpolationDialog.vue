@@ -8,6 +8,10 @@
                 el-radio-group(v-model="renderType" v-show="allowMouseRender === false")
                     el-radio(label="entity") 普通
                     // el-radio(label="geo") geo
+                p.title() 插值选择
+                el-radio-group(v-model="type")
+                    el-radio(label="TEMPERATURE_CHAIN") 全国温度
+                    el-radio(label="WATER_LEVEL_HZ") 杭州水质
             p.title 操作
             .buttons
                 el-button(type="primary" size="mini" @click="tapEvent('render')") 插值
@@ -19,6 +23,7 @@
 <script lang="ts">
 import { Vue, Component, Emit } from 'vue-property-decorator';
 import CommonIconDialog from '../../../components/controlWidget/CommonIconDialog.vue';
+type InterpolationType = 'TEMPERATURE_CHAIN' | 'WATER_LEVEL_HZ';
 
 @Component({
     name: 'InterpolationDialog',
@@ -28,6 +33,7 @@ import CommonIconDialog from '../../../components/controlWidget/CommonIconDialog
 })
 export default class InterpolationDialog extends Vue {
     public visible = true;
+    public type: InterpolationType = 'TEMPERATURE_CHAIN';
     public allowMouseRender = false;  // 允许鼠标绘制
     public markerType = 1;
     public styleType = 1;
@@ -42,7 +48,9 @@ export default class InterpolationDialog extends Vue {
     public tapEvent(type: string) {
         return {
             action: type,
-            data: {}
+            data: {
+                type: this.type
+            }
         };
     }
 

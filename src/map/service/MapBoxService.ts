@@ -31,15 +31,33 @@ export default class MapBoxService extends MapService {
             // style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
             // style: 'mapbox://styles/mapbox-map-design/ckhqrf2tz0dt119ny6azh975y',
             // style: 'mapbox://styles/mapbox/satellite-streets-v11',
-            style: 'mapbox://styles/mapbox/satellite-v9',
+            // style: 'mapbox://styles/mapbox/satellite-v9',
+            style: {
+                version: 8,
+                sources: {
+                    cartodb: {
+                        // tiles: ['http://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'],
+                        tiles: ['https://stamen-tiles-a.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}.png'],
+                        tileSize: 256,
+                        type: 'raster',
+                    },
+                },
+                layers: [
+                    {
+                        id: 'cartodb',
+                        type: 'raster',
+                        source: 'cartodb',
+                    },
+                ],
+            },
             center: [120, 30],
 
             pitch: 60,
-            bearing: 80,
+            // bearing: 80,
 
             maxZoom: 18,
-            minZoom: 5,
-            zoom: 9,
+            minZoom: 3,
+            zoom: 8,
             accessToken: 'pk.eyJ1IjoiY2FueXVlZ29uZ3ppIiwiYSI6ImNrcW9sOW5jajAxMDQyd3AzenlxNW80aHYifQ.0Nz5nOOxi4-qqzf2od3ZRA',
         });
         CommonStore.setInstance(type, map);
