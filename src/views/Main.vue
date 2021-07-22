@@ -145,3 +145,7 @@ export default class Main extends Vue {
         #root-main
             z-index 9999 !important
 </style>
+<style lang="stylus">
+.app-custom-loading
+    z-index 99999 !important
+</style>

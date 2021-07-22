@@ -1,10 +1,5 @@
 <template lang="pug">
-    .pug-container(
-        v-loading="loading"
-        element-loading-text="差值计算中。。。"
-        element-loading-spinner="el-icon-loading"
-        element-loading-background="rgba(0, 0, 0, 0.8)"
-        )
+    .pug-container()
         InterpolationDialog(@map:event="mapEvent")
 </template>
 
@@ -17,9 +12,8 @@ import LeafletService from '@/map/service/LeafletService';
 import MapBoxService from '@/map/service/MapBoxService';
 import { namespace } from 'vuex-class';
 import { Color, GeoJsonDataSource, SingleTileImageryProvider, Rectangle, Math as CesiumMath, Camera } from 'cesium';
-import { ElLoading } from 'element-ui/types/loading';
-import { Loading } from 'element-ui';
 import L, { LatLngBoundsExpression } from 'leaflet';
+import loadingPluginService from '../../puglin/LoadingPluginService';
 const appModule = namespace('appModule');
 // @ts-ignore
 // const kriging = require('../../map/service/cesium/plugin/kriging.min.js');
@@ -104,24 +98,15 @@ export default class InterpolationPage extends Vue {
      * 开启加载
      */
     public startLoading() {
-        // this.closeLoading();
-        // this.loading = Loading.service({
-        //     lock: true,
-        //     text: '计算中......',//加载动画的文字
-        //     background: 'rgba(0, 0, 0, 0.7)'//加载动画的背景
-        // });
-        this.loading = true;
+        console.log('223333')
+        loadingPluginService.startLoading();
     }
 
     /**
      * 关闭加载
      */
     public closeLoading() {
-        this.loading = false;
-        //if (this.loading) {
-        //    this.loading.close();
-        //    this.loading = null;
-        //}
+        loadingPluginService.closeLoading();
     }
     /**
      * cesium 插值
@@ -425,8 +410,6 @@ export default class InterpolationPage extends Vue {
 
     public beforeDestroy() {
         try {
-            this.closeLoading();
-            this.loading = false;
             this.deleteCesium();
             this.deleteMapbox();
             this.deleteLeaflet();
