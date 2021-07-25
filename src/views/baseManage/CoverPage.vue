@@ -24,7 +24,7 @@ import {
     PointGraphics,
     LabelStyle, VerticalOrigin, HorizontalOrigin,
 } from 'cesium';
-import { Polygon, Polyline } from 'leaflet';
+import { geoJSON, Polygon, Polyline } from 'leaflet';
 import CesiumCoverDialog from '../../components/dialog/cover/CesiumCoverDialog.vue';
 import LeafletCoverDialog from '../../components/dialog/cover/LeafletCoverDialog.vue';
 import MapboxCoverDialog from '../../components/dialog/cover/MapboxCoverDialog.vue';
@@ -35,6 +35,7 @@ const cesiumLayer: any = {
     geoJsonCoverCesium: null,
     geoJsonCoverMapBox: null,
     polygonLeaflet: null,
+    coverLeafletGeoJson: null
 };
 const geoJson = {
     "type": "FeatureCollection",
@@ -416,6 +417,9 @@ export default class CoverPage extends Vue {
             if (data.data.renderType === "entity") {
                 await this.renderEntityCoverLeaflet();
             }
+            if (data.data.renderType === "geo") {
+                await this.renderGeoCoverLeaflet();
+            }
             console.log('renderLine');
             break;
         case 'mouseRenderLine':
@@ -433,7 +437,7 @@ export default class CoverPage extends Vue {
     }
 
     /**
-     * 绘制leaflet 线
+     * 绘制leaflet 面
      */
     public async renderEntityCoverLeaflet() {
         const { data, position } = await this.buildLeafletLineData();
@@ -444,12 +448,35 @@ export default class CoverPage extends Vue {
     }
 
     /**
+     * 绘制leaflet 线
+     */
+    public async renderGeoCoverLeaflet() {
+        const data: any = await import('../../mock/polygon/mockPolygon.json');
+        cesiumLayer.coverLeafletGeoJson = geoJSON(data, {
+            style: {
+                color: 'red'
+            }
+        })
+            .addTo((window as any).leafletMap);
+        (window as any).leafletMap.flyTo([
+            30.276858411864904,
+            120.16433715820311,
+        ], 11);
+    }
+
+
+    /**
      * 删除leaflet 线
      */
     public deleteEntityCoverLeaflet() {
         console.log('删除面');
         if ((window as any).leafletMap && (window as any).leafletMap.hasLayer(cesiumLayer.polygonLeaflet)) {
             (window as any).leafletMap.removeLayer(cesiumLayer.polygonLeaflet);
+
+        }
+
+        if ((window as any).leafletMap && (window as any).leafletMap.hasLayer(cesiumLayer.coverLeafletGeoJson)) {
+            (window as any).leafletMap.removeLayer(cesiumLayer.coverLeafletGeoJson);
 
         }
     }

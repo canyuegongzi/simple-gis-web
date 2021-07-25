@@ -11,7 +11,7 @@
                 p.title(v-show="allowMouseRender === false") 绘制类型
                 el-radio-group(v-model="renderType" v-show="allowMouseRender === false")
                     el-radio(label="entity") 普通
-                    // el-radio(label="geo") geo
+                    el-radio(label="geo") geo
             p.title 操作
             .buttons
                 el-button(type="primary" size="mini" @click="tapEvent('renderLine')") 渲染

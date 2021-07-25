@@ -27,7 +27,7 @@ import {
     PointGraphics,
     HorizontalOrigin,
 } from 'cesium';
-import { Polygon, Polyline } from 'leaflet';
+import { geoJSON, Polygon, Polyline } from 'leaflet';
 import { LabelStyle } from 'cesium';
 import { VerticalOrigin } from 'cesium';
 const appModule = namespace('appModule');
@@ -37,6 +37,7 @@ const cesiumLayer: any = {
     geoJsonLineCesium: null,
     geoJsonLineMapBox: null,
     polylineLeaflet: null,
+    polylineLeafletGeoJson: null,
 
 };
 
@@ -367,6 +368,9 @@ export default class LinePage extends Vue {
             if (data.data.renderType === "entity") {
                 await this.renderEntityLineLeaflet();
             }
+            if (data.data.renderType === "geo") {
+                await this.renderGeoLineLeaflet();
+            }
             console.log('renderLine');
             break;
         case 'mouseRenderLine':
@@ -388,13 +392,27 @@ export default class LinePage extends Vue {
      */
     public async renderEntityLineLeaflet() {
         const { data, position } = await this.buildLeafletLineData();
-        // const polygon = new Polygon(data, { color: '#000eff',fillColor: '#0000ed', weight: 1 })
-        //     .addTo((window as any).leafletMap);
-        // console.log(polygon);
         cesiumLayer.polylineLeaflet = new Polyline(data, { color: 'red' })
             .addTo((window as any).leafletMap);
         console.log(cesiumLayer.polylineLeaflet);
         (window as any).leafletMap.setView(position, 11);
+    }
+
+    /**
+     * 绘制leaflet 线  geo
+     */
+    public async renderGeoLineLeaflet() {
+        const dataJson1: any = require('../../mock/line/geoJsonline.json');
+        cesiumLayer.polylineLeafletGeoJson = geoJSON(dataJson1, {
+            style: {
+                color: 'red'
+            }
+        })
+            .addTo((window as any).leafletMap);
+        (window as any).leafletMap.flyTo([
+            30.276858411864904,
+            120.16433715820311,
+        ], 11);
     }
 
     /**
@@ -406,6 +424,10 @@ export default class LinePage extends Vue {
             (window as any).leafletMap.removeLayer(cesiumLayer.polylineLeaflet);
 
         }
+        if ((window as any).leafletMap && (window as any).leafletMap.hasLayer(cesiumLayer.polylineLeafletGeoJson)) {
+            (window as any).leafletMap.removeLayer(cesiumLayer.polylineLeafletGeoJson);
+
+        }
     }
     /************************************  start  ***********************************************************/
     /************************************  end  ***********************************************************/
@@ -415,7 +437,7 @@ export default class LinePage extends Vue {
             this.deleteEntityLineMapBox();
             this.deleteEntityLineLeaflet();
         }catch (e) {
-            console.warn(e)
+            console.warn(e);
         }
 
 
