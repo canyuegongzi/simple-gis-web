@@ -11,7 +11,7 @@ leaflet，mapbox，cesium 通用业务功能封装，框架布局以vue为基础
 docker build -t simple-gis-web  .
 
 docker tag 713f3970cee9b1734546b88a7ccf61c14947236686d9ba85f990200e5781b32a canyuegongzi/simple-gis-web:1.2
-
-docker push canyuegongzi/simple-gis-web:1.3
+ 
+docker push canyuegongzi/simple-gis-web:1.3 
 
 ```
