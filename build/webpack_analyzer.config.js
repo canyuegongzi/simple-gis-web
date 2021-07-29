@@ -29,6 +29,7 @@ const config = {
             '@/http': path.resolve(__dirname, "src/http_request"),
             '@/router': path.resolve(__dirname, "src/router"),
             '@/store': path.resolve(__dirname, "src/store"),
+            '@/data': path.resolve(__dirname, "src/data"),
         }
     },
     optimization: {
