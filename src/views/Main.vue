@@ -113,7 +113,7 @@ export default class Main extends Vue {
     }
 
     public mounted() {
-        this.controlMapType('CESIUM');
+        this.controlMapType('MAPBOX');
     }
 }
 </script>
