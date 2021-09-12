@@ -6,6 +6,7 @@ leaflet，mapbox，cesium 通用业务功能封装，框架布局以vue为基础
 
 1. [前端开发中如何实现WebGIS数据可视化（一）——地图创建、点位绘制](https://juejin.cn/post/6985900607588532260)
 2. [前端开发中如何实现WebGIS数据可视化（二）——线、面绘制](https://juejin.cn/post/6988758381225836552)
+3. [前端开发中如何实现WebGIS数据可视化（三）——迁徙图绘制](https://juejin.cn/post/6988758381225836552)
 
 ```bin
 docker build -t simple-gis-web  .
