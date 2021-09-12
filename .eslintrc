@@ -24,6 +24,9 @@
         "node": true,
         "mocha": true
     },
+    "globals": {
+        "L": true
+    },
     "rules": {
         "no-prototype-builtins": [0],
         "no-console": [

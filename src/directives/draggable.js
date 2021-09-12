@@ -2,9 +2,11 @@ import Vue from 'vue';
 
 // 自定义元素实现弹框拖拽[重点]
 Vue.directive('draw', {
+
     inserted: function(el, binding, vNode) {
         el.setAttribute('style', 'position: fixed; z-index: 9999');
     },
+
     bind: function(el, bindding, vNode) {
         el.setAttribute('draggable', true);
         let left, top, width, height;

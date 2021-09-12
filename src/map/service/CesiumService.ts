@@ -2,22 +2,14 @@ import MapService from '../common/MapService';
 import { CesiumInstanceOptions } from '@/map/type/CesiumType';
 import { BaseMap, LayerImagesEnum, MapTypeEnum, ChangeLayerImageConfig } from '@/map/type/CommonType';
 import CommonStore from '../../map/common/CommonStore';
-import {
-    Viewer,
-    UrlTemplateImageryProvider,
-    Entity,
-    Cartesian3,
-    Rectangle,
-    Camera,
-    Matrix4,
-    EasingFunction,
-} from 'cesium';
+import { Viewer, UrlTemplateImageryProvider, Entity, Cartesian3, Rectangle, Camera, Ion, Matrix4, EasingFunction, } from 'cesium';
 import '../service/cesium/imageryProvider/index';
 import { AmapImageryProvider, BaiduImageryProvider, TdtImageryProvider } from '../service/cesium/imageryProvider/index';
 
 
 export default class CesiumService extends MapService implements BaseMap{
     constructor(props: CesiumInstanceOptions) {
+        Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4ZTc3YzJkZS03Y2MwLTQxOTMtOGE1OC0yZWI5NjU2MWI4YTEiLCJpZCI6NTgzMTIsImlhdCI6MTYzMTQ0MjY0M30.efQBG7QmD_JweNb9bt8P6-XqJTskjXicS0eiEAbIe2I';
         super();
     }
 
@@ -29,6 +21,7 @@ export default class CesiumService extends MapService implements BaseMap{
      */
     public async initMapInstance(type: MapTypeEnum, props: CesiumInstanceOptions): Promise<any> {
         const mapInstanceCache: any = await CommonStore.getInstance('CESIUM');
+        console.log(mapInstanceCache);
         if (mapInstanceCache) {
             return mapInstanceCache;
         }

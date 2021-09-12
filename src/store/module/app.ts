@@ -12,7 +12,7 @@ import MapBoxService from '@/map/service/MapBoxService';
 export default class AppStoreModule extends VuexModule {
     public vuexStatus: number = 0;
 
-    public mapType: MapTypeEnum = 'CESIUM';
+    public mapType: MapTypeEnum = 'MAPBOX';
 
     private cesiumMapInstance: CesiumService | null = null;
 

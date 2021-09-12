@@ -33,7 +33,7 @@ const appModule = namespace('appModule');
 })
 export default class BaseLayout extends Vue {
     private mapTypeList = MapTypeList;
-    private tempMapType: MapTypeEnum = 'CESIUM';
+    private tempMapType: MapTypeEnum = 'MAPBOX';
     private systemOperate: string = 'create'; // 系统操作
 
     @Watch('mapType')
@@ -53,7 +53,6 @@ export default class BaseLayout extends Vue {
     private settingChange1(type: string, val: HandlerEnum) {
         return { type, data: val };
     }
-
 
     @appModule.Mutation
     private setMapType!: (number: MapTypeEnum) => void;

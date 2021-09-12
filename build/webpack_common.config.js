@@ -105,6 +105,9 @@ const commonPlugins = [
         filename: 'css/[name][hash:8].css',
         chunkFilename: 'css/[id].css'
     }),
+    new webpack.ProvidePlugin({
+        process: 'process/browser',
+    }),
     new VueLoaderPlugin(),
 ]
 module.exports = { commonRules, commonPlugins };

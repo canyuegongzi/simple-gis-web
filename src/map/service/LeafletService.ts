@@ -1,17 +1,6 @@
-import L, {
-    BaseIconOptions,
-    CircleMarker,
-    CircleMarkerOptions,
-    CRS, DivIcon, DivIconOptions, Icon, IconOptions,
-    latLng,
-    latLngBounds,
-    LatLngExpression, Layer,
-    LayerGroup, LayerOptions,
-    Map,
-    Marker, MarkerOptions,
-    TileLayer,
-} from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import './leaflet/load';
+const L = window.L;
+import { BaseIconOptions, CircleMarker, CircleMarkerOptions, CRS, DivIcon, DivIconOptions, Icon, IconOptions, latLng, latLngBounds, LatLngExpression, Layer, LayerGroup, LayerOptions, Map, Marker, MarkerOptions, TileLayer } from 'leaflet';
 import MapService from '../common/MapService';
 import { LeafletInstanceOptions } from '../type/LeafletType';
 import { BaseMap, ChangeLayerImageConfig, LayerImagesEnum, MapTypeEnum } from '@/map/type/CommonType';

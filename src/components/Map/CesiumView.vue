@@ -36,25 +36,23 @@ export default class CesiumView extends Vue {
         const map: Viewer = await this.cesiumMapInstance.initMapInstance('CESIUM', { id: 'cesium-container' });
 
 
-        // const amapOptions: ChangeLayerImageConfig = { style: 'elec', crs: 'WGS84' };
-        // mapInstance.changeLayer('AMAP', amapOptions, map);
-        const baiduOptions: ChangeLayerImageConfig = { style: 'vec', crs: 'BD09' };
+        const amapOptions: ChangeLayerImageConfig = { style: 'elec', crs: 'WGS84' };
+        //mapInstance.changeLayer('AMAP', amapOptions, map);
+        //const baiduOptions: ChangeLayerImageConfig = { style: 'vec', crs: 'BD09' };
         (window as any).cesiumMap = map;
-        this.$nextTick(() => {
-            // this.cesiumMapInstance.changeLayer('AMAP', baiduOptions, map);
-            this.cesiumMapInstance.flyTo(((window as any).cesiumMap as any).camera, {
-                destination: Cartesian3.fromDegrees(120.6789987, 30.260000, 11000),
-                duration: 2,
-                easingFunction: EasingFunction.CIRCULAR_IN ,
-                orientation: {
-                    heading: Math.toRadians(0),
-                    pitch: Math.toRadians(-40),
-                    roll: 0.0,
-                },
-                complete: () => {
-                    console.log('地图加载完毕');
-                },
-            });
+        // this.cesiumMapInstance.changeLayer('BAIDU', baiduOptions, map);
+        this.cesiumMapInstance.flyTo(((window as any).cesiumMap as any).camera, {
+            destination: Cartesian3.fromDegrees(120.6789987, 30.260000, 11000),
+            duration: 2,
+            easingFunction: EasingFunction.CIRCULAR_IN ,
+            orientation: {
+                heading: Math.toRadians(0),
+                pitch: Math.toRadians(-40),
+                roll: 0.0,
+            },
+            complete: () => {
+                console.log('地图加载完毕');
+            },
         });
         return map;
     }

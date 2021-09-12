@@ -19,6 +19,9 @@ module.exports = {
     },
     resolve: {
         extensions: ['.ts', '.js', '.vue'],
+        fallback: {
+            util: require.resolve("util/")
+        },
         alias: {
             '@': path.resolve(__dirname, "src"),
             '@/components': path.resolve(__dirname, "src/components"),

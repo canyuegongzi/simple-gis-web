@@ -25,31 +25,40 @@ export default class MapBoxService extends MapService {
         if (mapInstanceCache) {
             return mapInstanceCache;
         }
-        const map: Map = new Map({
+        const Mapboxgl: any = window.mapboxgl;
+        // const map: Map = new Map({
+        const map: Map = new Mapboxgl.Map({
             container: props.id,
+            // style: 'http://yapi.fpi-inc.site/mock/1069/one-map/mapbox/style/hz.json',
+            // style: 'http://yapi.fpi-inc.site/mock/1069/one-map/mapbox/style/img.json',
+            // style: 'http://yapi.fpi-inc.site/mock/1069/one-map/mapbox/style/ter.json',  // 地形
+            // style: 'https://gis-dev.fpi-inc.site/resource/gis/hz/ter.json',  // 地形
+            // style: 'https://gis-dev.fpi-inc.site/resource/gis/hz/img.json',  // 地形
+            style: 'https://gis-dev.fpi-inc.site/resource/gis/hz/street.json',  // 白色地图
+
             // style: 'mapbox://styles/mapbox/navigation-day-v1', // stylesheet location
             // style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
             // style: 'mapbox://styles/mapbox-map-design/ckhqrf2tz0dt119ny6azh975y',
             // style: 'mapbox://styles/mapbox/satellite-streets-v11',
             // style: 'mapbox://styles/mapbox/satellite-v9',
-            style: {
-                version: 8,
-                sources: {
-                    cartodb: {
-                        // tiles: ['http://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'],
-                        tiles: ['https://stamen-tiles-a.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}.png'],
-                        tileSize: 256,
-                        type: 'raster',
-                    },
-                },
-                layers: [
-                    {
-                        id: 'cartodb',
-                        type: 'raster',
-                        source: 'cartodb',
-                    },
-                ],
-            },
+            // style: {
+            //     version: 8,
+            //     sources: {
+            //         cartodb: {
+            //             tiles: ['http://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'],
+            //             // tiles: ['https://stamen-tiles-a.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}.png'],
+            //             tileSize: 256,
+            //             type: 'raster',
+            //         },
+            //     },
+            //     layers: [
+            //         {
+            //             id: 'cartodb',
+            //             type: 'raster',
+            //             source: 'cartodb',
+            //         },
+            //     ],
+            // },
             center: [120, 30],
 
             pitch: 60,
