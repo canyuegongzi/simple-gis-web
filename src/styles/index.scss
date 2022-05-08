@@ -1,0 +1,33 @@
+@import './normalize.scss';
+@import './reset_element.scss';
+@import './sidebar.scss';
+.view-common-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 100%;
+  height: 100%;
+}
+.view-page-common-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4000 !important;
+}
+.view-page-common-z-index {
+  z-index: 4000 !important;
+}
+.common-popup-container {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  cursor: default;
+}
+.common-popup-container-content {
+  min-width: 320px;
+  min-height: 400px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+}

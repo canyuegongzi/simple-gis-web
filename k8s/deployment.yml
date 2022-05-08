@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    labels:
+        app: simple-gis-new-web
+    name: simple-gis-new-web
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: simple-gis-new-web
+    template:
+        metadata:
+            labels:
+                app: simple-gis-new-web
+        spec:
+            containers:
+                -   image: canyuegongzi/simple-gis-new-web:1.0
+                    imagePullPolicy: IfNotPresent
+                    name: simple-gis-new-web

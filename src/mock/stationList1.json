@@ -1,0 +1,5066 @@
+[
+    {
+        "code": "LYSLJ_RIVER_70102550",
+        "level": null,
+        "latitude": "30.265277",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 2.26
+            }
+        ],
+        "regionId": "659024",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70102550",
+        "name": "三堡船闸外",
+        "property": null,
+        "online": 1,
+        "id": "14224",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "120.221388"
+    },
+    {
+        "code": "SW7104",
+        "regionId": "659051",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "latitude": "30.29785",
+        "accessCode": "SW7104",
+        "name": "沿山河沈家桥(拱墅区)",
+        "property": null,
+        "id": "14225",
+        "watershedId": "60601",
+        "longitude": "120.08772"
+    },
+    {
+        "code": "LYSLJ_RESERVOIR_HZ000089",
+        "regionId": "330127",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "latitude": "0",
+        "accessCode": "LYSLJ_RESERVOIR_HZ000089",
+        "name": "下源水库",
+        "property": null,
+        "id": "14226",
+        "watershedId": "60601",
+        "longitude": "0"
+    },
+    {
+        "code": "LYSLJ_RESERVOIR_70116224",
+        "level": null,
+        "latitude": "29.955361",
+        "watershedId": "70708168",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 135.82
+            }
+        ],
+        "regionId": "659094",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RESERVOIR_70116224",
+        "name": "渌渚西坞水库",
+        "property": null,
+        "online": 1,
+        "id": "14227",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.789778"
+    },
+    {
+        "code": "SW72123",
+        "level": null,
+        "latitude": "0",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 3.26
+            }
+        ],
+        "regionId": "330109",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW72123",
+        "name": "方千娄(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14228",
+        "time": "2021-05-05 14:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "0"
+    },
+    {
+        "code": "SW69703",
+        "level": null,
+        "latitude": "30.3875",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 3.72
+            }
+        ],
+        "regionId": "659197",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW69703",
+        "name": "潘板(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14230",
+        "time": "2021-05-07 19:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "119.8725"
+    },
+    {
+        "code": "SW7101",
+        "regionId": "659051",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "latitude": "30.29785",
+        "accessCode": "SW7101",
+        "name": "龙山水库(拱墅区)",
+        "property": null,
+        "id": "14231",
+        "watershedId": "60601",
+        "longitude": "120.08772"
+    },
+    {
+        "code": "SW7102",
+        "level": null,
+        "latitude": "30.29785",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.94
+            }
+        ],
+        "regionId": "659051",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW7102",
+        "name": "上塘河半山桥(拱墅区)",
+        "property": null,
+        "online": 0,
+        "id": "14232",
+        "time": "2021-05-07 19:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.08772"
+    },
+    {
+        "code": "SW8106",
+        "level": null,
+        "latitude": "30.35252",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 3.36
+            }
+        ],
+        "regionId": "659187",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW8106",
+        "name": "和睦港(绕城南)（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14233",
+        "time": "2021-05-07 19:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.25252"
+    },
+    {
+        "code": "SW8110",
+        "level": null,
+        "latitude": "30.33898",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 3.43
+            }
+        ],
+        "regionId": "659037",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW8110",
+        "name": "上塘河(铁路北)（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14235",
+        "time": "2021-05-07 19:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.17273"
+    },
+    {
+        "code": "SW8112",
+        "level": null,
+        "latitude": "30.2991",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.74
+            }
+        ],
+        "regionId": "659051",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW8112",
+        "name": "石桥港(政苑小区)（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14236",
+        "time": "2021-05-07 19:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.09746"
+    },
+    {
+        "code": "SW8113",
+        "level": null,
+        "latitude": "30.30942",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.31
+            }
+        ],
+        "regionId": "659033",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW8113",
+        "name": "西塘河(运河口）（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14237",
+        "time": "2021-05-07 19:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.13098"
+    },
+    {
+        "code": "LYSLJ_RESERVOIR_70115145",
+        "regionId": "659135",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "latitude": "29.988902",
+        "accessCode": "LYSLJ_RESERVOIR_70115145",
+        "name": "分水王坞坑水库",
+        "property": null,
+        "id": "14238",
+        "watershedId": "60601",
+        "longitude": "119.452815"
+    },
+    {
+        "code": "SW1001",
+        "level": null,
+        "latitude": "30.1527",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.97
+            }
+        ],
+        "regionId": "659047",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1001",
+        "name": "三号浦（麦岭沙闸）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14241",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.10062"
+    },
+    {
+        "code": "SW1002",
+        "level": null,
+        "latitude": "30.13566",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 5.02
+            }
+        ],
+        "regionId": "659047",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1002",
+        "name": "三号浦（市委党校）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14242",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.08218"
+    },
+    {
+        "code": "SW1003",
+        "level": null,
+        "latitude": "30.16301",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 5.4
+            }
+        ],
+        "regionId": "659047",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1003",
+        "name": "二轻浦（象山路）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14243",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.06521"
+    },
+    {
+        "code": "SW1004",
+        "level": null,
+        "latitude": "30.17528",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 5.01
+            }
+        ],
+        "regionId": "659045",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1004",
+        "name": "上泗沿山河（江涵路）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14244",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.09429"
+    },
+    {
+        "code": "SW1005",
+        "level": null,
+        "latitude": "30.16914",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.24
+            }
+        ],
+        "regionId": "659047",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1005",
+        "name": "定北沿山渠（之江路）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14245",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.07053"
+    },
+    {
+        "code": "SW1006",
+        "level": null,
+        "latitude": "30.12381",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 5.99
+            }
+        ],
+        "regionId": "659052",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1006",
+        "name": "象山沿山南渠（灵山线）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14246",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.05863"
+    },
+    {
+        "code": "SW1007",
+        "level": null,
+        "latitude": "30.12454",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 5.73
+            }
+        ],
+        "regionId": "659052",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1007",
+        "name": "象山沿山北渠（灵山线）(区管)",
+        "property": null,
+        "online": 0,
+        "id": "14247",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.05613"
+    },
+    {
+        "code": "SW1008",
+        "level": null,
+        "latitude": "30.14738",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 5.27
+            }
+        ],
+        "regionId": "659047",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1008",
+        "name": "团结浦（象山路）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14248",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.06782"
+    },
+    {
+        "code": "SW1009",
+        "level": null,
+        "latitude": "30.15843",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 5.07
+            }
+        ],
+        "regionId": "659047",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1009",
+        "name": "象山沿山南渠（杭富路）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14249",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.07551"
+    },
+    {
+        "code": "SW1010",
+        "level": null,
+        "latitude": "30.26482",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.72
+            }
+        ],
+        "regionId": "659048",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1010",
+        "name": "沿山河（蒋村港口）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14250",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.07446"
+    },
+    {
+        "code": "SW1011",
+        "level": null,
+        "latitude": "30.2733",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 2.1
+            }
+        ],
+        "regionId": "659049",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1011",
+        "name": "沿山河（杭大路）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14251",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.13541"
+    },
+    {
+        "code": "SW1012",
+        "level": null,
+        "latitude": "30.27351",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.62
+            }
+        ],
+        "regionId": "659044",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1012",
+        "name": "莲花港河（沿山河口）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14252",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.10746"
+    },
+    {
+        "code": "SW1013",
+        "level": null,
+        "latitude": "30.28589",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.6
+            }
+        ],
+        "regionId": "659050",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1013",
+        "name": "莲花港（益乐河口）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14253",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.10276"
+    },
+    {
+        "code": "SW1014",
+        "level": null,
+        "latitude": "30.27842",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.95
+            }
+        ],
+        "regionId": "659043",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1014",
+        "name": "古荡湾河（文三路）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14254",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.11808"
+    },
+    {
+        "code": "SW1015",
+        "level": null,
+        "latitude": "30.28424",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.94
+            }
+        ],
+        "regionId": "659043",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1015",
+        "name": "古荡湾河（文二路）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14255",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.11962"
+    },
+    {
+        "code": "SW1016",
+        "level": null,
+        "latitude": "30.29154",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 2.2
+            }
+        ],
+        "regionId": "659042",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1016",
+        "name": "西溪河（文一路北）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14256",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.13426"
+    },
+    {
+        "code": "SW1017",
+        "level": null,
+        "latitude": "30.27458",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.54
+            }
+        ],
+        "regionId": "659044",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1017",
+        "name": "冯家河（南闸北）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14257",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.11414"
+    },
+    {
+        "code": "SW1018",
+        "level": null,
+        "latitude": "30.26811",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 3.37
+            }
+        ],
+        "regionId": "659041",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1018",
+        "name": "古新河（省府路）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14258",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.15049"
+    },
+    {
+        "code": "SW1019",
+        "level": null,
+        "latitude": "30.26888",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 2.34
+            }
+        ],
+        "regionId": "659049",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1019",
+        "name": "浙大护校河（西溪路）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14259",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.12255"
+    },
+    {
+        "code": "SW1020",
+        "level": null,
+        "latitude": "30.32334",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.48
+            }
+        ],
+        "regionId": "659051",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1020",
+        "name": "五里河港(文星桥)(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14260",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.08411"
+    },
+    {
+        "code": "SW1021",
+        "level": null,
+        "latitude": "30.29001",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.53
+            }
+        ],
+        "regionId": "659186",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1021",
+        "name": "枫树港湾（闸前）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14261",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.0364"
+    },
+    {
+        "code": "SW1022",
+        "level": null,
+        "latitude": "30.24388",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.67
+            }
+        ],
+        "regionId": "659046",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1022",
+        "name": "东穆坞溪（新开河天目山路）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14262",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.04564"
+    },
+    {
+        "code": "SW1023",
+        "level": null,
+        "latitude": "30.31929",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.5
+            }
+        ],
+        "regionId": "659051",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1023",
+        "name": "一号河（古墩路）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14263",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.08982"
+    },
+    {
+        "code": "SW1024",
+        "level": null,
+        "latitude": "30.31768",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.47
+            }
+        ],
+        "regionId": "659051",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1024",
+        "name": "西行河（振华路）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14264",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.07213"
+    },
+    {
+        "code": "SW1025",
+        "level": null,
+        "latitude": "30.24525",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.87
+            }
+        ],
+        "regionId": "659046",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1025",
+        "name": "留下河（留下泵站）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14265",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.05148"
+    },
+    {
+        "code": "SW1026",
+        "level": null,
+        "latitude": "30.18497",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.98
+            }
+        ],
+        "regionId": "659045",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1026",
+        "name": "上泗沿山河（九溪闸内）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14266",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.11067"
+    },
+    {
+        "code": "SW1028",
+        "level": null,
+        "latitude": "30.12494",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 5.68
+            }
+        ],
+        "regionId": "659052",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1028",
+        "name": "八号浦（四号排灌站内）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14267",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.15227"
+    },
+    {
+        "code": "SW1029",
+        "level": null,
+        "latitude": "30.12518",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.97
+            }
+        ],
+        "regionId": "659052",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1029",
+        "name": "八号浦（四号排灌站外）(西湖)",
+        "property": null,
+        "online": 0,
+        "id": "14268",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.15239"
+    },
+    {
+        "code": "SW1030",
+        "level": null,
+        "latitude": "30.17741",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.24
+            }
+        ],
+        "regionId": "659054",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1030",
+        "name": "时代河(滨江)",
+        "property": null,
+        "online": 0,
+        "id": "14269",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.18254"
+    },
+    {
+        "code": "SW1031",
+        "level": null,
+        "latitude": "30.17734",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": -18.81
+            }
+        ],
+        "regionId": "659053",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1031",
+        "name": "庙后王河（滨江）",
+        "property": null,
+        "online": 0,
+        "id": "14270",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.20679"
+    },
+    {
+        "code": "SW1032",
+        "level": null,
+        "latitude": "30.1756",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": -18.14
+            }
+        ],
+        "regionId": "659055",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1032",
+        "name": "许家河（滨江）",
+        "property": null,
+        "online": 0,
+        "id": "14271",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.1612"
+    },
+    {
+        "code": "SW1033",
+        "level": null,
+        "latitude": "30.1637",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.17
+            }
+        ],
+        "regionId": "659055",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1033",
+        "name": "新浦河（滨江）",
+        "property": null,
+        "online": 0,
+        "id": "14272",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.14657"
+    },
+    {
+        "code": "SW1034",
+        "level": null,
+        "latitude": "30.14655",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 3.85
+            }
+        ],
+        "regionId": "659055",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1034",
+        "name": "华家排灌站（滨江）",
+        "property": null,
+        "online": 0,
+        "id": "14273",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.14327"
+    },
+    {
+        "code": "SW1038",
+        "level": null,
+        "latitude": "30.34041",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 3.35
+            }
+        ],
+        "regionId": "659028",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1038",
+        "name": "和睦港（机场港口）（中心2015）",
+        "property": null,
+        "online": 0,
+        "id": "14275",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.25751"
+    },
+    {
+        "code": "SW1041",
+        "level": null,
+        "latitude": "30.28862",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.64
+            }
+        ],
+        "regionId": "659186",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1041",
+        "name": "五常港（船闸北）(中心2015)",
+        "property": null,
+        "online": 0,
+        "id": "14278",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.04984"
+    },
+    {
+        "code": "SW1042",
+        "level": null,
+        "latitude": "30.32983",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.51
+            }
+        ],
+        "regionId": "659038",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1042",
+        "name": "西塘河（三墩港口）（中心2015）",
+        "property": null,
+        "online": 0,
+        "id": "14279",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.10444"
+    },
+    {
+        "code": "SW1043",
+        "level": null,
+        "latitude": "30.34325",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.58
+            }
+        ],
+        "regionId": "659191",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1043",
+        "name": "西塘河（金家渡路）（中心2015）",
+        "property": null,
+        "online": 0,
+        "id": "14280",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.09198"
+    },
+    {
+        "code": "SW1044",
+        "level": null,
+        "latitude": "30.34049",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.48
+            }
+        ],
+        "regionId": "659037",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1044",
+        "name": "电热水厂（管家漾口）(中心2015)",
+        "property": null,
+        "online": 0,
+        "id": "14281",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.15084"
+    },
+    {
+        "code": "SW1045",
+        "level": null,
+        "latitude": "30.1869",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 5.04
+            }
+        ],
+        "regionId": "659055",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1045",
+        "name": "浦沿排灌站(滨江)",
+        "property": null,
+        "online": 0,
+        "id": "14282",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.1269"
+    },
+    {
+        "code": "SW1108",
+        "level": null,
+        "latitude": "30.31597",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.41
+            }
+        ],
+        "regionId": "659037",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1108",
+        "name": "姚家坝河（红建河口）（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14288",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.14601"
+    },
+    {
+        "code": "SW1109",
+        "level": null,
+        "latitude": "30.36899",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.53
+            }
+        ],
+        "regionId": "659039",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1109",
+        "name": "康桥河（石前港口南）（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14289",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.14418"
+    },
+    {
+        "code": "SW1110",
+        "level": null,
+        "latitude": "30.34869",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.62
+            }
+        ],
+        "regionId": "659039",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1110",
+        "name": "电厂热水河（下塘河口）（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14290",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.14966"
+    },
+    {
+        "code": "SW1111",
+        "level": null,
+        "latitude": "30.29284",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.97
+            }
+        ],
+        "regionId": "659043",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1111",
+        "name": "古荡湾河（翠柏路）（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14291",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.11969"
+    },
+    {
+        "code": "SW1112",
+        "level": null,
+        "latitude": "30.32411",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.57
+            }
+        ],
+        "regionId": "659051",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1112",
+        "name": "三墩港（古墩路）（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14292",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.08704"
+    },
+    {
+        "code": "SW1113",
+        "level": null,
+        "latitude": "30.31492",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.46
+            }
+        ],
+        "regionId": "659051",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1113",
+        "name": "女儿桥港（五号港口）（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14293",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.06622"
+    },
+    {
+        "code": "SW1114",
+        "level": null,
+        "latitude": "30.30162",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.81
+            }
+        ],
+        "regionId": "659051",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1114",
+        "name": "浙大（启真湖南）（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14294",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.08221"
+    },
+    {
+        "code": "SW1115",
+        "level": null,
+        "latitude": "30.31127",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.76
+            }
+        ],
+        "regionId": "659051",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1115",
+        "name": "浙大（启真湖北）（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14295",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.08234"
+    },
+    {
+        "code": "SW119",
+        "level": null,
+        "latitude": "30.22485",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.28
+            }
+        ],
+        "regionId": "659053",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW119",
+        "name": "建设河排灌站外闸（滨江）",
+        "property": null,
+        "online": 0,
+        "id": "14296",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.2107"
+    },
+    {
+        "code": "SW120",
+        "level": null,
+        "latitude": "30.18888",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.24
+            }
+        ],
+        "regionId": "659055",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW120",
+        "name": "永久河(UT)站（滨江）",
+        "property": null,
+        "online": 0,
+        "id": "14297",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.12679"
+    },
+    {
+        "code": "SW121",
+        "level": null,
+        "latitude": "30.15983",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.21
+            }
+        ],
+        "regionId": "659055",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW121",
+        "name": "龙塘河水务公司（滨江）",
+        "property": null,
+        "online": 0,
+        "id": "14298",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.17409"
+    },
+    {
+        "code": "SW122",
+        "level": null,
+        "latitude": "30.19662",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.17
+            }
+        ],
+        "regionId": "659054",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW122",
+        "name": "永久河立交桥下（滨江）",
+        "property": null,
+        "online": 0,
+        "id": "14299",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.18105"
+    },
+    {
+        "code": "SW123",
+        "level": null,
+        "latitude": "30.19497",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.13
+            }
+        ],
+        "regionId": "659053",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW123",
+        "name": "十甲河节制闸（滨江）",
+        "property": null,
+        "online": 0,
+        "id": "14300",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.21405"
+    },
+    {
+        "code": "SW124",
+        "regionId": "659054",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "latitude": "30.1605",
+        "accessCode": "SW124",
+        "name": "输水河海山桥（滨江）",
+        "property": null,
+        "id": "14301",
+        "watershedId": "60601",
+        "longitude": "120.19814"
+    },
+    {
+        "code": "SW125",
+        "level": null,
+        "latitude": "30.22374",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 3.45
+            }
+        ],
+        "regionId": "659053",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW125",
+        "name": "建设河排灌站内闸（滨江）",
+        "property": null,
+        "online": 0,
+        "id": "14302",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.21191"
+    },
+    {
+        "code": "SW1391",
+        "level": null,
+        "latitude": "30.303889",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.03
+            }
+        ],
+        "regionId": "659026",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1391",
+        "name": "白洋桥(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14303",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.356944"
+    },
+    {
+        "code": "SW1404",
+        "level": null,
+        "latitude": "30.336944",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.69
+            }
+        ],
+        "regionId": "659197",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW1404",
+        "name": "长乐水位(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14304",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "119.881944"
+    },
+    {
+        "code": "SW2307",
+        "level": null,
+        "latitude": "30.354148",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.15
+            }
+        ],
+        "regionId": "659026",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW2307",
+        "name": "乔司农场(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14321",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.346459"
+    },
+    {
+        "code": "SW58",
+        "level": null,
+        "latitude": "30.263946",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 3.33
+            }
+        ],
+        "regionId": "659041",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW58",
+        "name": "古新河（圣塘闸后）（排水）",
+        "property": null,
+        "online": 0,
+        "id": "14322",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.15169"
+    },
+    {
+        "code": "SW59",
+        "level": null,
+        "latitude": "30.29614",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 2.26
+            }
+        ],
+        "regionId": "659033",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW59",
+        "name": "余杭塘河南线（观音桥）（排水）",
+        "property": null,
+        "online": 0,
+        "id": "14323",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.13526"
+    },
+    {
+        "code": "SW60",
+        "level": null,
+        "latitude": "30.2962",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.5
+            }
+        ],
+        "regionId": "659033",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW60",
+        "name": "余杭塘河南线（西闸西）（排水）",
+        "property": null,
+        "online": 0,
+        "id": "14324",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.12011"
+    },
+    {
+        "code": "SW61",
+        "level": null,
+        "latitude": "30.27239",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 2.18
+            }
+        ],
+        "regionId": "659049",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW61",
+        "name": "沿山河（庆丰新村）（排水）",
+        "property": null,
+        "online": 0,
+        "id": "14325",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.12329"
+    },
+    {
+        "code": "SW69",
+        "level": null,
+        "latitude": "30.29214",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.62
+            }
+        ],
+        "regionId": "659050",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW69",
+        "name": "莲花港（船闸前）（排水）",
+        "property": null,
+        "online": 0,
+        "id": "14331",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.10104"
+    },
+    {
+        "code": "SW69658",
+        "level": null,
+        "latitude": "30.275",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 3.75
+            }
+        ],
+        "regionId": "659194",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW69658",
+        "name": "余杭(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14332",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "119.928"
+    },
+    {
+        "code": "SW69662",
+        "level": null,
+        "latitude": "30.452778",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 3.11
+            }
+        ],
+        "regionId": "659201",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW69662",
+        "name": "北湖(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14333",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "119.801389"
+    },
+    {
+        "code": "SW69663",
+        "level": null,
+        "latitude": "30.391944",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 2.47
+            }
+        ],
+        "regionId": "659198",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW69663",
+        "name": "瓶窑(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14334",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "119.965"
+    },
+    {
+        "code": "SW69693",
+        "level": null,
+        "latitude": "30.26722",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.38
+            }
+        ],
+        "regionId": "659194",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW69693",
+        "name": "南湖(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14335",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "119.906944"
+    },
+    {
+        "code": "SW69769",
+        "level": null,
+        "latitude": "30.293587",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 3.31
+            }
+        ],
+        "regionId": "659017",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW69769",
+        "name": "石灰坝(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14336",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.154071"
+    },
+    {
+        "code": "SW69770",
+        "level": null,
+        "latitude": "30.32063",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.56
+            }
+        ],
+        "regionId": "659035",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW69770",
+        "name": "运河拱宸桥(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14337",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.13363"
+    },
+    {
+        "code": "SW69775",
+        "level": null,
+        "latitude": "30.376667",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.87
+            }
+        ],
+        "regionId": "659191",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW69775",
+        "name": "良渚(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14338",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.045"
+    },
+    {
+        "code": "SW69778",
+        "level": null,
+        "latitude": "30.4225",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 3.36
+            }
+        ],
+        "regionId": "659183",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW69778",
+        "name": "临平上(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14339",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.300833"
+    },
+    {
+        "code": "SW69819",
+        "level": null,
+        "latitude": "30.456667",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.34
+            }
+        ],
+        "regionId": "659182",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW69819",
+        "name": "临平下(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14340",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.268333"
+    },
+    {
+        "code": "SW71",
+        "level": null,
+        "latitude": "30.28838",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 3.08
+            }
+        ],
+        "regionId": "659031",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW71",
+        "name": "古新河（新河坝闸前）（排水）",
+        "property": null,
+        "online": 0,
+        "id": "14341",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.14484"
+    },
+    {
+        "code": "SW71013",
+        "level": null,
+        "latitude": "30.126667",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.94
+            }
+        ],
+        "regionId": "659067",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW71013",
+        "name": "钱塘江闻家堰(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14342",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.166667"
+    },
+    {
+        "code": "SW71014",
+        "level": null,
+        "latitude": "30.199982",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.83
+            }
+        ],
+        "regionId": "659010",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW71014",
+        "name": "钱塘江闸口(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14343",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.13311"
+    },
+    {
+        "code": "SW71016",
+        "level": null,
+        "latitude": "30.263",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.4
+            }
+        ],
+        "regionId": "659061",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW71016",
+        "name": "仓前(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14345",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.397"
+    },
+    {
+        "code": "SW71940",
+        "level": null,
+        "latitude": "30.0573",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.95
+            }
+        ],
+        "regionId": "659075",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW71940",
+        "name": "临浦(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14346",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.263"
+    },
+    {
+        "code": "SW72",
+        "level": null,
+        "latitude": "30.25404",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.74
+            }
+        ],
+        "regionId": "659186",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW72",
+        "name": "五常港（沿山河口）（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14347",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.05065"
+    },
+    {
+        "code": "SW73",
+        "level": null,
+        "latitude": "30.29364",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.61
+            }
+        ],
+        "regionId": "659044",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW73",
+        "name": "冯家港（船闸前）（排水）",
+        "property": null,
+        "online": 0,
+        "id": "14348",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.1127"
+    },
+    {
+        "code": "SW76",
+        "level": null,
+        "latitude": "30.20251",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 6.41
+            }
+        ],
+        "regionId": "659010",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW76",
+        "name": "中河（白塔岭）（排水）",
+        "property": null,
+        "online": 0,
+        "id": "14350",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.14003"
+    },
+    {
+        "code": "SW77",
+        "level": null,
+        "latitude": "30.23882",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 7.37
+            }
+        ],
+        "regionId": "659041",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW77",
+        "name": "西湖（水域管理处）（排水）",
+        "property": null,
+        "online": 0,
+        "id": "14351",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.14937"
+    },
+    {
+        "code": "SW78",
+        "level": null,
+        "latitude": "30.22552",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 6.09
+            }
+        ],
+        "regionId": "659010",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW78",
+        "name": "中河（凤山门）（排水）",
+        "property": null,
+        "online": 0,
+        "id": "14352",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.16773"
+    },
+    {
+        "code": "SW79",
+        "level": null,
+        "latitude": "30.29451",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.65
+            }
+        ],
+        "regionId": "659048",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW79",
+        "name": "紫金港（船闸前）（排水）",
+        "property": null,
+        "online": 0,
+        "id": "14353",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.08284"
+    },
+    {
+        "code": "SW80",
+        "level": null,
+        "latitude": "30.14714",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 5.71
+            }
+        ],
+        "regionId": "659052",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW80",
+        "name": "四号浦（赤通浦闸前）（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14354",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.11788"
+    },
+    {
+        "code": "SW80017",
+        "level": null,
+        "latitude": "30.24958",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 5.52
+            }
+        ],
+        "regionId": "659009",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW80017",
+        "name": "贴沙河（清泰水厂）（排水）",
+        "property": null,
+        "online": 0,
+        "id": "14356",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.18128"
+    },
+    {
+        "code": "SW80021",
+        "level": null,
+        "latitude": "30.22641",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.11
+            }
+        ],
+        "regionId": "659011",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW80021",
+        "name": "新开河（候潮路）（排水）",
+        "property": null,
+        "online": 0,
+        "id": "14357",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.17391"
+    },
+    {
+        "code": "SW80023",
+        "level": null,
+        "latitude": "30.26575",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.7
+            }
+        ],
+        "regionId": "659046",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW80023",
+        "name": "沿山河（周家塘闸）（排水）",
+        "property": null,
+        "online": 0,
+        "id": "14358",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.08506"
+    },
+    {
+        "code": "SW80026",
+        "level": null,
+        "latitude": "30.28894",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 2.24
+            }
+        ],
+        "regionId": "659042",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW80026",
+        "name": "西溪河（新乌蓬桥）（排水）",
+        "property": null,
+        "online": 0,
+        "id": "14359",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.13642"
+    },
+    {
+        "code": "SW80029",
+        "level": null,
+        "latitude": "30.23494",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.38
+            }
+        ],
+        "regionId": "659046",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW80029",
+        "name": "上埠河（绕城外）（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14360",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.03771"
+    },
+    {
+        "code": "SW80030",
+        "level": null,
+        "latitude": "30.24534",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 2.45
+            }
+        ],
+        "regionId": "659046",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW80030",
+        "name": "留下河（西溪路口）（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14361",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.0516"
+    },
+    {
+        "code": "SW80032",
+        "level": null,
+        "latitude": "30.29725",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.69
+            }
+        ],
+        "regionId": "659048",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW80032",
+        "name": "余杭塘河（蒋村港口）（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14362",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.06787"
+    },
+    {
+        "code": "SW80036",
+        "level": null,
+        "latitude": "30.25998",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.66
+            }
+        ],
+        "regionId": "659048",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW80036",
+        "name": "西溪湿地（二期）（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14363",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.05498"
+    },
+    {
+        "code": "SW81",
+        "level": null,
+        "latitude": "30.20499",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 6.25
+            }
+        ],
+        "regionId": "659045",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW81",
+        "name": "进龙河（小天竺）（中心）",
+        "property": null,
+        "online": 0,
+        "id": "14364",
+        "time": "2021-05-17 09:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.13308"
+    },
+    {
+        "code": "LYSLJ_RIVER_63306345",
+        "level": null,
+        "latitude": "30.351944",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 4.0
+            }
+        ],
+        "regionId": "659026",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_63306345",
+        "name": "乔司农场",
+        "property": null,
+        "online": 1,
+        "id": "14424",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "120.346388"
+    },
+    {
+        "code": "LYSLJ_RIVER_63306350",
+        "level": null,
+        "latitude": "30.303888",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 3.81
+            }
+        ],
+        "regionId": "659026",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_63306350",
+        "name": "白洋桥",
+        "property": null,
+        "online": 1,
+        "id": "14425",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "120.356944"
+    },
+    {
+        "code": "LYSLJ_RIVER_63306380",
+        "level": null,
+        "latitude": "30.403305",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.54
+            }
+        ],
+        "regionId": "659189",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_63306380",
+        "name": "崇贤",
+        "property": null,
+        "online": 1,
+        "id": "14426",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "120.17825"
+    },
+    {
+        "code": "LYSLJ_RIVER_63306400",
+        "level": null,
+        "latitude": "30.457916",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.36
+            }
+        ],
+        "regionId": "659182",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_63306400",
+        "name": "临平下",
+        "property": null,
+        "online": 1,
+        "id": "14427",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "120.269444"
+    },
+    {
+        "code": "LYSLJ_RIVER_63320500",
+        "level": null,
+        "latitude": "30.376583",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.4
+            }
+        ],
+        "regionId": "659191",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_63320500",
+        "name": "良渚",
+        "property": null,
+        "online": 1,
+        "id": "14428",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "120.045"
+    },
+    {
+        "code": "LYSLJ_RIVER_63320600",
+        "level": null,
+        "latitude": "30.478344",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.587
+            }
+        ],
+        "regionId": "659196",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_63320600",
+        "name": "塘栖",
+        "property": null,
+        "online": 1,
+        "id": "14429",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "120.175464"
+    },
+    {
+        "code": "LYSLJ_RIVER_70101000",
+        "level": null,
+        "latitude": "29.3675",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 23.02
+            }
+        ],
+        "regionId": "659174",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70101000",
+        "name": "三河",
+        "property": null,
+        "online": 1,
+        "id": "14430",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.514444"
+    },
+    {
+        "code": "LYSLJ_RIVER_70101200",
+        "level": null,
+        "latitude": "29.439166",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 22.71
+            }
+        ],
+        "regionId": "659174",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70101200",
+        "name": "大洋镇",
+        "property": null,
+        "online": 1,
+        "id": "14431",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.513611"
+    },
+    {
+        "code": "LYSLJ_RIVER_70101501",
+        "level": null,
+        "latitude": "29.71067",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 7.74
+            }
+        ],
+        "regionId": "659133",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70101501",
+        "name": "富春江水库坝下",
+        "property": null,
+        "online": 1,
+        "id": "14432",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.650881"
+    },
+    {
+        "code": "LYSLJ_RIVER_70101650",
+        "level": null,
+        "latitude": "29.760555",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 6.39
+            }
+        ],
+        "regionId": "659133",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70101650",
+        "name": "城南渡济大桥",
+        "property": null,
+        "online": 1,
+        "id": "14433",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.646666"
+    },
+    {
+        "code": "LYSLJ_RIVER_70101700",
+        "level": null,
+        "latitude": "29.811629",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 5.86
+            }
+        ],
+        "regionId": "659130",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70101700",
+        "name": "桐庐",
+        "property": null,
+        "online": 1,
+        "id": "14434",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.681149"
+    },
+    {
+        "code": "LYSLJ_RIVER_70101800",
+        "level": null,
+        "latitude": "29.876666",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 5.535
+            }
+        ],
+        "regionId": "659094",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70101800",
+        "name": "渌渚窄溪",
+        "property": null,
+        "online": 1,
+        "id": "14435",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.764166"
+    },
+    {
+        "code": "LYSLJ_RIVER_70102000",
+        "level": null,
+        "latitude": "30.047777",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 5.321
+            }
+        ],
+        "regionId": "659087",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70102000",
+        "name": "富阳",
+        "property": null,
+        "online": 1,
+        "id": "14436",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.956944"
+    },
+    {
+        "code": "LYSLJ_RIVER_70110825",
+        "level": null,
+        "latitude": "29.449166",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 36.23
+            }
+        ],
+        "regionId": "659174",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70110825",
+        "name": "大洋里张村",
+        "property": null,
+        "online": 1,
+        "id": "14437",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.478333"
+    },
+    {
+        "code": "LYSLJ_RIVER_70112200",
+        "level": null,
+        "latitude": "29.469926",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 22.98
+            }
+        ],
+        "regionId": "659166",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70112200",
+        "name": "新安江白沙",
+        "property": null,
+        "online": 1,
+        "id": "14438",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.29058"
+    },
+    {
+        "code": "LYSLJ_RIVER_70112400",
+        "level": null,
+        "latitude": "29.538611",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 22.72
+            }
+        ],
+        "regionId": "659171",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70112400",
+        "name": "梅城",
+        "property": null,
+        "online": 1,
+        "id": "14439",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.503333"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114238",
+        "level": null,
+        "latitude": "29.718888",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 101.4
+            }
+        ],
+        "regionId": "659162",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114238",
+        "name": "鸠坑码头",
+        "property": null,
+        "online": 1,
+        "id": "14440",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "118.733333"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114445",
+        "level": null,
+        "latitude": "29.86405",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 112.8
+            }
+        ],
+        "regionId": "659146",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114445",
+        "name": "临歧梅口",
+        "property": null,
+        "online": 1,
+        "id": "14441",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.125305"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114510",
+        "level": null,
+        "latitude": "29.450277",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 129.969
+            }
+        ],
+        "regionId": "659151",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114510",
+        "name": "中洲",
+        "property": null,
+        "online": 1,
+        "id": "14442",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "118.483611"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114687",
+        "level": null,
+        "latitude": "29.649722",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 119.61
+            }
+        ],
+        "regionId": "659156",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114687",
+        "name": "富文",
+        "property": null,
+        "online": 1,
+        "id": "14443",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.224166"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114696",
+        "level": null,
+        "latitude": "29.282222",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 82.65
+            }
+        ],
+        "regionId": "659179",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114696",
+        "name": "大同溪口",
+        "property": null,
+        "online": 1,
+        "id": "14444",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.082222"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114698",
+        "level": null,
+        "latitude": "29.31768",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 66.09
+            }
+        ],
+        "regionId": "659177",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114698",
+        "name": "航头五沙畈",
+        "property": null,
+        "online": 1,
+        "id": "14445",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.13731"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114700",
+        "level": null,
+        "latitude": "29.453277",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 26.172
+            }
+        ],
+        "regionId": "659166",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114700",
+        "name": "源口",
+        "property": null,
+        "online": 1,
+        "id": "14446",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.249083"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114720",
+        "level": null,
+        "latitude": "29.309444",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 97.95
+            }
+        ],
+        "regionId": "659179",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114720",
+        "name": "大同劳村",
+        "property": null,
+        "online": 1,
+        "id": "14447",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.074722"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114738",
+        "level": null,
+        "latitude": "29.387777",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 110.3
+            }
+        ],
+        "regionId": "659176",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114738",
+        "name": "寿昌西华村",
+        "property": null,
+        "online": 1,
+        "id": "14448",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.172777"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114920",
+        "level": null,
+        "latitude": "29.572391",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 78.31
+            }
+        ],
+        "regionId": "659169",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114920",
+        "name": "莲花郭村",
+        "property": null,
+        "online": 1,
+        "id": "14449",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.308888"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114928",
+        "level": null,
+        "latitude": "29.612363",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 92.74
+            }
+        ],
+        "regionId": "659173",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114928",
+        "name": "下涯金洲村",
+        "property": null,
+        "online": 1,
+        "id": "14450",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.357477"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114934",
+        "level": null,
+        "latitude": "29.597777",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 47.86
+            }
+        ],
+        "regionId": "659172",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114934",
+        "name": "杨桥村黄盛村",
+        "property": null,
+        "online": 1,
+        "id": "14451",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.444444"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114944",
+        "level": null,
+        "latitude": "29.536944",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 43.74
+            }
+        ],
+        "regionId": "659175",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114944",
+        "name": "三都和村",
+        "property": null,
+        "online": 1,
+        "id": "14452",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.600277"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114962",
+        "level": null,
+        "latitude": "29.584444",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 260.44
+            }
+        ],
+        "regionId": "659170",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114962",
+        "name": "乾潭梓洲",
+        "property": null,
+        "online": 1,
+        "id": "14453",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.736388"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114965",
+        "level": null,
+        "latitude": "29.6044",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 21.91
+            }
+        ],
+        "regionId": "659170",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114965",
+        "name": "乾潭富春江南",
+        "property": null,
+        "online": 1,
+        "id": "14454",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.5868"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114966",
+        "level": null,
+        "latitude": "29.6425",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 112.35
+            }
+        ],
+        "regionId": "659133",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114966",
+        "name": "富春江石舍",
+        "property": null,
+        "online": 1,
+        "id": "14455",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.721666"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114974",
+        "level": null,
+        "latitude": "29.692777",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 24.43
+            }
+        ],
+        "regionId": "659170",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114974",
+        "name": "安仁施家",
+        "property": null,
+        "online": 1,
+        "id": "14456",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.585555"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114976",
+        "level": null,
+        "latitude": "29.699722",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 12.35
+            }
+        ],
+        "regionId": "659133",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114976",
+        "name": "富春江清渚江芝厦",
+        "property": null,
+        "online": 1,
+        "id": "14457",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.610833"
+    },
+    {
+        "code": "LYSLJ_RIVER_70114986",
+        "level": null,
+        "latitude": "29.773333",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 36.36
+            }
+        ],
+        "regionId": "659131",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70114986",
+        "name": "城南龙头坞",
+        "property": null,
+        "online": 1,
+        "id": "14458",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.690833"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115040",
+        "level": null,
+        "latitude": "30.165",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 130.78
+            }
+        ],
+        "regionId": "659128",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115040",
+        "name": "龙岗假山头",
+        "property": null,
+        "online": 1,
+        "id": "14459",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.140833"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115050",
+        "level": null,
+        "latitude": "30.165277",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 2.37
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 103.018
+            }
+        ],
+        "regionId": "659121",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115050",
+        "name": "昌化水文站",
+        "property": null,
+        "online": 1,
+        "id": "14460",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.2175"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115090",
+        "level": null,
+        "latitude": "30.054166",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 47.81
+            }
+        ],
+        "regionId": "659120",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115090",
+        "name": "潜川青山殿下",
+        "property": null,
+        "online": 1,
+        "id": "14461",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.364166"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115120",
+        "level": null,
+        "latitude": "30.008321",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 42.04
+            }
+        ],
+        "regionId": "659120",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115120",
+        "name": "分水江库尾(乐平)",
+        "property": null,
+        "online": 1,
+        "id": "14462",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.394471"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115140",
+        "level": null,
+        "latitude": "29.991144",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 39.95
+            }
+        ],
+        "regionId": "659135",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115140",
+        "name": "分水江库尾（分水）",
+        "property": null,
+        "online": 1,
+        "id": "14463",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.40239"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115210",
+        "level": null,
+        "latitude": "29.9325",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 27.04
+            }
+        ],
+        "regionId": "659135",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115210",
+        "name": "分水新桥",
+        "property": null,
+        "online": 1,
+        "id": "14464",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.446944"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115230",
+        "level": null,
+        "latitude": "29.941666",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 26.99
+            }
+        ],
+        "regionId": "659136",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115230",
+        "name": "分水罗布场",
+        "property": null,
+        "online": 1,
+        "id": "14465",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.474722"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115250",
+        "level": null,
+        "latitude": "29.929624",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 42.1
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 17.19
+            }
+        ],
+        "regionId": "659136",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115250",
+        "name": "分水江水文站",
+        "property": null,
+        "online": 1,
+        "id": "14466",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.508476"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115260",
+        "level": null,
+        "latitude": "29.906388",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 12.73
+            }
+        ],
+        "regionId": "659136",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115260",
+        "name": "瑶琳大桥",
+        "property": null,
+        "online": 1,
+        "id": "14467",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.538333"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115280",
+        "level": null,
+        "latitude": "29.845667",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 6.46
+            }
+        ],
+        "regionId": "659134",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115280",
+        "name": "横村新桥",
+        "property": null,
+        "online": 1,
+        "id": "14468",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.606517"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115350",
+        "level": null,
+        "latitude": "29.800216",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 6.07
+            }
+        ],
+        "regionId": "659130",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115350",
+        "name": "旧县西武山桥",
+        "property": null,
+        "online": 1,
+        "id": "14469",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.638528"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115476",
+        "level": null,
+        "latitude": "30.085555",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 99.09
+            }
+        ],
+        "regionId": "659122",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115476",
+        "name": "河桥上卜",
+        "property": null,
+        "online": 1,
+        "id": "14470",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.197222"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115478",
+        "level": null,
+        "latitude": "30.103611",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 85.46
+            }
+        ],
+        "regionId": "659122",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115478",
+        "name": "河桥",
+        "property": null,
+        "online": 1,
+        "id": "14471",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.235"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115502",
+        "level": null,
+        "latitude": "30.144166",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 70.0
+            }
+        ],
+        "regionId": "659118",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115502",
+        "name": "於潜水文站",
+        "property": null,
+        "online": 1,
+        "id": "14472",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.383333"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115526",
+        "level": null,
+        "latitude": "29.959156",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 53.2
+            }
+        ],
+        "regionId": "659135",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115526",
+        "name": "分水怡和桥",
+        "property": null,
+        "online": 1,
+        "id": "14473",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.355391"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115528",
+        "level": null,
+        "latitude": "29.936388",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 78.26
+            }
+        ],
+        "regionId": "659142",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115528",
+        "name": "麻溪合村",
+        "property": null,
+        "online": 1,
+        "id": "14474",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.3075"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115532",
+        "level": null,
+        "latitude": "30.033611",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 61.7
+            }
+        ],
+        "regionId": "659135",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115532",
+        "name": "合村后溪盛村",
+        "property": null,
+        "online": 1,
+        "id": "14475",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.458055"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115537",
+        "level": null,
+        "latitude": "29.801666",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 96.45
+            }
+        ],
+        "regionId": "659137",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115537",
+        "name": "百江罗溪罗山",
+        "property": null,
+        "online": 1,
+        "id": "14476",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.33"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115538",
+        "level": null,
+        "latitude": "29.851388",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 70.91
+            }
+        ],
+        "regionId": "659137",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115538",
+        "name": "罗溪百江",
+        "property": null,
+        "online": 1,
+        "id": "14477",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.353333"
+    },
+    {
+        "code": "LYSLJ_RIVER_70115539",
+        "level": null,
+        "latitude": "29.8975",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 33.22
+            }
+        ],
+        "regionId": "659135",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70115539",
+        "name": "分水前溪大路",
+        "property": null,
+        "online": 1,
+        "id": "14478",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.381944"
+    }
+]

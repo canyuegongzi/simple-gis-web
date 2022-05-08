@@ -1,0 +1,78 @@
+@import "./value.scss";
+//字体
+@mixin font-size($size) {
+    font-size: $size;
+}
+//背景
+@mixin bg-color($bg) {
+    background-color: $bg !important;
+    // 左边导航栏选中字体颜色
+    .el-menu-item.is-active span {
+        color: $active-theme !important;
+    }
+     // 左边导航栏选中图标颜色
+    .el-menu-item.is-active i {
+        color: $active-theme !important;
+    }
+    [data-ming="theme1"] & {
+        background-color: $bg-ming-theme1 !important;
+        .el-menu-item.is-active span {
+            color: $active-theme1 !important;
+        }
+    }
+    [data-ming="theme2"] & {
+        background-color: $bg-ming-theme2 !important;
+        .el-menu-item.is-active span {
+            color: $active-theme2 !important;
+        }
+        .el-menu-item.is-active i {
+            color: $active-theme2 !important;
+        }
+    }
+    [data-ming="theme3"] & {
+        background-color: $bg-ming-theme3 !important;
+        .el-menu-item.is-active span {
+            color: $active-theme3 !important;
+        }
+        .el-menu-item.is-active i {
+            color: $active-theme3 !important;
+        }
+    }
+    [data-ming="theme4"] & {
+        background-color: $bg-ming-theme4 !important;
+        .el-menu-item.is-active span {
+            color: $active-theme4 !important;
+        }
+        .el-menu-item.is-active i {
+            color: $active-theme4 !important;
+        }
+    }
+    [data-ming="theme5"] & {
+        background-color: $bg-ming-theme5 !important;
+        .el-menu-item.is-active span {
+            color: $active-theme5 !important;
+        }
+        .el-menu-item.is-active i {
+            color: $active-theme5 !important;
+        }
+    }
+}
+//字体
+@mixin font-color($color) {
+    color: $color;
+    [data-ming="theme1"] & {
+        color: $font-color-ming-theme1 !important;
+    }
+    [data-ming="theme2"] & {
+        color: $font-color-ming-theme2 !important;
+    }
+    [data-ming="theme3"] & {
+        color: $font-color-ming-theme3 !important;
+    }
+    [data-ming="theme4"] & {
+        color: $font-color-ming-theme4 !important;
+    }
+    [data-ming="theme4"] & {
+        color: $font-color-ming-theme4 !important;
+    }
+}

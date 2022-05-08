@@ -1,0 +1,51 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-canyuegongzi-web
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  tls:
+    - hosts:
+        - canyuegongzi.xyz               # TLS 域名
+      secretName: canyuegongzi.xyz-tls   # 用于存储证书的 Secret 对象名字
+  rules:
+    - host: canyuegongzi.xyz
+      http:
+        paths:
+          - path: /simple-blog-manager-system-web  # 博客后台管理系统
+            pathType: Prefix
+            backend:
+              serviceName: simple-blog-manager-system-web-service
+              servicePort: 8051
+          - path: /simple-user-center-web   # 用户管理系统
+            pathType: Prefix
+            backend:
+              serviceName: simple-user-center-web-service
+              servicePort: 8046
+          - path: /simple-push-center-web  # 推送管理系统
+            pathType: Prefix
+            backend:
+              serviceName: simple-push-center-web-service
+              servicePort: 8041
+          - path: /simple-file-center-web     # 文件管理系统
+            pathType: Prefix
+            backend:
+              serviceName: simple-file-center-web-service
+              servicePort: 8049
+          - path: /simple-gis-web            # gis 系统
+            pathType: Prefix
+            backend:
+              serviceName: simple-gis-web-service
+              servicePort: 8045
+          - path: /user-login-cas-web       # 单点登录
+            pathType: Prefix
+            backend:
+              serviceName: user-login-cas-web-service
+              servicePort: 8050
+          - path: /simple-gis-new-web       # 单点登录
+            pathType: Prefix
+            backend:
+              serviceName: simple-gis-new-web-service
+              servicePort: 8051

@@ -1,0 +1,140 @@
+[
+    {
+        "code": "LYSLJ_RIVER_70102550",
+        "level": null,
+        "latitude": "30.265277",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "w99030",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 0.0
+            },
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 2.26
+            }
+        ],
+        "regionId": "659024",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RIVER_70102550",
+        "name": "三堡船闸外",
+        "property": null,
+        "online": 1,
+        "id": "14224",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "120.221388"
+    },
+    {
+        "code": "SW7104",
+        "regionId": "659051",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "latitude": "30.29785",
+        "accessCode": "SW7104",
+        "name": "沿山河沈家桥(拱墅区)",
+        "property": null,
+        "id": "14225",
+        "watershedId": "60601",
+        "longitude": "120.08772"
+    },
+    {
+        "code": "LYSLJ_RESERVOIR_70116224",
+        "level": null,
+        "latitude": "29.955361",
+        "watershedId": "70708168",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 135.82
+            }
+        ],
+        "regionId": "659094",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "LYSLJ_RESERVOIR_70116224",
+        "name": "渌渚西坞水库",
+        "property": null,
+        "online": 1,
+        "id": "14227",
+        "time": "2021-06-30 03:10:00",
+        "runState": 1,
+        "mainPollutant": null,
+        "longitude": "119.789778"
+    },
+    {
+        "code": "SW69703",
+        "level": null,
+        "latitude": "30.3875",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 3.72
+            }
+        ],
+        "regionId": "659197",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW69703",
+        "name": "潘板(林水)",
+        "property": null,
+        "online": 0,
+        "id": "14230",
+        "time": "2021-05-07 19:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "119.8725"
+    },
+    {
+        "code": "SW7102",
+        "level": null,
+        "latitude": "30.29785",
+        "watershedId": "60601",
+        "pollutants": [
+            {
+                "overProof": null,
+                "bstel": 0.0,
+                "code": "e01201",
+                "mpFlag": false,
+                "grade": null,
+                "name": "",
+                "value": 1.94
+            }
+        ],
+        "regionId": "659051",
+        "controlLevel": "003",
+        "monitoringMethods": 1,
+        "accessCode": "SW7102",
+        "name": "上塘河半山桥(拱墅区)",
+        "property": null,
+        "online": 0,
+        "id": "14232",
+        "time": "2021-05-07 19:00:00",
+        "runState": 0,
+        "mainPollutant": null,
+        "longitude": "120.08772"
+    }
+]

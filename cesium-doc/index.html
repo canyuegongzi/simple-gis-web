@@ -1,0 +1,313 @@
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>文档</title>
+  <link href="./css/semantic/semantic.min.css" rel="stylesheet">
+  <link href="./css/markdown.css" rel="stylesheet">
+  <style>
+    body{padding-top:0;background:#f7f7f7}
+    body>.ui.container{width:100%;padding:0}
+    #project-title{background:#6e6e6e;width:100%;line-height:3.572rem;color:#fff;font-size:1.2rem}
+    #project-title .title-wrap{font-weight:700;padding:0 12px;width:100%;max-width:1366px!important;min-width:900px;margin:0 auto}
+    #project-title .left,#project-title right{display:inline-block}
+    #project-title .right{float:right}
+    #project-title .right .wiki-actions .menu{left:auto;right:0;margin-top:.4em!important}
+    #wiki-preview-container{width:100%;max-width:1366px!important;min-width:900px;padding:0;border:1px solid #e3e9ed;border-top:0}
+    #wiki-preview>.ui.segment{margin-top:0;padding:1rem;padding-left:0;border:0}
+    .hover-places{display:inline-block}
+    #page-detail{width:60%;margin:0 auto}
+    #page-detail .title{font-weight:700;font-size:24px;padding:12px 0;border-bottom:1px solid #ccc}
+    #page-detail .content{margin-top:15px}
+    .content p{word-wrap:break-word}
+    #wiki-parent,#wiki-title,#wikis{display:none}
+    .ui.grid{padding:0!important}
+    #ex-all{cursor:pointer;color:#537c8d}
+  </style>
+</head>
+<body>
+  <div class="ui container">
+    <div id="project-title">
+      <div class="title-wrap">
+        <div class="left">
+          <i class="icon eye"></i>
+          文档预览:
+          notes
+        </div>
+        <div class="right">
+          Export by Gitee
+        </div>
+      </div>
+    </div>
+
+    <div class="ui container" id="wiki-preview-container">
+      <div id="wiki-preview">
+        <div class="ui segment">
+          <div id="page-detail" class="markdown-body">
+            <div class='title'>Home</div><div class='content'><p>Welcome to the Gitee wiki!</p></div><div class='title'>Cesium快速上手1-CesiumWidget-Scene结构</div><div class='content'><h1>
+<a id="cesium快速上手1-cesiumwidget-scene结构" class="anchor" href="#cesium%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B1-cesiumwidget-scene%E7%BB%93%E6%9E%84"></a>Cesium快速上手1-CesiumWidget-Scene结构</h1>
+<h3>
+<a id="三维地球的核心" class="anchor" href="#%E4%B8%89%E7%BB%B4%E5%9C%B0%E7%90%83%E7%9A%84%E6%A0%B8%E5%BF%83"></a>三维地球的核心</h3>
+<h5>
+<a id="cesiumwidget才是核心类" class="anchor" href="#cesiumwidget%E6%89%8D%E6%98%AF%E6%A0%B8%E5%BF%83%E7%B1%BB"></a>CesiumWidget才是核心类</h5>
+<p>Cesium的api非常烦杂，我们从核心说起。搭建一个三维Web程序所需要的最基本的东西有哪些呢？
+我们需要一个div，然后基于此div创建canvas，引入webgl环境。
+每个三维渲染引擎都有各自不同的方法或者类来做这件事情，Cesium则是通过CesiumWidget这个类创建。如下所示：</p>
+<p>html代码部分</p>
+<pre lang="html" class="html"><code>&lt;style&gt;
+    @import url(../templates/bucket.css);
+&lt;/style&gt;
+&lt;div id="cesiumContainer" class="fullSize"&gt;&lt;/div&gt;
+&lt;div id="loadingOverlay"&gt;&lt;h1&gt;Loading...&lt;/h1&gt;&lt;/div&gt;
+&lt;div id="toolbar"&gt;&lt;/div&gt;
+</code></pre>
+<p>js代码部分</p>
+<pre lang="javascript" class="javascript"><code>var widget = new Cesium.CesiumWidget('cesiumContainer');
+</code></pre>
+<p><a href="http://localhost:8080/Apps/Sandcastle/index.html?src=Cesium%20Widget.html">http://localhost:8080/Apps/Sandcastle/index.html?src=Cesium%20Widget.html</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/091337_2cdfd9c4_470194.png" alt="用CesiumWidget创建地球"></p>
+<p>这个示例在Cesium的Sandcastle当中，但是非常不起眼。很多人容易忽略掉。因为这几乎是唯一使用CesiumWidget来创建Cesium三维应用的示例了。但这并不代表它不重要。相反，它才是真正创建Cesium三维窗口的核心类。</p>
+<p>如果是已经使用Cesium进行开发过的小伙伴们，可能对此类并不熟悉。毕竟Cesium中最常用的是Viewer、Entity这些类。不过这些类内部结构比较复杂，我们还是希望先忽略这两个类。等把底层的框架说清楚以后，再回头看着两个类，会对Cesium的理解更加深刻。</p>
+<p>CesiumWidget构造时，手里拿了一个叫<code>cesiumContainer</code>的字符串，它实际上是一个div的id。这个div好比一个舞台，CesiumWidget有了这个舞台，就开始创建一系列子div，还是canvas对象，据此搭建了整个三维场景。</p>
+<p>CesiumWidget内部创建的对象主要有以下几个部分，如图所示：</p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/091336_1c30e4b9_470194.png" alt="CesiumWidget结构图"></p>
+<p>clock用来记录时间，毕竟三维场景需要进行动态展示，需要通过时间来确定某一帧的绘制内容。
+container则是构造函数的参数，也就是传入的div，这里记录一下。
+canvas则是在container上构建的Canvas类的对象，可以据此获取WebGL绘制的画笔。
+screenSpaceEventHandler则是对Canvas对象上各种鼠标的交互事件的封装，方便传递给三维场景。三维场景干之后可以据此改变相机姿态等。
+scene则承载着整个三维场景中的对象。</p>
+<h5>
+<a id="scene中装载了所有的三维对象" class="anchor" href="#scene%E4%B8%AD%E8%A3%85%E8%BD%BD%E4%BA%86%E6%89%80%E6%9C%89%E7%9A%84%E4%B8%89%E7%BB%B4%E5%AF%B9%E8%B1%A1"></a>Scene中装载了所有的三维对象</h5>
+<p>Scene中有一些内置的图元对象：地球（globe）、skyBox（天空盒）、sun（太阳）、moon（月亮）等等；
+另外还有两个用来由用户自行控制存放对象的数组：primitives和groundPrimitives。</p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/091336_a5c6987e_470194.png" alt="Scene的结构"></p>
+<h5>
+<a id="图元类对应一个三维渲染对象" class="anchor" href="#%E5%9B%BE%E5%85%83%E7%B1%BB%E5%AF%B9%E5%BA%94%E4%B8%80%E4%B8%AA%E4%B8%89%E7%BB%B4%E6%B8%B2%E6%9F%93%E5%AF%B9%E8%B1%A1"></a>图元类对应一个三维渲染对象</h5>
+<p>图元是Cesium用来绘制三维对象的一个独立的结构。图元类有：Globe、Model、Primitive、BillboardCollection、ViewportQuad等。</p>
+<p>Globe绘制的是全球地形，它需要两个东西，一个是地形高程信息，另外一个是影像图层，也就是地球的表皮。影像图层可以叠加多个，但是地形高程只能有一个。整个地形的绘制也是渐进式的，即视线看到的地方才会去调度相关的地形高程信息，找到对应位置的地形影像贴上。然而Globe只是一个图元。由此可见一个图元可以相当复杂。</p>
+<p>需要注意的地方：
+1 图元没有基类，但是所有的图元都会有update函数；
+2 Primitive类直译过来是图元的意思，但是它不是基类，只是图元的一种，起作用是用来绘制各种几何体。
+3 图元是一类对象绘制的集合，可以包含多个WebGL的drawcall。</p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/091336_0076e024_470194.png" alt="Cesium图元"></p>
+<h5>
+<a id="总结" class="anchor" href="#%E6%80%BB%E7%BB%93"></a>总结</h5>
+<ol>
+<li>Cesium通过CesiumWidget类管理窗口div；</li>
+<li>通过Scene来管理所有的三维场景对象；</li>
+<li>三维场景对象的构建则是通过图元来创建；</li>
+</ol>
+<p>整个CesiumWidget的结构如下所示：</p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/091336_3d03f0de_470194.png" alt="整个CesiumWidget的结构"></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/095900_06ce5a21_470194.png" alt="变量引用关系" title="屏幕截图.png"></p></div><div class='title'>Cesium快速上手2-Model图元使用讲解</div><div class='content'><h1>
+<a id="cesium快速上手2-model图元使用讲解" class="anchor" href="#cesium%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B2-model%E5%9B%BE%E5%85%83%E4%BD%BF%E7%94%A8%E8%AE%B2%E8%A7%A3"></a>Cesium快速上手2-Model图元使用讲解</h1>
+<h3>
+<a id="model示例讲解" class="anchor" href="#model%E7%A4%BA%E4%BE%8B%E8%AE%B2%E8%A7%A3"></a>Model示例讲解</h3>
+<p><a href="http://localhost:8080/Apps/Sandcastle/index.html?src=development%2F3D%20Models.html&amp;label=Development">http://localhost:8080/Apps/Sandcastle/index.html?src=development%2F3D%20Models.html&amp;label=Development</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/091519_e3a74f30_470194.png" alt="image.png"></p>
+<h5>
+<a id="sceneprimitivesadd增加一个图元" class="anchor" href="#sceneprimitivesadd%E5%A2%9E%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%85%83"></a>scene.primitives.add增加一个图元</h5>
+<pre><code>   model = scene.primitives.add(Cesium.Model.fromGltf({
+        url : url,
+        modelMatrix : modelMatrix,
+        minimumPixelSize : 128
+    }));
+</code></pre>
+<h5>
+<a id="createmodel具体使用讲解" class="anchor" href="#createmodel%E5%85%B7%E4%BD%93%E4%BD%BF%E7%94%A8%E8%AE%B2%E8%A7%A3"></a>createModel具体使用讲解</h5>
+<p>modelMatrix
+Cesium.Transforms.headingPitchRollToFixedFrame
+Model
+readyPromise
+camera.lookAt</p>
+<h5>
+<a id="sandcastle使用讲解" class="anchor" href="#sandcastle%E4%BD%BF%E7%94%A8%E8%AE%B2%E8%A7%A3"></a>Sandcastle使用讲解</h5>
+<p>toolbar
+Cesium.knockout
+Cesium.knockout.track(viewModel)
+Cesium.knockout.applyBindings(viewModel, toolbar)</p>
+<h5>
+<a id="screenspaceeventhandler" class="anchor" href="#screenspaceeventhandler"></a>ScreenSpaceEventHandler</h5>
+<p>scene.pick</p>
+<h3>
+<a id="modelinstance示例讲解" class="anchor" href="#modelinstance%E7%A4%BA%E4%BE%8B%E8%AE%B2%E8%A7%A3"></a>ModelInstance示例讲解</h3>
+<p>(<a href="http://localhost:8080/Apps/Sandcastle/index.html?src=development%2F3D%20Models%20Instancing.html&amp;label=Development">http://localhost:8080/Apps/Sandcastle/index.html?src=development%2F3D%20Models%20Instancing.html&amp;label=Development</a>)</p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/091519_c8f0cd4b_470194.png" alt="image.png"></p>
+<h5>
+<a id="cesiummodelinstancecollection" class="anchor" href="#cesiummodelinstancecollection"></a>Cesium.ModelInstanceCollection</h5>
+<pre><code>    var collection = scene.primitives.add(new Cesium.ModelInstanceCollection({
+        url : url,
+        instances : instances
+    }));
+</code></pre>
+<h3>
+<a id="model子节点控制" class="anchor" href="#model%E5%AD%90%E8%8A%82%E7%82%B9%E6%8E%A7%E5%88%B6"></a>Model子节点控制</h3>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/091519_471db95d_470194.png" alt="image.png"></p>
+<p><a href="http://localhost:8080/Apps/Sandcastle/index.html?src=development%2F3D%20Models%20Node%20Explorer.html&amp;label=Development">http://localhost:8080/Apps/Sandcastle/index.html?src=development%2F3D%20Models%20Node%20Explorer.html&amp;label=Development</a></p></div><div class='title'>Cesium快速上手3-Billboard Label PointPrimitives图元使用讲解</div><div class='content'><h1>
+<a id="cesium快速上手3-billboardlabelpointprimitives图元使用讲解" class="anchor" href="#cesium%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B3-billboardlabelpointprimitives%E5%9B%BE%E5%85%83%E4%BD%BF%E7%94%A8%E8%AE%B2%E8%A7%A3"></a>Cesium快速上手3-Billboard/Label/PointPrimitives图元使用讲解</h1>
+<h3>
+<a id="billboardcesiumbillboardcollection" class="anchor" href="#billboardcesiumbillboardcollection"></a>Billboard&amp;Cesium.BillboardCollection</h3>
+<p>面朝屏幕的图片</p>
+<p><a href="http://localhost:8080/Apps/Sandcastle/index.html?src=development%2FBillboards.html&amp;label=Development">http://localhost:8080/Apps/Sandcastle/index.html?src=development%2FBillboards.html&amp;label=Development</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/091539_723e7ebc_470194.png" alt="image.png"></p>
+<p>特点：</p>
+<ol>
+<li>始终面朝屏幕，即使旋转也面朝屏幕</li>
+<li>注意创建的集群对象 Cesium.BillboardCollection</li>
+</ol>
+<p>为什么不能创建单个Billboard？Entity来解决此问题</p>
+<h3>
+<a id="labelcesiumlabelcollection" class="anchor" href="#labelcesiumlabelcollection"></a>Label&amp;Cesium.LabelCollection</h3>
+<p>面朝屏幕的文字</p>
+<p><a href="http://localhost:8080/Apps/Sandcastle/index.html?src=development%2FLabels.html&amp;label=Development">http://localhost:8080/Apps/Sandcastle/index.html?src=development%2FLabels.html&amp;label=Development</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/091539_2bd5e302_470194.png" alt="image.png"></p>
+<p>特点：</p>
+<ol>
+<li>始终朝向屏幕</li>
+<li>注意创建的是集群对象 Cesium.LabelCollection()</li>
+<li>Label对象只能用在LabelCollection当中</li>
+</ol>
+<h3>
+<a id="pointprimitivecesiumpointprimitivecollection" class="anchor" href="#pointprimitivecesiumpointprimitivecollection"></a>PointPrimitive&amp;Cesium.PointPrimitiveCollection</h3>
+<p><a href="http://localhost:8080/Apps/Sandcastle/index.html?src=development%2FPointPrimitives.html&amp;label=Development">http://localhost:8080/Apps/Sandcastle/index.html?src=development%2FPointPrimitives.html&amp;label=Development</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/091539_40c1f596_470194.png" alt="image.png"></p></div><div class='title'>Cesium快速上手4-Polylines图元使用讲解</div><div class='content'><h1>
+<a id="cesium快速上手4-polylines图元使用讲解" class="anchor" href="#cesium%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B4-polylines%E5%9B%BE%E5%85%83%E4%BD%BF%E7%94%A8%E8%AE%B2%E8%A7%A3"></a>Cesium快速上手4-Polylines图元使用讲解</h1>
+<h3>
+<a id="polyline--cesiumpolylinecollection" class="anchor" href="#polyline--cesiumpolylinecollection"></a>Polyline &amp; Cesium.PolylineCollection</h3>
+<p><a href="http://localhost:8080/Apps/Sandcastle/index.html?src=development%2FPolylines.html&amp;label=Development">http://localhost:8080/Apps/Sandcastle/index.html?src=development%2FPolylines.html&amp;label=Development</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/091733_0c469cfc_470194.png" alt="image.png"></p>
+<h5>
+<a id="polylinegeometry" class="anchor" href="#polylinegeometry"></a>PolylineGeometry</h5>
+<p><a href="http://localhost:8080/Apps/Sandcastle/gallery/development%2FPolyline.html">http://localhost:8080/Apps/Sandcastle/gallery/development%2FPolyline.html</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/091733_8519ebe3_470194.png" alt="image.png"></p>
+<h5>
+<a id="simplepolylinegeometry" class="anchor" href="#simplepolylinegeometry"></a>SimplePolylineGeometry</h5>
+<p><a href="http://localhost:8080/Apps/Sandcastle/index.html?src=development%2FSimple%20Polyline.html&amp;label=Development">http://localhost:8080/Apps/Sandcastle/index.html?src=development%2FSimple%20Polyline.html&amp;label=Development</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/091733_9c0a0075_470194.png" alt="image.png"></p>
+<p>特点：SimplePolylineGeometry没有width属性</p>
+<h5>
+<a id="groundpolylinegeometry" class="anchor" href="#groundpolylinegeometry"></a>GroundPolylineGeometry</h5>
+<p><a href="http://localhost:8080/Apps/Sandcastle/gallery/development%2FGround%20Polyline%20Material.html">http://localhost:8080/Apps/Sandcastle/gallery/development%2FGround%20Polyline%20Material.html</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/091732_e7f385e0_470194.png" alt="image.png"></p>
+<p><a href="http://localhost:8080/Apps/Sandcastle/gallery/development%2FPolylines%20On%20Terrain.html">http://localhost:8080/Apps/Sandcastle/gallery/development%2FPolylines%20On%20Terrain.html</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/091733_78c53c69_470194.png" alt="image.png"></p>
+<p>注意：必须用GroundPolylinePrimitive来创建，而不能用GroundPrimitive创建</p>
+<h3>
+<a id="综合比较" class="anchor" href="#%E7%BB%BC%E5%90%88%E6%AF%94%E8%BE%83"></a>综合比较</h3>
+<p>PolylineCollection可以同时渲染多条折线，性能较高；其他类型都是单独渲染某个折线的，会导致多了的话，渲染性能受影响。</p></div><div class='title'>Cesium快速上手5-地形影像的加载</div><div class='content'><h1>
+<a id="cesium快速上手5-地形影像的加载" class="anchor" href="#cesium%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B5-%E5%9C%B0%E5%BD%A2%E5%BD%B1%E5%83%8F%E7%9A%84%E5%8A%A0%E8%BD%BD"></a>Cesium快速上手5-地形影像的加载</h1>
+<h3>
+<a id="地形的加载" class="anchor" href="#%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%8A%A0%E8%BD%BD"></a>地形的加载</h3>
+<p><img src="https://images.gitee.com/uploads/images/2020/0114/093000_c3102ff7_470194.png" alt="TerrainProvider" title="屏幕截图.png"></p>
+<p><a href="http://localhost:8080/Apps/Sandcastle/index.html?src=Terrain.html&amp;label=Development">http://localhost:8080/Apps/Sandcastle/index.html?src=Terrain.html&amp;label=Development</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/092014_4b26ae2c_470194.png" alt="image.png"></p>
+<p><a href="http://localhost:8080/Apps/Sandcastle/index.html?src=Imagery%20Layers%20Manipulation.html&amp;label=Development">http://localhost:8080/Apps/Sandcastle/index.html?src=Imagery%20Layers%20Manipulation.html&amp;label=Development</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/092014_d91e3ede_470194.png" alt="image.png"></p>
+<p>EllipsoidTerrainProvider
+VRTheWorldTerrainProvider
+CesiumTerrainProvider/createWorldTerrain</p>
+<h3>
+<a id="影像的加载" class="anchor" href="#%E5%BD%B1%E5%83%8F%E7%9A%84%E5%8A%A0%E8%BD%BD"></a>影像的加载</h3>
+<p><img src="https://images.gitee.com/uploads/images/2020/0114/093252_abff381f_470194.png" alt="ImageryProvider" title="屏幕截图.png"></p>
+<p><a href="http://localhost:8080/Apps/Sandcastle/index.html?src=Imagery%20Layers.html&amp;label=Development">http://localhost:8080/Apps/Sandcastle/index.html?src=Imagery%20Layers.html&amp;label=Development</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/092014_d7dc049e_470194.png" alt="image.png"></p>
+<h5>
+<a id="影像的某些功能" class="anchor" href="#%E5%BD%B1%E5%83%8F%E7%9A%84%E6%9F%90%E4%BA%9B%E5%8A%9F%E8%83%BD"></a>影像的某些功能</h5>
+<p><a href="http://localhost:8080/Apps/Sandcastle/index.html?src=Imagery%20Cutout.html&amp;label=Development">http://localhost:8080/Apps/Sandcastle/index.html?src=Imagery%20Cutout.html&amp;label=Development</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/092014_c37829fb_470194.png" alt="image.png"></p>
+<p><a href="http://localhost:8080/Apps/Sandcastle/index.html?src=Cartographic%20Limit%20Rectangle.html&amp;label=Development">http://localhost:8080/Apps/Sandcastle/index.html?src=Cartographic%20Limit%20Rectangle.html&amp;label=Development</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/092014_1efe09ea_470194.png" alt="image.png"></p></div><div class='title'>Cesium快速上手6-Primitive图元的讲解</div><div class='content'><h1>
+<a id="cesium快速上手6-primitive图元的讲解" class="anchor" href="#cesium%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B6-primitive%E5%9B%BE%E5%85%83%E7%9A%84%E8%AE%B2%E8%A7%A3"></a>Cesium快速上手6-Primitive图元的讲解</h1>
+<h3>
+<a id="示例浏览" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E6%B5%8F%E8%A7%88"></a>示例浏览</h3>
+<p><a href="http://localhost:8080/Apps/Sandcastle/gallery/development%2FBox.html">http://localhost:8080/Apps/Sandcastle/gallery/development%2FBox.html</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/092051_1c6f60d5_470194.png" alt="image.png"></p>
+<p><a href="http://localhost:8080/Apps/Sandcastle/gallery/development%2FCircle.html">http://localhost:8080/Apps/Sandcastle/gallery/development%2FCircle.html</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/092052_5521f2a6_470194.png" alt="image.png"></p>
+<p><a href="http://localhost:8080/Apps/Sandcastle/gallery/development%2FBox%20Outline.html">http://localhost:8080/Apps/Sandcastle/gallery/development%2FBox%20Outline.html</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/092052_1ae62e29_470194.png" alt="image.png"></p>
+<h3>
+<a id="代码讲解" class="anchor" href="#%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3"></a>代码讲解</h3>
+<pre><code>var dimensions = new Cesium.Cartesian3(400000.0, 300000.0, 500000.0);
+// Box geometries are initially centered on the origin.
+// We can use a model matrix to position the box on the
+// globe surface.
+var positionOnEllipsoid = Cesium.Cartesian3.fromDegrees(-105.0, 45.0);
+var boxModelMatrix = Cesium.Matrix4.multiplyByTranslation(
+    Cesium.Transforms.eastNorthUpToFixedFrame(positionOnEllipsoid),
+    new Cesium.Cartesian3(0.0, 0.0, dimensions.z * 0.5), new Cesium.Matrix4());
+// Create a box geometry.
+var boxGeometry = Cesium.BoxGeometry.fromDimensions({
+    vertexFormat : Cesium.PerInstanceColorAppearance.VERTEX_FORMAT,
+    dimensions : dimensions
+});
+// Create a geometry instance using the geometry
+// and model matrix created above.
+var boxGeometryInstance = new Cesium.GeometryInstance({
+    geometry : boxGeometry,
+    modelMatrix : boxModelMatrix,
+    attributes : {
+        color : Cesium.ColorGeometryInstanceAttribute.fromColor(new Cesium.Color(1.0, 0.0, 0.0, 0.5))
+    }
+});
+// Add the geometry instance to primitives.
+scene.primitives.add(new Cesium.Primitive({
+    geometryInstances : boxGeometryInstance,
+    appearance : new Cesium.PerInstanceColorAppearance({
+        closed: true
+    })
+}));
+</code></pre>
+<h3>
+<a id="结构图解" class="anchor" href="#%E7%BB%93%E6%9E%84%E5%9B%BE%E8%A7%A3"></a>结构图解</h3>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/092051_d3bb885b_470194.png" alt="image.png"></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/092052_8b809afc_470194.png" alt="image.png"></p></div><div class='title'>Cesium快速上手7-3dtiles加载</div><div class='content'><h1>
+<a id="cesium快速上手7-3dtiles加载" class="anchor" href="#cesium%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B7-3dtiles%E5%8A%A0%E8%BD%BD"></a>Cesium快速上手7-3dtiles加载</h1>
+<p>3dtiles的加载</p>
+<p>3dtiles的拾取</p>
+<p>3dtiles的裁切</p>
+<p>3dtiles inspector</p>
+<p>3dtiles的style控制</p>
+<p>块和属性的关系</p>
+<p>ClassificationPrimitive</p></div><div class='title'>Cesium快速上手8-Appearance&Material</div><div class='content'><p><a href="http://localhost:8080/Apps/Sandcastle/index.html?src=development%2FPolyline%20Color.html&amp;label=Development">http://localhost:8080/Apps/Sandcastle/index.html?src=development%2FPolyline%20Color.html&amp;label=Development</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0116/095502_ad299872_470194.png" alt="Appearance" title="屏幕截图.png"></p>
+<p><a href="http://localhost:8080/Apps/Sandcastle/index.html?src=Materials.html&amp;label=Development">http://localhost:8080/Apps/Sandcastle/index.html?src=Materials.html&amp;label=Development</a></p></div><div class='title'>Cesium快速上手9-Camera和Scene中的其他函数使用</div><div class='content'><h1>
+<a id="cesium快速上手9-camera和scene中的其他函数使用" class="anchor" href="#cesium%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B9-camera%E5%92%8Cscene%E4%B8%AD%E7%9A%84%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8"></a>Cesium快速上手9-Camera和Scene中的其他函数使用</h1>
+<p>Scene的api文档查看</p>
+<p><a href="https://cesium.com/downloads/cesiumjs/releases/1.57/Build/Documentation/Scene.html?classFilter=Scene">https://cesium.com/downloads/cesiumjs/releases/1.57/Build/Documentation/Scene.html?classFilter=Scene</a></p>
+<p>1 调试类函数 debugShowFramesPerSecond/debugShowGlobeDepth/...</p>
+<p>2 WebGL渲染状态 logarithmicDepthBuffer/mode</p>
+<p>3 事件 preRender/postUpdate/postRender/preUpdate/renderError</p>
+<p>4 环境对象 sun/moon/skyBox/...</p>
+<p>5 camera相机</p>
+<p>6 后处理相关示例</p>
+<p>调试用的函数
+debugShowFramesPerSecond
+debugShowDepthFrustum
+debugShowGlobeDepth</p></div><div class='title'>Cesium快速上手10-Viewer Entities组合</div><div class='content'><h1>
+<a id="cesium快速上手10-viewerentities组合" class="anchor" href="#cesium%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B10-viewerentities%E7%BB%84%E5%90%88"></a>Cesium快速上手10-Viewer/Entities组合</h1>
+<p><a href="http://localhost:8080/Apps/Sandcastle/index.html?label=Tutorials">http://localhost:8080/Apps/Sandcastle/index.html?label=Tutorials</a></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/092247_efcc7c28_470194.png" alt="image.png"></p>
+<p><img src="https://images.gitee.com/uploads/images/2020/0117/092343_7b9d4d0c_470194.png" alt="输入图片说明" title="屏幕截图.png"></p>
+<pre><code>var viewer = new Cesium.Viewer('cesiumContainer');
+</code></pre>
+<p><img src="https://images.gitee.com/uploads/images/2020/0113/092248_1cf4e277_470194.png" alt="Viewer结构图"></p>
+<p>Viewer/Entities的作用：</p>
+<ol>
+<li>方便创建直观的对象，同时做到性能优化（billboard、point等）</li>
+<li>提供一些方便使用的函数：flyTo/zoomTo</li>
+<li>赋予Entity对象时间这个属性，对象具备动态特性/Primitive不具备</li>
+<li>提供一些UI（homeButton/sceneModePicker/projectionPicker/baseLayerPicker)</li>
+<li>大量的快捷方式，camera等未必是好事。。</li>
+<li>Datasource模式来加载大规模数据：Geojson</li>
+</ol>
+<p>Datasource结构</p>
+<p>Entity结构</p></div><div class='title'>Cesium快速上手11-Property的使用</div><div class='content'><p>Cesium快速上手11-Property的使用</p>
+<p>参照这篇文章来讲解：
+<a href="https://www.jianshu.com/p/f0b47997224c">https://www.jianshu.com/p/f0b47997224c</a></p></div>
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</body>
+</html>

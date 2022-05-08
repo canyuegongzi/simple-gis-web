@@ -1,0 +1,38 @@
+{
+  "name": "te-",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^1.1.4",
+    "@ngify/http": "^1.2.0",
+    "cesium": "^1.92.0",
+    "element-plus": "^2.1.11",
+    "leaflet": "^1.8.0",
+    "leaflet.markercluster": "^1.5.3",
+    "mapbox-gl": "^2.8.2",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.14",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@types/cesium": "^1.70.0",
+    "@types/leaflet": "^1.7.9",
+    "@types/mapbox-gl": "^2.7.0",
+    "@vitejs/plugin-vue": "^2.3.1",
+    "node-sass": "^4.12.0",
+    "sass": "^1.51.0",
+    "sass-loader": "^8.0.2",
+    "stylus": "^0.57.0",
+    "typescript": "^4.5.4",
+    "unplugin-auto-import": "^0.7.1",
+    "unplugin-vue-components": "^0.19.3",
+    "vite": "^2.9.5",
+    "vite-plugin-cesium": "^1.2.16",
+    "vue-tsc": "^0.34.7"
+  }
+}

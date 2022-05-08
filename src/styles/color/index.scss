@@ -1,0 +1,33 @@
+@import "./mixin.scss";
+//在需要同意主题的元素上添加对应class
+/*
+    theme-all //需要颜色、背景颜色都统一
+    theme-size //需要字体统一
+    theme-color //字体颜色统一
+    theme-bg //背景颜色统一
+*/
+/*
+    通过js进行修改主题
+    "theme1" 主题选择
+    提示：为了防止刷新复原问题，可使用缓存进行解决
+    window.document.documentElement.setAttribute('data-ming', "theme1");
+*/
+.theme-all{
+    @include font-color($color-ming);
+    // @include font-size($size-ming);
+    @include bg-color($bg-ming);
+}
+.theme-size{
+    @include font-size($size-ming);
+}
+.theme-color{
+    @include font-color($color-ming);
+}
+.theme-bg{
+    @include bg-color($bg-ming);
+    // .is-active{
+    //     color: unset !important;
+    // }
+    // .el-menu-item.is-active i
+   
+}
