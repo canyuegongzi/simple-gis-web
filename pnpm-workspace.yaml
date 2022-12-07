@@ -1,6 +1,6 @@
 packages:
   # packages下所有的子包
-  - 'packages/*'
+  - 'api/**'
   # components文件夹下所有的子包
   - 'components/**'
   # api文件夹下所有的子包

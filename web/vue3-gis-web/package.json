@@ -6,7 +6,6 @@
     "build": "webpack --config ./script/config/webpack.common.ts --env production",
     "lint": "eslint --config ./.eslintrc.js . --ext .js,.jsx,.ts,.tsx,.vue",
     "lint:fix": "eslint --config ./.eslintrc.js . --ext .js,.jsx,.ts,.tsx,.vue --fix",
-    "prepare": "husky install",
     "prettier": "prettier --write .",
     "push": "cz && standard-version",
     "release": "standard-version",
