@@ -1,0 +1,8 @@
+packages:
+  # packages下所有的子包
+  - 'packages/*'
+  # components文件夹下所有的子包
+  - 'components/**'
+  # api文件夹下所有的子包
+  - 'core/**'
+  - 'web/**'
